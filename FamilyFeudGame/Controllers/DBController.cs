@@ -5,7 +5,7 @@ public class DBController
 {
     public DBModel database;
     public int sectionCount;
-    public List<Section> sections = new List<Section>();
+    public List<Section> sections = new();
     public DBController(DBModel database)
     {
         this.database = database;
@@ -21,17 +21,17 @@ public class DBController
         return null;
     }
 
-    public Section CreateSection(String name)
+    public Section CreateSection(string name)
     {
         return null;
     }
 
-    public Question CreateQuestion(String name)
+    public Question CreateQuestion(string name)
     {
         return null;
     }
 
-    public Answer CreateAnswer(String text, int point)
+    public Answer CreateAnswer(string text, int point)
     {
         return null;
     }

@@ -3,44 +3,46 @@ using System.Collections.Generic;
 
 public class Question
 {
-	public int id;
-	public String name;
-	public List<Answer> questionsAnswers = new List<Answer>();
-	public int answersCount;
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public Section Section { get; set; }
+    public List<Answer> questionsAnswers = new();
+    public int answersCount;
 
-	public Question(int id, String name)
-	{
-		this.id = id;
-		this.name = name;
-		answersCount = 0;
-	}
-
-	public List<Answer> GetAnswers()
-	{
-		return questionsAnswers;
-	}
-
-	public Answer GetAnswer(int ID)
+    public Question(int id, string name, Section section)
     {
-		return null;
+        Id = id;
+        Name = name;
+        Section = section;
+        answersCount = 0;
     }
 
-	public void AddAnswer(Answer currAnswer)
+    public List<Answer> GetAnswers()
     {
-	
+        return questionsAnswers;
     }
 
-	public void AddAnswers(List<Answer> currAnswersList)
+    public Answer GetAnswer(int id)
+    {
+        return null;
+    }
+
+    public void AddAnswer(Answer currAnswer)
     {
 
     }
 
-	public void UpdateAnswer(int oldID, Answer newAnswer)
+    public void AddAnswers(List<Answer> currAnswersList)
     {
 
     }
 
-	public void DeleteAnswer(int deleteID)
+    public void UpdateAnswer(int oldId, Answer newAnswer)
+    {
+
+    }
+
+    public void DeleteAnswer(int deleteID)
     {
 
     }

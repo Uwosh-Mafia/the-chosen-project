@@ -2,14 +2,14 @@
 
 public class Answer
 {
-	public int id;
-	public String finalAnswer;
-	public int points;
+    public int Id { get; set; }
+    public string Text { get; set; }
+    public int Points { get; set; }
 
-	public Answer(int id, String finalAnswer, int points)
-	{
-		this.id = id;
-		this.finalAnswer = finalAnswer;
-		this.points = points;
-	}
+    public Answer(int id, string text, int points)
+    {
+        Id = id;
+        Text = text;
+        Points = points;
+    }
 }

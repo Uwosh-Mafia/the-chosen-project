@@ -3,35 +3,35 @@ using System.Collections.Generic;
 
 public class DBModel
 {
-	public List<Section> game = new List<Section>();
-	public int sectionsCount;
+    public List<Section> game = new List<Section>();
+    public int sectionsCount;
 
-	public DBModel()
-	{
-		sectionsCount = 0;
-	}
-
-	public List<Section> GetSections()
+    public DBModel()
     {
-		return game;
+        sectionsCount = 0;
     }
 
-	public Section GetSection(int id)
+    public List<Section> GetSections()
     {
-		return null; 
+        return game;
     }
 
-	public void AddSection(Section currSection)
+    public Section GetSection(int id)
     {
-
+        return null;
     }
 
-	public void UpdateSection(int id, Section newSection)
+    public void AddSection(Section currSection)
     {
 
     }
 
-	public void DeleteSection(int id)
+    public void UpdateSection(int id, Section newSection)
+    {
+
+    }
+
+    public void DeleteSection(int id)
     {
 
     }
