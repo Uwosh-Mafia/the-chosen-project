@@ -6,7 +6,7 @@ public class Question
     public int Id { get; set; }
     public string Name { get; set; }
     public Section Section { get; set; }
-    public List<Answer> questionsAnswers = new();
+    public List<Answer> questionAnswers = new();
     public int answersCount;
 
     public Question(int id, string name, Section section)
@@ -19,12 +19,16 @@ public class Question
 
     public List<Answer> GetAnswers()
     {
-        return questionsAnswers;
+        string query = $"SELECT * FROM Answer WHERE Question.question_id == Answer.question_id AND question_id == {Id}";
+        questionAnswers = SubmitQuery(query, "answer list");
+        return questionAnswers;
     }
 
     public Answer GetAnswer(int id)
     {
-        return null;
+        string query = $"SELECT * FROM Answer WHERE answer_id == {id}";
+        Answer answerToGet = SubmitQuery(query, "answer to get");
+        return answerToGet;
     }
 
     public void AddAnswer(Answer currAnswer)
