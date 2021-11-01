@@ -56,7 +56,7 @@ public class DBController
 
     }
 
-    public void updateSection(int sectionID, String newName)
+    public void UpdateSection(int sectionID, String newName)
     {
 
     }
