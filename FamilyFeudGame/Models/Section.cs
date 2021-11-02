@@ -11,7 +11,7 @@ public class Section
     /**
      * Creates a section with a given ID and Name. Start question count is 0.
      */
-    public Section(int id, string text)
+    public Section(int id, String name)
     {
         Text = text;
         Id = id;
@@ -61,6 +61,7 @@ public class Section
         }
         SubmitQuery(query, "add question list");
     }
+
     /**
      * Updates a Question from the given section with the new Question information
      */
