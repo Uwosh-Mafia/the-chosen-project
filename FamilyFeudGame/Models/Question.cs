@@ -92,7 +92,9 @@ public class Question
     /// <param name="query">query to execute</param>
     public void SubmitQuery(string query, bool isRetrieve)
     {
-        //here to make compiler happy. Need to implement a submit query method in database
+        //here to make compiler happy.
+        //Need to implement a submit query method in database
+        //and in our business logic of our program
     }
 
 }
