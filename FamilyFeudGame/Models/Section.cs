@@ -58,4 +58,11 @@ public class Section
         string query = "DELETE FROM Question WHERE question_id = " + id;
         SubmitQuery(query);
     }
+    /**
+     * This will return the section id.
+     **/
+    public int GetSectionID()
+    {
+        return Id;
+    }
 }
