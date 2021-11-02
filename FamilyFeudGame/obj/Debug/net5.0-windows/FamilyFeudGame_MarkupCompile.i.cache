@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Sam\OneDrive\CS 341\Family Feud Game\FamilyFeudGame\App.xaml
-6411763988
+62120823448
 
-16-1876412558
+16-353393259
 193-1891726104
-QuestionSelectionWindow.xaml;SectionSelectionWindow.xaml;StudentGameWindow.xaml;TeacherGameWindow.xaml;TeamCreationWindow.xaml;WelcomeWindow.xaml;
+Windows\QuestionSelectionWindow.xaml;Windows\SectionSelectionWindow.xaml;Windows\StudentGameWindow.xaml;Windows\TeacherGameWindow.xaml;Windows\TeamCreationWindow.xaml;Windows\WelcomeWindow.xaml;
 
-True
+False
 
