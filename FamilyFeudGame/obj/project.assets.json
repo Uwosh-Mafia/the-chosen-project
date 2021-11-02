@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sam\\OneDrive\\CS 341\\Family Feud Game\\FamilyFeudGame\\FamilyFeudGame.csproj",
+      "projectUniqueName": "C:\\Users\\Sam\\OneDrive\\Documents\\GitHub\\the-chosen-project\\FamilyFeudGame\\FamilyFeudGame.csproj",
       "projectName": "FamilyFeudGame",
-      "projectPath": "C:\\Users\\Sam\\OneDrive\\CS 341\\Family Feud Game\\FamilyFeudGame\\FamilyFeudGame.csproj",
+      "projectPath": "C:\\Users\\Sam\\OneDrive\\Documents\\GitHub\\the-chosen-project\\FamilyFeudGame\\FamilyFeudGame.csproj",
       "packagesPath": "C:\\Users\\Sam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sam\\OneDrive\\CS 341\\Family Feud Game\\FamilyFeudGame\\obj\\",
+      "outputPath": "C:\\Users\\Sam\\OneDrive\\Documents\\GitHub\\the-chosen-project\\FamilyFeudGame\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Sam\\AppData\\Roaming\\NuGet\\NuGet.Config",

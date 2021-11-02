@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class Section
 {
     public int Id { get; set; }
-    public string Text { get; set; }
+    public string Name { get; set; }
     private List<Question> questions = new();
     public int QuestionsCount { get; set; }
 
@@ -13,7 +13,7 @@ public class Section
      */
     public Section(int id, String name)
     {
-        Text = text;
+        Name = name;
         Id = id;
         QuestionsCount = 0;
     }

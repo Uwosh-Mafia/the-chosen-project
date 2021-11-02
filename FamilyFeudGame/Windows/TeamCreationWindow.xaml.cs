@@ -26,7 +26,27 @@ namespace FamilyFeudGame
 
         private void BtnContinue_Click(object sender, RoutedEventArgs e)
         {
-
+            if (txtTeam1.Text != "Enter team name")
+            {
+                if (txtTeam2.Text != "Enter team name")
+                {
+                    if ((bool)rbTeam1.IsChecked && (bool)rbTeam2.IsChecked)
+                    {
+                        SectionSelectionWindow sectionSelectionWindow = new();
+                        sectionSelectionWindow.Show();
+                        Close();
+                    } else
+                    {
+                        MessageBox.Show("Select a team to go first");
+                    }
+                } else
+                {
+                    MessageBox.Show("Enter a team name for team 2");
+                }
+            } else
+            {
+                MessageBox.Show("Enter a team name for team 1");
+            }
         }
     }
 }
