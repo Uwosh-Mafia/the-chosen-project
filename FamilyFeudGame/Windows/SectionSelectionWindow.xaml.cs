@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FamilyFeudGame.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,13 @@ namespace FamilyFeudGame
     /// </summary>
     public partial class SectionSelectionWindow : Window
     {
-        public SectionSelectionWindow()
+        private Team team1;
+        private Team team2;
+        public SectionSelectionWindow(Team team1, Team team2)
         {
             InitializeComponent();
+            this.team1 = team1;
+            this.team2 = team2;
         }
     }
 }
