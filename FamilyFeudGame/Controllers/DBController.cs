@@ -1,89 +1,102 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
+/// <summary>
+/// This class controlles the local database 
+/// </summary>
 public class DBController
 {
-    public DBModel database;
+    private DBModel database;
     public int sectionCount;
-    public List<Section> sections = new();
+    private List<Section> sections = new();
     public DBController(DBModel database)
     {
         this.database = database;
     }
 
+    /// <summary>
+    /// This all the sections
+    /// </summary>
+    /// <returns></returns>
     public List<Section> GetSections()
     {
         return sections;
     }
 
+    /// <summary>
+    /// This method gets the section of a given id 
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     public Section GetSection(int id)
     {
-        return null;
+      return sections.Find(section => section.Id == id);
     }
 
+    /// <summary>
+    /// This method creates a new section
+    /// </summary>
+    /// <param name="name"></param>
     public Section CreateSection(string name)
     {
-        return null;
+        Section section = new Section(sectionCount, name);
+        sections.Add(section);
+        return section;
     }
 
-    public Question CreateQuestion(string name)
-    {
-        return null;
-    }
-
-    public Answer CreateAnswer(string text, int point)
-    {
-        return null;
-    }
-
+    /// <summary>
+    /// This method adds an anser to a given question
+    /// </summary>
+    /// <param name="currQuestion"></param>
+    /// <param name="currAnswer"></param>
     public void AddAnswerToQuestion(Question currQuestion, Answer currAnswer)
     {
-
+        currQuestion.AddAnswer(currAnswer);
     }
 
+    /// <summary>
+    /// This method adds questions to a given answer
+    /// </summary>
+    /// <param name="currQuestion"></param>
+    /// <param name="currAnswers"></param>
     public void AddAnswersToQuestion(Question currQuestion, List<Answer> currAnswers)
     {
-
+        currQuestion.AddAnswers(currAnswers);
     }
 
+    /// <summary>
+    /// This adds question to a section
+    /// </summary>
+    /// <param name="sectionID"></param>
+    /// <param name="currQuestion"></param>
     public void AddQuestionToSection(int sectionID, Question currQuestion)
     {
+        Section section = sections.Find(section => section.Id == sectionID);
+        if (section != null) section.AddQuestion(currQuestion);
 
     }
 
+    /// <summary>
+    /// This method adds questions to a section
+    /// </summary>
+    /// <param name="sectionID"></param>
+    /// <param name="currQuestions"></param>
     public void AddQuestionsToSection(int sectionID, List<Question> currQuestions)
     {
-
+        Section section = sections.Find(section => section.Id == sectionID);
+        if (section != null) section.AddQuestions(currQuestions);
     }
 
+    /// <summary>
+    /// This method updates a section
+    /// </summary>
+    /// <param name="sectionID"></param>
+    /// <param name="newName"></param>
     public void UpdateSection(int sectionID, String newName)
     {
-
-    }
-
-    public void UpdateQuestion(int sectionID, int QuestionID, String newName)
-    {
-
-    }
-
-    public void UpdateQuestion(Question currQuestion, String newName)
-    {
-
-    }
-
-    public void UpdateAnswer(int sectionID, int questionID, int answerID, String newText, int newPoints)
-    {
-
-    }
-
-    public void UpdateAnswer(Question currQuestion, int answerID, String newText, int newPoints)
-    {
-
-    }
-
-    public void UpdateAnswer(Answer currAnswer, String newText, int newPoints)
-    {
-
+        Section section = sections.Find(section => section.Id == sectionID);
+        if (section != null) section.Name = newName;
     }
 }
 
