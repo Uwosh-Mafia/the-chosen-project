@@ -7,7 +7,39 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Compile Update="QuestionSelectionWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SectionSelectionWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="StudentGameWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TeacherGameWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TeamCreationWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="QuestionSelectionWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SectionSelectionWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StudentGameWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TeacherGameWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TeamCreationWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WelcomeWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -4,13 +4,13 @@ using System.Collections.Generic;
 public class Section
 {
     public int Id { get; set; }
-    public string Name { get; set; }
+    public string Text { get; set; }
     private List<Question> questions = new();
     public int QuestionsCount { get; set; }
 
-    public Section(int id, string name)
+    public Section(int id, string text)
     {
-        Name = name;
+        Text = text;
         Id = id;
         QuestionsCount = 0;
     }
@@ -32,7 +32,7 @@ public class Section
 
     public void AddQuestion(Question currQuestion)
     {
-        string query = "UPDATE Question SET question_id = " + currQuestion.Id + ", name = " + currQuestion.Name + ", num_answers = " + currQuestion.AnswersCount + ", section_id = " + Id;
+        string query = "UPDATE Question SET question_id = " + currQuestion.Id + ", name = " + currQuestion.Text + ", num_answers = " + currQuestion.AnswersCount + ", section_id = " + Id;
         QuestionsCount++;
         SubmitQuery(query);
     }
@@ -41,7 +41,7 @@ public class Section
     {
         for (int i = 0; i < currQuestions.Count; i++)
         {
-            string query = "UPDATE Question SET question_id = " + currQuestions[i].Id + ", name = " + currQuestions[i].Name + ", num_answers = " + currQuestions[i].AnswersCount + ", section_id = " + Id;
+            string query = "UPDATE Question SET question_id = " + currQuestions[i].Id + ", name = " + currQuestions[i].Text + ", num_answers = " + currQuestions[i].AnswersCount + ", section_id = " + Id;
             QuestionsCount++;
         }
         SubmitQuery(query);
@@ -49,7 +49,7 @@ public class Section
 
     public void UpdateQuestion(int oldId, Question newQuestion)
     {
-        string query = "UPDATE Question SET question_id = " + newQuestion.Id + ", name = " + newQuestion.Name + ", num_answers = " + newQuestion.AnswersCount + ", section_id = " + Id + " WHERE question_id = " + oldId;
+        string query = "UPDATE Question SET question_id = " + newQuestion.Id + ", name = " + newQuestion.Text + ", num_answers = " + newQuestion.AnswersCount + ", section_id = " + Id + " WHERE question_id = " + oldId;
         SubmitQuery(query);
     }
 

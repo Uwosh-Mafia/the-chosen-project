@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class DBModel
 {
-    public List<Section> game = new List<Section>();
+    public List<Section> game = new();
     public int sectionsCount;
 
     public DBModel()
