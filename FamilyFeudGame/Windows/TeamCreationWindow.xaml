@@ -1,0 +1,21 @@
+﻿<Window x:Class="FamilyFeudGame.TeamCreationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FamilyFeudGame"
+        mc:Ignorable="d"
+        Title="TeamCreationWindow" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="lblTeamCreation" Content="Team Creation" HorizontalAlignment="Center" Margin="0,44,0,0" VerticalAlignment="Top" Height="65" Width="425" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="36"/>
+        <Label x:Name="lblTeam1" Content="Team 1" HorizontalAlignment="Left" Margin="187,146,0,0" VerticalAlignment="Top" Width="132" VerticalContentAlignment="Top" FontSize="24" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblTeam2" Content="Team 2" HorizontalAlignment="Left" Margin="480,146,0,0" VerticalAlignment="Top" Width="132" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" FontSize="24"/>
+        <TextBox x:Name="txtTeam1" HorizontalAlignment="Left" Margin="155,193,0,0" Text="Enter team name" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Height="24" FontSize="16" VerticalContentAlignment="Top" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtTeam2" HorizontalAlignment="Left" Margin="448,193,0,0" Text="Enter team name" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" Height="24" FontSize="16" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblSelectTeam" Content="Choose which team will go first" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Height="36" Width="262" FontSize="18" VerticalContentAlignment="Top" HorizontalContentAlignment="Center"/>
+        <RadioButton x:Name="rbTeam1" Content="Team 1" HorizontalAlignment="Left" Margin="365,291,0,0" VerticalAlignment="Top" Height="22" Width="166" FontSize="14"/>
+        <RadioButton x:Name="rbTeam2" Content="Team 2" HorizontalAlignment="Left" Margin="365,318,0,0" VerticalAlignment="Top" FontSize="14" Width="166"/>
+        <Button x:Name="btnContinue" Content="Continue" HorizontalAlignment="Center" Margin="0,371,0,0" VerticalAlignment="Top" Height="38" Width="202" FontSize="16" Click="btnContinue_Click"/>
+
+    </Grid>
+</Window>
