@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "ISuhFL6Wv5Atw7pHrbOwnJeqgJqRiIYg12uMnwI8wn3yNTInWD+98/A5uZ1FmCV4yDfO6nBRoXXuqVbaY3P97A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sam\\OneDrive\\Documents\\GitHub\\the-chosen-project\\FamilyFeudGame\\FamilyFeudGame.csproj",
+=======
+  "dgSpecHash": "eQj/dau9XunfNaS9Ja/KIPBEJny4lMvRduiTjzyIYdvE2TYGYkzWPTO/vUxOBKrwGn9J2WKW3FE8Pj84DILHdQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ryanm\\source\\repos\\the-chosen-project\\FamilyFeudGame\\FamilyFeudGame.csproj",
+>>>>>>> nasirBranch
   "expectedPackageFiles": [],
   "logs": []
 }

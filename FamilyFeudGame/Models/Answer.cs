@@ -8,7 +8,7 @@ public class Answer
     public int Points => Count * Multiplier;
     public int Multiplier { get; set; }
 
-    public Answer(int id, string text, int count)
+    public Answer(int id, string text, int count, int Multiplier)
     {
         Id = id;
         Text = text;
