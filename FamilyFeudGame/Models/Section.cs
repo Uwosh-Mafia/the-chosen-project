@@ -65,28 +65,4 @@ public class Section
             _questions.Add(question);
     }
 
-    /**
-     * Updates a Question from the given section with the new Question information
-     */
-    public void UpdateQuestion(int questID, Question newQuestion)
-    {
-        string query = "UPDATE Question SET question_id = " + newQuestion.ID + ", name = " + newQuestion.Name + ", num_answers = " + newQuestion.AnswersCount + ", section_id = " + ID + " WHERE question_id = " + questID;
-        SubmitQuery(query, "update question");
-    }
-
-    /**
-     * Submits a query to DBController to delete a Question from the this Section
-     */
-    public void DeleteQuestion(int questID)
-    {
-        string query = "DELETE FROM Question WHERE question_id = " + questID + " AND section_id = " + ID;
-        SubmitQuery(query, "update question list");
-    }
-    /**
-     * This will return the section id.
-     **/
-    public int GetSectionID()
-    {
-        return Id;
-    }
 }
