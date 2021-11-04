@@ -1,65 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// This class retrieves and adds questions that are associated
+/// with a certain section.
+/// </summary>
 public class Section
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    private List<Question> questions = new();
-    public int QuestionsCount { get; set; }
+    private List<Question> _questions;
 
-    /**
-     * Creates a section with a given ID and Name. Start question count is 0.
-     */
     public Section(int id, String name)
     {
         Name = name;
         Id = id;
-        QuestionsCount = 0;
+        _questions = new();
     }
 
-    /**
-     * Gets a list of Questions from the given section
-     */
+    /// <summary>
+    /// Gets the list of questions associated with the section
+    /// </summary>
+    /// <returns>list of answers</returns>
     public List<Question> GetQuestions()
     {
-        List<Question> questions;
-        string query = "SELECT * FROM Question WHERE section_id=" + Id;
-        questions = SubmitQuery(query, "question list");
-        return questions;
+        return _questions;
     }
 
-    /**
-     * Gets a Question from the given section
-     */
-    public Question GetQuestion(int questID)
+    /// <summary>
+    /// Gets a single question based on the Id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns>Question for the id given</returns>
+    public Question GetQuestion(int id)
     {
-        string query = "SELECT * FROM Question WHERE question_id=" + questID + " AND section_id = " + ID;
-        Question questionToGet = SubmitQuery(query, "question");
-        return questionToGet;
+        return _questions.Find(question => question.Id == id);
     }
 
-    /**
-     * Adds a single Question to the given section
-     */
+    /// <summary>
+    /// Adds a single question to the section
+    /// </summary>
+    /// <param name="currQuestion"> the question to add </param>
     public void AddQuestion(Question currQuestion)
     {
-        string query = "UPDATE Question SET question_id = " + currQuestion.ID + ", name = " + currQuestion.Name + ", num_answers = " + currQuestion.AnswersCount + ", section_id = " + ID;
-        questionsCount++;
-        SubmitQuery(query, "add question");
+        _questions.Add(currQuestion);
     }
 
-    /**
-     * Adds a list of Questions - one by one - to the given section
-     */
-    public void AddQuestions(List<Question> currQuestions)
+    /// <summary>
+    /// Adds a list of questions to the section
+    /// </summary>
+    /// <param name="currQuestionsList"> the list of questions to add </param>
+    public void AddQuestions(List<Question> currQuestionsList)
     {
-        for (int i = 0; i < currQuestions.Count; i++)
-        {
-            string query = "UPDATE Question SET question_id = " + currQuestions[i].Id + ", name = " + currQuestions[i].Text + ", num_answers = " + currQuestions[i].AnswersCount + ", section_id = " + Id;
-            QuestionsCount++;
-        }
-        SubmitQuery(query, "add question list");
+        foreach (Question question in currQuestionsList)
+            _questions.Add(question);
     }
 
     /**

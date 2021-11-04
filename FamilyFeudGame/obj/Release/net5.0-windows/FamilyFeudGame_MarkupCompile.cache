@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\ryanm\Source\Repos\the-chosen-project\FamilyFeudGame\obj\Release\net5.0-windows\
+\\Mac\iCloud\Mac Fall 2021\CS 341\Repo\FamilyFeudGame\FamilyFeudGame\obj\Release\net5.0-windows\
 FamilyFeudGame
 none
 false
 TRACE;RELEASE;NET;NET5_0;NETCOREAPP
-C:\Users\ryanm\Source\Repos\the-chosen-project\FamilyFeudGame\App.xaml
-11407045341
+\\Mac\iCloud\Mac Fall 2021\CS 341\Repo\FamilyFeudGame\FamilyFeudGame\App.xaml
+62120823448
 
-9651851946
+15901381302
 193-1891726104
-MainWindow.xaml;
+Windows\QuestionSelectionWindow.xaml;Windows\SectionSelectionWindow.xaml;Windows\StudentGameWindow.xaml;Windows\TeacherGameWindow.xaml;Windows\TeamCreationWindow.xaml;Windows\WelcomeWindow.xaml;
 
 True
 

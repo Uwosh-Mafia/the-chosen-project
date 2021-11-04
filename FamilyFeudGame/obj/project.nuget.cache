@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ISuhFL6Wv5Atw7pHrbOwnJeqgJqRiIYg12uMnwI8wn3yNTInWD+98/A5uZ1FmCV4yDfO6nBRoXXuqVbaY3P97A==",
+  "dgSpecHash": "orPUkqLj/kL1pvyvT0mfchog0N98yGPCPIr9iFYMuozzHb5z53PswcJi1S2wVznGkVedktmb1i3OiGNFMHWn4A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Sam\\OneDrive\\Documents\\GitHub\\the-chosen-project\\FamilyFeudGame\\FamilyFeudGame.csproj",
+  "projectFilePath": "\\\\Mac\\iCloud\\Mac Fall 2021\\CS 341\\Repo\\FamilyFeudGame\\FamilyFeudGame\\FamilyFeudGame.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\Sam\\OneDrive\\Documents\\GitHub\\the-chosen-project\\FamilyFeudGame\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
