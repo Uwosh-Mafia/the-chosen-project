@@ -19,6 +19,15 @@ public class Section
     }
 
     /// <summary>
+    /// Gets the amount of questions associated with the section
+    /// </summary>
+    /// <returns>count of questions</returns>
+    public int GetSectionCount()
+    {
+        return _questions.Count;
+    }
+
+    /// <summary>
     /// Gets the list of questions associated with the section
     /// </summary>
     /// <returns>list of answers</returns>
