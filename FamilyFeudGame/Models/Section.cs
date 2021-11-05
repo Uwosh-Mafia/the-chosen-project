@@ -11,7 +11,7 @@ public class Section
     public string Name { get; set; }
     private List<Question> _questions;
 
-    public Section(int id, String name)
+    public Section(int id, string name)
     {
         Name = name;
         Id = id;

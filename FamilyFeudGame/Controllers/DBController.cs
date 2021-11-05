@@ -7,12 +7,12 @@ using System.Collections.Generic;
 /// </summary>
 public class DBController
 {
-    private DBModel database;
+    private DBModel _database;
     public int sectionCount;
-    private List<Section> sections = new();
+    private List<Section> _sections = new();
     public DBController(DBModel database)
     {
-        this.database = database;
+        this._database = database;
     }
 
     /// <summary>
@@ -21,7 +21,7 @@ public class DBController
     /// <returns></returns>
     public List<Section> GetSections()
     {
-        return sections;
+        return _sections;
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ public class DBController
     /// <returns></returns>
     public Section GetSection(int id)
     {
-      return sections.Find(section => section.Id == id);
+      return _sections.Find(section => section.Id == id);
     }
 
     /// <summary>
@@ -40,8 +40,8 @@ public class DBController
     /// <param name="name"></param>
     public Section CreateSection(string name)
     {
-        Section section = new Section(sectionCount, name);
-        sections.Add(section);
+        Section section = new(sectionCount, name);
+        _sections.Add(section);
         return section;
     }
 
@@ -70,11 +70,10 @@ public class DBController
     /// </summary>
     /// <param name="sectionID"></param>
     /// <param name="currQuestion"></param>
-    public void AddQuestionToSection(int sectionID, Question currQuestion)
+    public void AddQuestionToSection(int sectionId, Question currQuestion)
     {
-        Section section = sections.Find(section => section.Id == sectionID);
+        Section section = _sections.Find(section => section.Id == sectionId);
         if (section != null) section.AddQuestion(currQuestion);
-
     }
 
     /// <summary>
@@ -82,9 +81,9 @@ public class DBController
     /// </summary>
     /// <param name="sectionID"></param>
     /// <param name="currQuestions"></param>
-    public void AddQuestionsToSection(int sectionID, List<Question> currQuestions)
+    public void AddQuestionsToSection(int sectionId, List<Question> currQuestions)
     {
-        Section section = sections.Find(section => section.Id == sectionID);
+        Section section = _sections.Find(section => section.Id == sectionId);
         if (section != null) section.AddQuestions(currQuestions);
     }
 
@@ -93,9 +92,9 @@ public class DBController
     /// </summary>
     /// <param name="sectionID"></param>
     /// <param name="newName"></param>
-    public void UpdateSection(int sectionID, String newName)
+    public void UpdateSection(int sectionId, string newName)
     {
-        Section section = sections.Find(section => section.Id == sectionID);
+        Section section = _sections.Find(section => section.Id == sectionId);
         if (section != null) section.Name = newName;
     }
 }
