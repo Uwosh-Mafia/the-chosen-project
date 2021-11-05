@@ -1,81 +1,63 @@
 ﻿
 using System.Collections.Generic;
 
+/// <summary>
+/// This class retrieves and adds the sections to a 
+/// list of sections
+/// </summary>
 public class DBModel
 {
-    public List<Section> game = new();
-    public int sectionsCount;
+    private List<Section> _sections;
 
     public DBModel()
     {
-        sectionsCount = 0;
+        _sections = new();
     }
 
-    /**
-     * This will return the game.
-     * A game is a list of sections.
-     **/
+    /// <summary>
+    /// Returns the list of sections
+    /// </summary>
+    /// <returns> list of sections </returns>
     public List<Section> GetSections()
     {
-        return game;
+        return _sections;
     }
 
-    /**
-     * This will iterate through the list. 
-     * If it finds a valid section then it will add it. 
-    **/
-    public Section GetSection(int findId)
+    /// <summary>
+    /// Gets the id that correlates with the given id
+    /// </summary>
+    /// <param name="id"> section id to find </param>
+    /// <returns> section with the given id </returns>
+    public Section GetSection(int id)
     {
-        foreach (var currSection in game)
-        {
-            int currId = currSection.GetSectionID();
-            if(currId == findId)
-            {
-                return currSection;
-            }    
-        }
-        return null;
-    }
-    /**
-     * This will add a Section to the DBModel.
-     * This will change the sectionsCount to the current count. 
-    **/
-    public void AddSection(Section currSection)
-    {
-        game.Add(currSection);
-        sectionsCount = game.Count;
+        return _sections.Find(section => section.Id == id);
     }
 
-    /**
-     * This will take a new section and an id.
-     * This 
-    **/
-    public void UpdateSection(int id, Section newSection)
+    /// <summary>
+    /// Adds a section to the list of sections
+    /// </summary>
+    /// <param name="section"> section to add </param>
+    public void AddSection(Section section)
     {
-        for (int i = 0; i < sectionsCount; i++)
-        {
-            int currSectionID = game[i].GetSectionID();
-            if (id == currSectionID)
-            {
-                game.Insert(i, newSection);
-                game.RemoveAt(i + 1);
-                return;
-            }
-        }
+        _sections.Add(section);
     }
-    /**
-     * This will find the selected section and delete it from the game 
-    **/
-    public void DeleteSection(int deleteId)
+
+    /// <summary>
+    /// Adds a given list of sections to the list of sections
+    /// </summary>
+    /// <param name="sections"> list of sections to add </param>
+    public void AddSections(List<Section> sections)
     {
-        for(int i = 0; i < sectionsCount; i++)
-        {
-            int currSectionID = game[i].GetSectionID();
-            if(deleteId == currSectionID)
-            {
-                game.RemoveAt(i);
-                return;
-            } 
-        }
+        foreach (Section section in sections)
+            _sections.Add(section);
+    }
+
+    /// <summary>
+    /// Returns the total number of sections
+    /// </summary>
+    /// <returns> number of sections </returns>
+    public int GetSectionCount()
+    {
+        return _sections.Count;
     }
 }

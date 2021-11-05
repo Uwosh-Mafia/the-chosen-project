@@ -13,8 +13,8 @@ public class Question
 
     public Question(int id, string text)
     {
-        Id = id;
-        Text = text;
+        this.Id = id;
+        this.Text = text;
         _answers = new();
     }
 

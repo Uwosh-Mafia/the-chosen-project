@@ -13,8 +13,8 @@ public class Section
 
     public Section(int id, string name)
     {
-        Name = name;
-        Id = id;
+        this.Name = name;
+        this.Id = id;
         _questions = new();
     }
 

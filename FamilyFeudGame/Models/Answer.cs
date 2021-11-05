@@ -8,8 +8,8 @@ public class Answer
 
     public Answer(int id, string text, int count)
     {
-        Id = id;
-        Text = text;
-        Count = count;
+        this.Id = id;
+        this.Text = text;
+        this.Count = count;
     }
 }
