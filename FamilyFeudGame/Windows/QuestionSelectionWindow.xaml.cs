@@ -19,9 +19,28 @@ namespace FamilyFeudGame
     /// </summary>
     public partial class QuestionSelectionWindow : Window
     {
-        public QuestionSelectionWindow()
+        DBController controller;
+        Section section;
+        public QuestionSelectionWindow(object selectedSection, DBController controller) // Fix me - see SectionSelectionWindow Next_Click
         {
             InitializeComponent();
+            this.controller = controller;
+            this.section = (Section)selectedSection;
+            QuestionBox.ItemsSource = section.GetQuestions();
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            TeacherGameWindow teacherGameWindow = new(QuestionBox.SelectedItem, controller);
+            StudentGameWindow studentGameWindow = new();
+            teacherGameWindow.Show();
+            studentGameWindow.Show();
+            Close(); // Do we want to close this window?
         }
     }
 }

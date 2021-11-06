@@ -15,7 +15,7 @@
         <Label x:Name="lblSelectTeam" Content="Choose which team will go first" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Height="36" Width="262" FontSize="18" VerticalContentAlignment="Top" HorizontalContentAlignment="Center"/>
         <RadioButton x:Name="rbTeam1" Content="Team 1" HorizontalAlignment="Left" Margin="365,291,0,0" VerticalAlignment="Top" Height="22" Width="166" FontSize="14"/>
         <RadioButton x:Name="rbTeam2" Content="Team 2" HorizontalAlignment="Left" Margin="365,318,0,0" VerticalAlignment="Top" FontSize="14" Width="166"/>
-        <Button x:Name="btnContinue" Content="Continue" HorizontalAlignment="Center" Margin="0,371,0,0" VerticalAlignment="Top" Height="38" Width="202" FontSize="16" Click="btnContinue_Click"/>
+        <Button x:Name="btnContinue" Content="Continue" HorizontalAlignment="Center" Margin="0,371,0,0" VerticalAlignment="Top" Height="38" Width="202" FontSize="16" Click="BtnContinue_Click"/>
 
     </Grid>
 </Window>

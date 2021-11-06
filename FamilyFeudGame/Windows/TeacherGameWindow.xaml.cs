@@ -20,9 +20,13 @@ namespace FamilyFeudGame
     /// </summary>
     public partial class TeacherGameWindow : Window
     {
-        public TeacherGameWindow()
+        Question question;
+        DBController controller;
+        public TeacherGameWindow(object selectedQuestion, DBController controller)
         {
             InitializeComponent();
+            this.question = (Question)selectedQuestion;
+            this.controller = controller;
         }
     }
 }

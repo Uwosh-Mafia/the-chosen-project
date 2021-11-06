@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="QuestionSelectionWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Please Select A Question" HorizontalAlignment="Center" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <ListBox Name="QuestionBox" Margin="146,80,147,44" BorderBrush="Black" SelectionChanged="ListBox_SelectionChanged"/>
+        <Button FontSize="24" Content="Start" HorizontalAlignment="Left" Margin="681,215,0,0" VerticalAlignment="Top" Height="40" Width="74" Click="Start_Click"/>
+
     </Grid>
 </Window>
