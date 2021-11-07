@@ -24,5 +24,15 @@ namespace FamilyFeudGame
         {
             InitializeComponent();
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Answer_No__1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

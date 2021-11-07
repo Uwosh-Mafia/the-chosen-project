@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project\WindowsGit\the-chosen-project\FamilyFeudGame\obj\Release\net5.0-windows\
+C:\Users\ryanm\Source\Repos\the-chosen-project\FamilyFeudGame\obj\Release\net5.0-windows\
 FamilyFeudGame
 none
 false
 TRACE;RELEASE;NET;NET5_0;NETCOREAPP
-C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project\WindowsGit\the-chosen-project\FamilyFeudGame\App.xaml
+C:\Users\ryanm\Source\Repos\the-chosen-project\FamilyFeudGame\App.xaml
 62120823448
 
-1620203038
+15901381302
 193-1891726104
 Windows\QuestionSelectionWindow.xaml;Windows\SectionSelectionWindow.xaml;Windows\StudentGameWindow.xaml;Windows\TeacherGameWindow.xaml;Windows\TeamCreationWindow.xaml;Windows\WelcomeWindow.xaml;
 

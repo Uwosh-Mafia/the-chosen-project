@@ -6,4 +6,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Windows\Family Feud.jpg" />
+    <None Remove="Windows\familyfeud-fb.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Windows\Family Feud.jpg" />
+    <Resource Include="Windows\familyfeud-fb.jpg" />
+  </ItemGroup>
+
 </Project>
