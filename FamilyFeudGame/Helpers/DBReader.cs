@@ -16,18 +16,17 @@ public class DBReader
         if (!file.Exists)
             throw new NotImplementedException("File doesn't exists");
         this.file = file;
-        loadExcelFile();
     }
 
     /// <summary>
-    /// This private method reads the excel sheet
+    /// This public method reads the excel sheet
     /// </summary>
     /// <returns></returns>
-    private void loadExcelFile()
+    public async Task loadExcelFile()
     {
         try
         {
-            Section section = loadSectionFromExcel().Result;
+            Section section = await loadSectionFromExcel();
             dbController.AddSection(section);
         }
         catch (AggregateException ea)

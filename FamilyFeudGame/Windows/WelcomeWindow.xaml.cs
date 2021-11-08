@@ -33,13 +33,15 @@ namespace FamilyFeudGame
         /// <summary>
         /// This method instantiats reading data from excel 
         /// </summary>
-        private void loadExcelFileData(String fileName)
+        private async Task loadExcelFileData(String fileName)
         {
-            FileInfo file = new FileInfo(fileName: fileName);
+            FileInfo file = new FileInfo(fileName: @"C:\Users\muhumn02\Downloads\Example.xlsx");
+           // var file = new FileInfo(fileName: fileName);
             DBReader reader = new DBReader(file, dBController);
+            await reader.loadExcelFile();
         }
 
-        private void BtnWelcome_Click(object sender, RoutedEventArgs e)
+        private async void BtnWelcome_Click(object sender, RoutedEventArgs e)
         {
             // Configure open file dialog box
             var dialog = new Microsoft.Win32.OpenFileDialog();
@@ -51,7 +53,7 @@ namespace FamilyFeudGame
             // Process open file dialog box results
             if (result == true)
             {
-                loadExcelFileData(dialog.FileName);
+                await loadExcelFileData(dialog.FileName);
             }
 
             TeamCreationWindow teamCreationWindow = new(dBController);
