@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 
 public class DBReader
 {
@@ -9,5 +10,6 @@ public class DBReader
     {
         this.dbFileConnectionPath = dbFileConnectionPath;
         this.dbController = dbController;
+        ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
     }
 }
