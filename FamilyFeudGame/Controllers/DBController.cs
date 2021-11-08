@@ -14,6 +14,15 @@ public class DBController
     }
 
     /// <summary>
+    /// This method returns the number of sections in the database 
+    /// </summary>
+    /// <returns></returns>
+    public int GetSectionCount()
+    {
+        return _database.GetSectionCount();
+    }
+
+    /// <summary>
     /// This all the sections
     /// </summary>
     /// <returns></returns>
