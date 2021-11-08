@@ -11,7 +11,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label Content="Welcome to Family Feud" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Top" Height="79" Width="542" RenderTransformOrigin="0.498,0.506" FontSize="48" VerticalContentAlignment="Center"/>
-        <Button x:Name="btnWelcome" Content="Enter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Height="46" Width="102" Click="BtnWelcome_Click"/>
+        <Button x:Name="btnWelcome" Content="Choose file" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Height="46" Width="136" Click="BtnWelcome_Click"/>
 
     </Grid>
 </Window>
