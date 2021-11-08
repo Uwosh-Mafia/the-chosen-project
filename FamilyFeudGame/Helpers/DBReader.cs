@@ -25,8 +25,19 @@ public class DBReader
     /// <returns></returns>
     private void loadExcelFile()
     {
-        Section section = loadSectionFromExcel().Result;
-        dbController.AddSection(section);
+        try
+        {
+            Section section = loadSectionFromExcel().Result;
+            dbController.AddSection(section);
+        }
+        catch (AggregateException ea)
+        {
+            Console.WriteLine("You have the excel file open somwhere else, please close ");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message.ToString());
+        }
     }
 
 
@@ -87,9 +98,10 @@ public class DBReader
                 else
                 {
                     String text = ws.Cells[row, column].Value.ToString();
-                    int points = int.Parse(ws.Cells[row, column + 1].Value.ToString());
-                    Answer answer = new(row,text,points);
-
+                    int points;
+                    // If there is no points or points can not be int, assume the points are 0
+                    bool success = int.TryParse(ws.Cells[row, column + 1].Value?.ToString(), out points);
+                    Answer answer = new(row,text, success ? points : 0);
                     question.AddAnswer(answer);
                     row++;
                 }
