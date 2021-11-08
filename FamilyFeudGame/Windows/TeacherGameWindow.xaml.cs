@@ -28,5 +28,7 @@ namespace FamilyFeudGame
             this.question = (Question)selectedQuestion;
             this.controller = controller;
         }
+
+       
     }
 }
