@@ -18,6 +18,10 @@ public class Question
         _answers = new();
     }
 
+    public Question(int Id)
+    {
+        this.Id = Id;
+    }
     /// <summary>
     /// Gets the liste of answers associated with the question
     /// </summary>
