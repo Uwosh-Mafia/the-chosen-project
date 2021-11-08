@@ -43,34 +43,41 @@ public class DBReader
 
     private async Task<Section> loadSectionFromExcel(int sectionID = 0)
     {
-        Section section = new(1, "First section");
-
-        using var package = new ExcelPackage(file);
-        await package.LoadAsync(file);
-
-        ExcelWorksheet ws = package.Workbook.Worksheets[PositionID: sectionID];
-
-        // Column number will keep track of questions, since our questions are columns 
-        int column = 0;
-
-        // While we still have questions in that column of the first row, keep reading
-        while (string.IsNullOrWhiteSpace(ws.Cells[1, column].Value?.ToString()) == false)
+        try
         {
-            Question question = readQuestionFromExcel(ws, column);
-            if (question == null)
-            {
-                // If there is an error and we can't read any cell 
-                // remove everythig have already read and return null 
-                section.clear();
-                section = null;
-                break;
-            }
+            Section section = new(1, "First section");
 
-            section.AddQuestion(question);
-            // The question cell spans two colums, that is why we need to go right 2 colums each
-            column += 2; 
+            using var package = new ExcelPackage(file);
+            await package.LoadAsync(file);
+
+            ExcelWorksheet ws = package.Workbook.Worksheets[PositionID: sectionID];
+
+            // Column number will keep track of questions, since our questions are columns 
+            int column = 0;
+
+            // While we still have questions in that column of the first row, keep reading
+            while (string.IsNullOrWhiteSpace(ws.Cells[1, column].Value?.ToString()) == false)
+            {
+                Question question = readQuestionFromExcel(ws, column);
+                if (question == null)
+                {
+                    // If there is an error and we can't read any cell 
+                    // remove everythig have already read and return null 
+                    section.clear();
+                    section = null;
+                    break;
+                }
+
+                section.AddQuestion(question);
+                // The question cell spans two colums, that is why we need to go right 2 colums each
+                column += 2;
+            }
+            return section;
+        } catch (Exception e)
+        {
+            Console.WriteLine(e.Message.ToString());
+            return null;
         }
-        return section;
     }
 
 
