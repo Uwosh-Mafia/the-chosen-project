@@ -35,8 +35,7 @@ namespace FamilyFeudGame
         /// </summary>
         private async Task loadExcelFileData(String fileName)
         {
-            FileInfo file = new FileInfo(fileName: @"C:\Users\muhumn02\Downloads\Example.xlsx");
-           // var file = new FileInfo(fileName: fileName);
+            FileInfo file = new FileInfo(fileName: fileName);
             DBReader reader = new DBReader(file, dBController);
             await reader.loadExcelFile();
         }
