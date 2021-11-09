@@ -33,7 +33,7 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void BtnContinue_Click(object sender, RoutedEventArgs e)
         {
-            if (txtTeam1.Text != "Enter team name")
+            if (txtTeam1.Text != "Enter team name") 
             {
                 if (txtTeam2.Text != "Enter team name")
                 {
@@ -44,15 +44,18 @@ namespace FamilyFeudGame
                         SectionSelectionWindow sectionSelectionWindow = new(team1, team2);
                         sectionSelectionWindow.Show();
                         Close();
-                    } else
+                    }
+                    else
                     {
                         MessageBox.Show("Select a team to go first");
                     }
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Enter a team name for team 2");
                 }
-            } else
+            }
+            else
             {
                 MessageBox.Show("Enter a team name for team 1");
             }
