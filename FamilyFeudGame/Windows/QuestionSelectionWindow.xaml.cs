@@ -19,24 +19,32 @@ namespace FamilyFeudGame
     /// </summary>
     public partial class QuestionSelectionWindow : Window
     {
-        DBController controller;
+        DBController dBController;
         Section section;
-        public QuestionSelectionWindow(object selectedSection, DBController controller) // Fix me - see SectionSelectionWindow Next_Click
+        public QuestionSelectionWindow(Section section, DBController controller) // Fix me - see SectionSelectionWindow Next_Click
         {
             InitializeComponent();
-            this.controller = controller;
-            this.section = (Section)selectedSection;
-            QuestionBox.ItemsSource = section.GetQuestions();
+            this.dBController = controller;
+            this.section = section;
+            populateQuestions();
+        }
+
+        /// <summary>
+        /// This method populates the questions
+        /// </summary>
+        public void populateQuestions()
+        {
+            List<Question> questions = section.GetQuestions();
+            String[] sectionNames = new string[questions.Count];
+
+            for (int i = 0; i < questions.Count; i++)
+                sectionNames[i] = questions[i].Text;
+            QuestionBox.ItemsSource = sectionNames;
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-        }
-
-        private void Start_Click(object sender, RoutedEventArgs e)
-        {
-            TeacherGameWindow teacherGameWindow = new(QuestionBox.SelectedItem, controller);
+            TeacherGameWindow teacherGameWindow = new(QuestionBox.SelectedItem, dBController);
             StudentGameWindow studentGameWindow = new();
             teacherGameWindow.Show();
             studentGameWindow.Show();

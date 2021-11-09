@@ -44,7 +44,7 @@ public class DBReader
     {
         try
         {
-            Section section = new(1, "First section");
+            Section section = new(1, "Student survey questions");
 
             using var package = new ExcelPackage(file);
             await package.LoadAsync(file);
@@ -52,7 +52,7 @@ public class DBReader
             ExcelWorksheet ws = package.Workbook.Worksheets[PositionID: sectionID];
 
             // Column number will keep track of questions, since our questions are columns 
-            int column = 0;
+            int column = 1;
 
             // While we still have questions in that column of the first row, keep reading
             while (string.IsNullOrWhiteSpace(ws.Cells[1, column].Value?.ToString()) == false)

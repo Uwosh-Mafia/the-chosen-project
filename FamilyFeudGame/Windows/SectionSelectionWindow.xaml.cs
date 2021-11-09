@@ -32,6 +32,9 @@ namespace FamilyFeudGame
             populateSelection();
         }
 
+        /// <summary>
+        /// This method populates the selections
+        /// </summary>
         public void populateSelection()
         {
             List<Section> sections = dBController.GetSections();
@@ -39,18 +42,19 @@ namespace FamilyFeudGame
 
             for (int i = 0; i < sections.Count; i++)
                 sectionNames[i] = sections[i].Name;
-
             SectionBox.ItemsSource = sectionNames;
         }
 
+        /// <summary>
+        /// This method handles when we select an item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show("You selected");
-        }
-
-        private void Next_Click(object sender, RoutedEventArgs e)
-        {
-            QuestionSelectionWindow questionSelectionWindow = new(SectionBox.SelectedItem, dBController); // Fix me - Object required, didn't allow Section in QuestionSelectionWindow
+            ListBox lbx = sender as ListBox;
+            Section section = dBController.GetSection(lbx.SelectedIndex + 1); // there is no 0 section id. it starts 1
+            QuestionSelectionWindow questionSelectionWindow = new(section, dBController); // Fix me - Object required, didn't allow Section in QuestionSelectionWindow
             questionSelectionWindow.Show();
             Close();
         }

@@ -9,7 +9,5 @@
     <Grid>
         <Label Content="Please Select A Section" HorizontalAlignment="Center" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="24"/>
         <ListBox Name="SectionBox" Margin="146,80,147,44" BorderBrush="Black" SelectionChanged="ListBox_SelectionChanged"/>
-        <Button FontSize="24" Content="Next" HorizontalAlignment="Left" Margin="681,215,0,0" VerticalAlignment="Top" Height="40" Width="74" Click="Next_Click"/>
-
     </Grid>
 </Window>
