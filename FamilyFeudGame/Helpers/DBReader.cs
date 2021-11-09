@@ -26,8 +26,14 @@ public class DBReader
     {
         try
         {
-            Section section = await loadSectionFromExcel();
-            dbController.AddSection(section);
+            using var package = new ExcelPackage(file);
+            await package.LoadAsync(file);
+
+            for(int i = 0; i < package.Workbook.Worksheets.Count; i++)
+            {
+                Section section = await loadSectionFromExcel(package, i);
+                dbController.AddSection(section);
+            }
         }
         catch (AggregateException ea)
         {
@@ -40,16 +46,12 @@ public class DBReader
     }
 
 
-    private async Task<Section> loadSectionFromExcel(int sectionID = 0)
+    private async Task<Section> loadSectionFromExcel(ExcelPackage package, int sectionID = 0)
     {
         try
         {
-            Section section = new(1, "Student survey questions");
-
-            using var package = new ExcelPackage(file);
-            await package.LoadAsync(file);
-
             ExcelWorksheet ws = package.Workbook.Worksheets[PositionID: sectionID];
+            Section section = new(sectionID + 1, ws.Name); // section starts 0; we want 1
 
             // Column number will keep track of questions, since our questions are columns 
             int column = 1;
