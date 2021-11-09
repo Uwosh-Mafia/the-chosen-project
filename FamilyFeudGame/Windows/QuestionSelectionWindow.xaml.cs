@@ -21,7 +21,7 @@ namespace FamilyFeudGame
     {
         DBController dBController;
         Section section;
-        public QuestionSelectionWindow(Section section, DBController controller) // Fix me - see SectionSelectionWindow Next_Click
+        public QuestionSelectionWindow(Section section, DBController controller) 
         {
             InitializeComponent();
             this.dBController = controller;
@@ -32,7 +32,7 @@ namespace FamilyFeudGame
         /// <summary>
         /// This method populates the questions
         /// </summary>
-        public void populateQuestions()
+        private void populateQuestions()
         {
             List<Question> questions = section.GetQuestions();
             String[] sectionNames = new string[questions.Count];
@@ -44,7 +44,9 @@ namespace FamilyFeudGame
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TeacherGameWindow teacherGameWindow = new(QuestionBox.SelectedItem, dBController);
+            int index = (sender as ListBox).SelectedIndex;
+            Question question = section.GetQuestion(index + 1); // question id starts at 1
+            TeacherGameWindow teacherGameWindow = new(question, dBController);
             StudentGameWindow studentGameWindow = new();
             teacherGameWindow.Show();
             studentGameWindow.Show();

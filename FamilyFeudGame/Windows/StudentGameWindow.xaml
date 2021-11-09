@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FamilyFeudGame"
         mc:Ignorable="d"
-        Title="StudentGameWindow" Height="450" Width="800" Background="#FF0A3ECB">
+        Title="StudentGameWindow" Height="475" Width="800" Background="#FF0A3ECB">
     <Grid x:Name="Background" IsEnabled="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
