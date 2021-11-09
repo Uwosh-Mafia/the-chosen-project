@@ -45,7 +45,7 @@ namespace FamilyFeudGame
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = (sender as ListBox).SelectedIndex;
-            Question question = section.GetQuestion(index + 1); // question id starts at 1
+            Question question = section.GetQuestions()[index];
             TeacherGameWindow teacherGameWindow = new(question, dBController);
             StudentGameWindow studentGameWindow = new();
             teacherGameWindow.Show();
