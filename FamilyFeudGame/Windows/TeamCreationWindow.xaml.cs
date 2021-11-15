@@ -20,9 +20,11 @@ namespace FamilyFeudGame
     /// </summary>
     public partial class TeamCreationWindow : Window
     {
-        public TeamCreationWindow()
+        private DBController dBController;
+        public TeamCreationWindow(DBController controller)
         {
             InitializeComponent();
+            dBController = controller;
         }
 
         /// <summary>
@@ -41,7 +43,7 @@ namespace FamilyFeudGame
                     {
                         Team team1 = new(txtTeam1.Text, (bool)rbTeam1.IsChecked);
                         Team team2 = new(txtTeam2.Text, (bool)rbTeam2.IsChecked);
-                        SectionSelectionWindow sectionSelectionWindow = new(team1, team2);
+                        SectionSelectionWindow sectionSelectionWindow = new(team1, team2, dBController);
                         sectionSelectionWindow.Show();
                         Close();
                     }

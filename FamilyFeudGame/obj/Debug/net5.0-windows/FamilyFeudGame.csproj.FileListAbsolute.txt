@@ -30,3 +30,47 @@ C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project\Wi
 C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project\WindowsGit\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\ref\FamilyFeudGame.dll
 C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project\WindowsGit\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.pdb
 C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project\WindowsGit\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.genruntimeconfig.cache
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\FamilyFeudGame.exe
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\FamilyFeudGame.deps.json
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\FamilyFeudGame.runtimeconfig.json
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\FamilyFeudGame.runtimeconfig.dev.json
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\FamilyFeudGame.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\ref\FamilyFeudGame.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\FamilyFeudGame.pdb
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\EPPlus.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\System.Xml.XPath.XmlDocument.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.csproj.AssemblyReference.cache
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\QuestionSelectionWindow.g.cs
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\SectionSelectionWindow.g.cs
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\StudentGameWindow.g.cs
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\TeacherGameWindow.g.cs
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\TeamCreationWindow.g.cs
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\WelcomeWindow.g.cs
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame_MarkupCompile.cache
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame_MarkupCompile.lref
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\QuestionSelectionWindow.baml
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\SectionSelectionWindow.baml
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\StudentGameWindow.baml
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\TeacherGameWindow.baml
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\TeamCreationWindow.baml
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\WelcomeWindow.baml
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.g.resources
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.AssemblyInfoInputs.cache
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.AssemblyInfo.cs
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.csproj.CoreCompileInputs.cache
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.csproj.CopyComplete
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\ref\FamilyFeudGame.dll
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.pdb
+C:\Users\muhumn02\Downloads\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.genruntimeconfig.cache

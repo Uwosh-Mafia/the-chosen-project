@@ -9,15 +9,18 @@ public class Question
 {
     public int Id { get; }
     public string Text { get; set; }
-    private List<Answer> _answers;
+    private List<Answer> _answers = new ();
 
     public Question(int id, string text)
     {
         this.Id = id;
         this.Text = text;
-        _answers = new();
     }
 
+    public Question(int Id)
+    {
+        this.Id = Id;
+    }
     /// <summary>
     /// Gets the liste of answers associated with the question
     /// </summary>

@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="5.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Windows\Family Feud.jpg" />
     <Resource Include="Windows\familyfeud-fb.jpg" />
   </ItemGroup>

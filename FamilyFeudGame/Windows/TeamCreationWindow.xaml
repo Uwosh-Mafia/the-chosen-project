@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:FamilyFeudGame"
         mc:Ignorable="d"
         Title="TeamCreationWindow" Height="450" Width="800">
+
     <Grid HorizontalAlignment="Center" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>

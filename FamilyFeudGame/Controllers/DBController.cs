@@ -8,11 +8,18 @@ using System.Collections.Generic;
 public class DBController
 {
     private DBModel _database;
-    public int sectionCount;
-    private List<Section> _sections = new();
     public DBController(DBModel database)
     {
         this._database = database;
+    }
+
+    /// <summary>
+    /// This method returns the number of sections in the database 
+    /// </summary>
+    /// <returns></returns>
+    public int GetSectionCount()
+    {
+        return _database.GetSectionCount();
     }
 
     /// <summary>
@@ -21,7 +28,7 @@ public class DBController
     /// <returns></returns>
     public List<Section> GetSections()
     {
-        return _sections;
+        return _database.GetSections();
     }
 
     /// <summary>
@@ -31,18 +38,17 @@ public class DBController
     /// <returns></returns>
     public Section GetSection(int id)
     {
-      return _sections.Find(section => section.Id == id);
+        return _database.GetSection(id);
     }
 
     /// <summary>
-    /// This method creates a new section
+    /// This method adds a new section
     /// </summary>
     /// <param name="name"></param>
-    public Section CreateSection(string name)
+    public void AddSection(Section section)
     {
-        Section section = new(sectionCount, name);
-        _sections.Add(section);
-        return section;
+        if (section != null)
+            _database.AddSection(section);
     }
 
     /// <summary>
@@ -72,8 +78,9 @@ public class DBController
     /// <param name="currQuestion"></param>
     public void AddQuestionToSection(int sectionId, Question currQuestion)
     {
-        Section section = _sections.Find(section => section.Id == sectionId);
-        if (section != null) section.AddQuestion(currQuestion);
+        Section section = _database.GetSection(sectionId);
+        if (section != null)
+            section.AddQuestion(currQuestion);
     }
 
     /// <summary>
@@ -83,8 +90,9 @@ public class DBController
     /// <param name="currQuestions"></param>
     public void AddQuestionsToSection(int sectionId, List<Question> currQuestions)
     {
-        Section section = _sections.Find(section => section.Id == sectionId);
-        if (section != null) section.AddQuestions(currQuestions);
+        Section section = _database.GetSection(sectionId);
+        if (section != null)
+            section.AddQuestions(currQuestions);
     }
 
     /// <summary>
@@ -94,8 +102,9 @@ public class DBController
     /// <param name="newName"></param>
     public void UpdateSection(int sectionId, string newName)
     {
-        Section section = _sections.Find(section => section.Id == sectionId);
-        if (section != null) section.Name = newName;
+        Section section = _database.GetSection(sectionId);
+        if (section != null)
+            section.Name = newName;
     }
 }
 

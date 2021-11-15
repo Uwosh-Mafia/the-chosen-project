@@ -22,27 +22,39 @@ namespace FamilyFeudGame
     {
         private Team team1;
         private Team team2;
-        private DBModel model;
-        public DBController controller;
-        public SectionSelectionWindow(Team team1, Team team2)
+        public DBController dBController;
+        public SectionSelectionWindow(Team team1, Team team2, DBController controller)
         {
             InitializeComponent();
             this.team1 = team1;
             this.team2 = team2;
-            model = new();
-            controller = new(model);
-            SectionBox.ItemsSource = controller.GetSections();
+            dBController = controller;
+            populateSelection();
         }
 
+        /// <summary>
+        /// This method populates the selections
+        /// </summary>
+        public void populateSelection()
+        {
+            List<Section> sections = dBController.GetSections();
+            String[] sectionNames = new string[sections.Count];
+
+            for (int i = 0; i < sections.Count; i++)
+                sectionNames[i] = sections[i].Name;
+            SectionBox.ItemsSource = sectionNames;
+        }
+
+        /// <summary>
+        /// This method handles when we select an item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-
-        }
-
-        private void Next_Click(object sender, RoutedEventArgs e)
-        {
-            QuestionSelectionWindow questionSelectionWindow = new(SectionBox.SelectedItem, controller); // Fix me - Object required, didn't allow Section in QuestionSelectionWindow
+            ListBox lbx = sender as ListBox;
+            Section section = dBController.GetSection(lbx.SelectedIndex + 1); // there is no 0 section id. it starts 1
+            QuestionSelectionWindow questionSelectionWindow = new(section, dBController); // Fix me - Object required, didn't allow Section in QuestionSelectionWindow
             questionSelectionWindow.Show();
             Close();
         }

@@ -65,4 +65,12 @@ public class Section
             _questions.Add(question);
     }
 
+    /// <summary>
+    /// This methods clears the list
+    /// </summary>
+    public void clear()
+    {
+        _questions.Clear();
+    }
+
 }

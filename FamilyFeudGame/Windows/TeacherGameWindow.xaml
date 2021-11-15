@@ -5,23 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FamilyFeudGame"
         mc:Ignorable="d"
-        Title="TeacherGameWindow" Height="450" Width="800">
-    <Grid Background="#FF9C969C">
-        <Button x:Name="Question_4" Content="Question 4" HorizontalAlignment="Left" Height="50" Margin="40,360,0,0" VerticalAlignment="Top" Width="200" />
-        <Button x:Name="Question_3" Content="Question 3" HorizontalAlignment="Left" Height="50" Margin="40,290,0,0" VerticalAlignment="Top" Width="200" />
-        <Button x:Name="Question_2" Content="Question 2" HorizontalAlignment="Left" Height="50" Margin="40,220,0,0" VerticalAlignment="Top" Width="200" />
-        <Button x:Name="Question_1" Content="Question 1" HorizontalAlignment="Left" Height="50" Margin="40,150,0,0" VerticalAlignment="Top" Width="200" />
-        <Button x:Name="Question_8" Content="Question 8" HorizontalAlignment="Left" Height="50" Margin="270,360,0,0" VerticalAlignment="Top" Width="200" />
-        <Button x:Name="Question_7" Content="Question 7" HorizontalAlignment="Left" Height="50" Margin="270,290,0,0" VerticalAlignment="Top" Width="200" />
-        <Button x:Name="Question_6" Content="Question 6" HorizontalAlignment="Left" Height="50" Margin="270,220,0,0" VerticalAlignment="Top" Width="200" />
-        <Button x:Name="Question_5" Content="Question 5" HorizontalAlignment="Left" Height="50" Margin="270,150,0,0" VerticalAlignment="Top" Width="200" />
-        <TextBox x:Name="Current_Question1" HorizontalAlignment="Left" Height="110" Margin="40,10,0,0" Text="Current Quesiton" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="14" IsReadOnly="True"/>
-        <Button x:Name="Question_Ready1" Content="Play Quesiton" HorizontalAlignment="Left" Height="50" Margin="270,10,0,0" VerticalAlignment="Top" Width="200" />
-        <Button x:Name="Wrong_Answer1" Content="Wrong Answer" HorizontalAlignment="Left" Height="50" Margin="270,70,0,0" VerticalAlignment="Top" Width="200" />
-        <TextBox x:Name="Team1" Text="Team 1" TextWrapping="Wrap" Margin="540,20,40,384" FontSize="24" TextAlignment="Center" FontFamily="Copperplate Gothic Bold" Height="30" FontWeight="Normal" />
-        <TextBox x:Name="Team_1_Score" HorizontalAlignment="Left" Height="45" Margin="540,60,0,0" Text="150" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"  FontSize="36" FontFamily="Arial" TextAlignment="Center"/>
-        <TextBox x:Name="Team2" Text="Team 2" TextWrapping="Wrap" Margin="540,110,40,282" FontSize="24" TextAlignment="Center" FontFamily="Copperplate Gothic Bold" Height="30" FontWeight="Normal" />
-        <TextBox x:Name="Team_2_Score" HorizontalAlignment="Left" Height="45" Margin="540,160,0,0" Text="150" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"  FontSize="36" FontFamily="Arial" TextAlignment="Center"/>
-        <Button x:Name="Next_Question" Content="Next Question" HorizontalAlignment="Left" Height="50" Margin="540,220,0,0" VerticalAlignment="Top" Width="220"/>
-    </Grid>
+        Title="TeacherGameWindow" Height="470" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+        </Style>
+    </Window.Resources>
+    <Viewbox Name="TeacherView" Stretch="Uniform">
+        <Grid Background="#FF9C969C">
+            <Button x:Name="Question_4" Content="Question 4" HorizontalAlignment="Left" Height="50" Margin="40,360,0,0" VerticalAlignment="Top" Width="200" />
+            <Button x:Name="Question_3" Content="Question 3" HorizontalAlignment="Left" Height="50" Margin="40,290,0,0" VerticalAlignment="Top" Width="200" />
+            <Button x:Name="Question_2" Content="Question 2" HorizontalAlignment="Left" Height="50" Margin="40,220,0,0" VerticalAlignment="Top" Width="200" />
+            <Button x:Name="Question_1" Content="Question 1" HorizontalAlignment="Left" Height="50" Margin="40,150,0,0" VerticalAlignment="Top" Width="200" />
+            <Button x:Name="Question_8" Content="Question 8" HorizontalAlignment="Left" Height="50" Margin="270,360,0,0" VerticalAlignment="Top" Width="200" />
+            <Button x:Name="Question_7" Content="Question 7" HorizontalAlignment="Left" Height="50" Margin="270,290,0,0" VerticalAlignment="Top" Width="200" />
+            <Button x:Name="Question_6" Content="Question 6" HorizontalAlignment="Left" Height="50" Margin="270,220,0,0" VerticalAlignment="Top" Width="200" />
+            <Button x:Name="Question_5" Content="Question 5" HorizontalAlignment="Left" Height="50" Margin="270,150,0,0" VerticalAlignment="Top" Width="200" />
+            <TextBox x:Name="Current_Question1" HorizontalAlignment="Left" Height="110" Margin="40,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" FontSize="14" IsReadOnly="True"/>
+            <Button x:Name="Question_Ready1" Content="Play Quesiton" HorizontalAlignment="Left" Height="50" Margin="270,10,0,0" VerticalAlignment="Top" Width="200" />
+            <Button x:Name="Wrong_Answer1" Content="Wrong Answer" HorizontalAlignment="Left" Height="50" Margin="270,70,0,0" VerticalAlignment="Top" Width="200" />
+            <TextBox x:Name="Team1" Text="Team 1" TextWrapping="Wrap" Margin="540,20,40,384" FontSize="24" TextAlignment="Center" FontFamily="Copperplate Gothic Bold" Height="30" FontWeight="Normal" />
+            <TextBox x:Name="Team_1_Score" HorizontalAlignment="Left" Height="45" Margin="540,60,0,0" Text="150" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"  FontSize="36" FontFamily="Arial" TextAlignment="Center"/>
+            <TextBox x:Name="Team2" Text="Team 2" TextWrapping="Wrap" Margin="540,110,40,282" FontSize="24" TextAlignment="Center" FontFamily="Copperplate Gothic Bold" Height="30" FontWeight="Normal" />
+            <TextBox x:Name="Team_2_Score" HorizontalAlignment="Left" Height="45" Margin="540,160,0,0" Text="150" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"  FontSize="36" FontFamily="Arial" TextAlignment="Center"/>
+            <Button x:Name="Next_Question" Content="Next Question" HorizontalAlignment="Left" Height="50" Margin="540,220,0,0" VerticalAlignment="Top" Width="220"/>
+        </Grid>
+    </Viewbox>
 </Window>
