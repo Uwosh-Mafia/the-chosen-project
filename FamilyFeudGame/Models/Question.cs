@@ -9,7 +9,7 @@ public class Question
 {
     public int Id { get; }
     public string Text { get; set; }
-    private List<Answer> _answers = new ();
+    private List<Answer> _answers = new();
 
     public Question(int id, string text)
     {

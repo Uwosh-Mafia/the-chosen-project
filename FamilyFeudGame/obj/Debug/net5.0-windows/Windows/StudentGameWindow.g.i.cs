@@ -165,7 +165,7 @@ namespace FamilyFeudGame {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FamilyFeudGame;V1.0.0.0;component/windows/studentgamewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FamilyFeudGame;component/windows/studentgamewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\StudentGameWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
