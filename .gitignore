@@ -1,5 +1,2 @@
-
-FamilyFeudGame/.vs/FamilyFeudGame/DesignTimeBuild/.dtbcache.v2
-FamilyFeudGame/.vs/FamilyFeudGame/v16/.suo
-FamilyFeudGame/.vs/FamilyFeudGame/DesignTimeBuild/.dtbcache.v2
-FamilyFeudGame/.vs/FamilyFeudGame/DesignTimeBuild/.dtbcache.v2
+*.suo
+*.v2
