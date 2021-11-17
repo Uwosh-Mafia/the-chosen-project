@@ -5,24 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FamilyFeudGame"
         mc:Ignorable="d"
-        Title="WelcomeWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
+        Title="WelcomeWindow" Height="600" Width="920">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="20" />
-        </Grid.RowDefinitions>
+    <Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="50" Text="Welcome to Family Feud" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button x:Name="btnWelcome" Content="Enter" Grid.Column="2" Grid.Row="2" Width="80" Margin="10" FontSize="20" Click="BtnWelcome_Click"/>
-    </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Image Source="/Windows/Images/uwoshlogo.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   Margin="10"
+                   Visibility="Visible"/>
+            
+            <TextBlock Text="X"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Foreground="Black"
+                       FontSize="50"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       />
+            <Image Source="/Windows/Images/Logo_of_Family_Feud.png"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Grid.Column="2"
+                   Grid.Row="0"
+                   Margin="10"
+                   Visibility="Visible"/>
+            
+            <Button x:Name="btnChooseFile"
+                    Style="{StaticResource ButtonTheme}"
+                    Content="Choose File"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="3"
+                    Click="BtnWelcome_Click"/>
+        </Grid>
+    </Border>
 </Window>

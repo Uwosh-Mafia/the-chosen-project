@@ -118,3 +118,5 @@ C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Deb
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\ref\FamilyFeudGame.dll
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.pdb
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.genruntimeconfig.cache
+C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\Theme\ButtonTheme.baml
+C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\App.baml

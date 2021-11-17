@@ -16,8 +16,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Windows\Family Feud.jpg" />
-    <Resource Include="Windows\familyfeud-fb.jpg" />
+    <Resource Include="Windows\Images\Family Feud.jpg" />
+    <Resource Include="Windows\Images\familyfeud-fb.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Windows\MVVM\Model\" />
+    <Folder Include="Windows\MVVM\ViewModel\" />
+    <Folder Include="Windows\MVVM\View\" />
   </ItemGroup>
 
 </Project>
