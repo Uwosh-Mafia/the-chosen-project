@@ -42,6 +42,9 @@
     <Page Update="Windows\Theme\ButtonTheme.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Windows\Theme\TeamTextBoxTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Windows\WelcomeWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

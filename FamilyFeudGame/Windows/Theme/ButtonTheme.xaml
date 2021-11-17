@@ -26,7 +26,7 @@
             <Setter Property="Background" Value="Yellow"/>
             <Setter Property="Height" Value="75"/>
             <Setter Property="Width" Value="200"/>
-            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="FontFamily" Value="Segoe UI Variable Small Semibold"/>
             <Setter Property="FontSize" Value="25"/>
         </Style.Setters>
     </Style>

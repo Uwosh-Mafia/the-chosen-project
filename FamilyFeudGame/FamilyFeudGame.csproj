@@ -16,14 +16,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Windows\Images\Family Feud.jpg" />
-    <Resource Include="Windows\Images\familyfeud-fb.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Windows\MVVM\Model\" />
     <Folder Include="Windows\MVVM\ViewModel\" />
     <Folder Include="Windows\MVVM\View\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Windows\Images\Logo_of_Family_Feud.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Windows\Images\uwoshlogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
