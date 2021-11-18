@@ -38,7 +38,7 @@ namespace FamilyFeudGame
         public void populateSelection()
         {
             List<Section> sections = dBController.GetSections();
-            String[] sectionNames = new string[sections.Count];
+            string[] sectionNames = new string[sections.Count];
 
             for (int i = 0; i < sections.Count; i++)
                 sectionNames[i] = sections[i].Name;

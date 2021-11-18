@@ -23,7 +23,7 @@
                 </Setter.Value>
             </Setter>
 
-            <Setter Property="Background" Value="Yellow"/>
+            <Setter Property="Background" Value="#fc0"/>
             <Setter Property="Height" Value="75"/>
             <Setter Property="Width" Value="200"/>
             <Setter Property="FontFamily" Value="Segoe UI Variable Small Semibold"/>

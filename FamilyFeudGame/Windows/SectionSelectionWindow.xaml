@@ -6,8 +6,26 @@
         xmlns:local="clr-namespace:FamilyFeudGame"
         mc:Ignorable="d"
         Title="SectionSelectionWindow" Height="600" Width="920">
-    <Grid>
-        <Label Content="Please Select A Section" HorizontalAlignment="Center" Margin="0,33,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <ListBox Name="SectionBox" Margin="146,80,147,44" BorderBrush="Black" SelectionChanged="ListBox_SelectionChanged"/>
+    <Grid Background="#fc0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Select a Section"
+               Grid.Column="0"
+               Grid.Row="0"
+               HorizontalAlignment="Center"
+               Margin="0,33,0,0"
+               VerticalAlignment="Top"
+               FontSize="48"
+               FontFamily="Segoe UI Variable Small Semibold"
+               FontWeight="Bold"/>
+        <ListBox Name="SectionBox"
+                 Margin="146,112,147,44"
+                 BorderBrush="Black"
+                 SelectionChanged="ListBox_SelectionChanged"/>
     </Grid>
 </Window>

@@ -6,7 +6,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TextBox}">
                     <Border CornerRadius="10"
-                            Background="Yellow"
+                            Background="#fc0"
                             Width="300"
                             Height="75">
 
