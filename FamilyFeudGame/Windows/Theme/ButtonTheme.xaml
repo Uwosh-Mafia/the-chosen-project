@@ -14,9 +14,10 @@
                             <Grid VerticalAlignment="Stretch"
                               HorizontalAlignment="Stretch">
                                 <TextBlock Text="{TemplateBinding Property=Content}"
-                                       VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"
-                                       Margin="10"/>
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           Margin="10"/>
                             </Grid>
                         </Border>
                     </ControlTemplate>

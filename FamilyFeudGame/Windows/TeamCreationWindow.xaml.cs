@@ -26,5 +26,19 @@ namespace FamilyFeudGame
             InitializeComponent();
             dBController = controller;
         }
+
+        private void BtnTeam1_Click(object sender, RoutedEventArgs e)
+        {
+            Team team1 = new(txtTeam1.Text, true);
+            Team team2 = new(txtTeam2.Text, false);
+            SectionSelectionWindow sectionSelectionWindow = new(team1, team2, dBController);
+            sectionSelectionWindow.Show();
+            Close();
+        }
+
+        private void BtnTeam2_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

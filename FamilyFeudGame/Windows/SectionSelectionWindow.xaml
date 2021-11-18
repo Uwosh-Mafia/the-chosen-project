@@ -6,26 +6,44 @@
         xmlns:local="clr-namespace:FamilyFeudGame"
         mc:Ignorable="d"
         Title="SectionSelectionWindow" Height="600" Width="920">
-    <Grid Background="#fc0">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI Variable Small Semibold"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="48"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#ffff" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Content="Select a Section"
+        <TextBlock Text="SELECT A SECTION"
                Grid.Column="0"
                Grid.Row="0"
                HorizontalAlignment="Center"
-               Margin="0,33,0,0"
-               VerticalAlignment="Top"
                FontSize="48"
                FontFamily="Segoe UI Variable Small Semibold"
                FontWeight="Bold"/>
         <ListBox Name="SectionBox"
-                 Margin="146,112,147,44"
+                 Grid.Column="0"
+                 Grid.Row="1"
                  BorderBrush="Black"
-                 SelectionChanged="ListBox_SelectionChanged"/>
+                 SelectionChanged="ListBox_SelectionChanged"
+                 Margin="76,10,76,46"/>
     </Grid>
 </Window>

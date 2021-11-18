@@ -16,12 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Windows\MVVM\Model\" />
-    <Folder Include="Windows\MVVM\ViewModel\" />
-    <Folder Include="Windows\MVVM\View\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Windows\Images\Logo_of_Family_Feud.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
