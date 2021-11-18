@@ -14,7 +14,8 @@
     </Window.Background>
 
 
-    <Grid>
+    <Grid HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="100"/>
@@ -47,8 +48,7 @@
                    VerticalAlignment="Center"
                    Grid.Column="0"
                    Grid.Row="0"
-                   Margin="10"/>
-        
+                   Margin="10" />
         <Image Source="/Windows/Images/Logo_of_Family_Feud.png"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
