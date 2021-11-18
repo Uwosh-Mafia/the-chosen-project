@@ -48,7 +48,8 @@
                    VerticalAlignment="Center"
                    Grid.Column="0"
                    Grid.Row="0"
-                   Margin="10" />
+                   Margin="10" >
+        </Image>
         <Image Source="/Windows/Images/Logo_of_Family_Feud.png"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"

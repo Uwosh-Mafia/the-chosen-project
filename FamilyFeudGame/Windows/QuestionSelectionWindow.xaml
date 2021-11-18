@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FamilyFeudGame"
         mc:Ignorable="d"
-        Title="QuestionSelectionWindow" Height="600" Width="920">
+        Title="Teacher View" Height="600" Width="920">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Segoe UI Variable Small Semibold"/>
@@ -20,7 +20,7 @@
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black"/>
-            <GradientStop Color="White" Offset="1"/>
+            <GradientStop Color="#444" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
 
@@ -75,7 +75,7 @@
                 <RowDefinition Height="75"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Question"
+            <TextBlock Text="This is a very long answer jfkdsla;jfdklsa;jflkdsajf;lkdsajfk;dsajfkldsa;jf;ds"
                    TextWrapping="Wrap"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
@@ -102,9 +102,9 @@
             <StackPanel Grid.Column="1"
                         Grid.Row="1"
                         VerticalAlignment="Center">
-                <TextBox Text="Answer 5"
+                <TextBox Text="This is a very long answer"
                      Style="{StaticResource AnswerTextBox}"/>
-                <TextBox Text="Answer 6"
+                <TextBox Text="This is a very long answer"
                      Style="{StaticResource AnswerTextBox}"/>
                 <TextBox Text="Answer 7"
                      Style="{StaticResource AnswerTextBox}"/>

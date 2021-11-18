@@ -120,7 +120,5 @@ C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Deb
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.genruntimeconfig.cache
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\Theme\ButtonTheme.baml
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\App.baml
-C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\Windows\Images\Logo_of_Family_Feud.png
-C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\Windows\Images\uwoshlogo.png
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\Theme\TeamTextBoxTheme.baml
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\Theme\AnswerTextBoxTheme.baml

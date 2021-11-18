@@ -9,6 +9,8 @@
   <ItemGroup>
     <None Remove="Windows\Family Feud.jpg" />
     <None Remove="Windows\familyfeud-fb.jpg" />
+    <None Remove="Windows\Images\Logo_of_Family_Feud.png" />
+    <None Remove="Windows\Images\uwoshlogo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,12 +18,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Windows\Images\Logo_of_Family_Feud.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Windows\Images\uwoshlogo.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Resource Include="Windows\Images\Logo_of_Family_Feud.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Windows\Images\uwoshlogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
