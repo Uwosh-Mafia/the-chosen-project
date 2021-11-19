@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\App.xaml
-91996907463
+10720809192
 
 171768307151
 2051705710987
-Windows\QuestionSelectionWindow.xaml;Windows\SectionSelectionWindow.xaml;Windows\StudentGameWindow.xaml;Windows\TeacherGameWindow.xaml;Windows\TeamCreationWindow.xaml;Windows\Theme\AnswerTextBoxTheme.xaml;Windows\Theme\ButtonTheme.xaml;Windows\Theme\TeamTextBoxTheme.xaml;Windows\WelcomeWindow.xaml;
+Windows\QuestionSelectionWindow.xaml;Windows\SectionSelectionWindow.xaml;Windows\StudentGameWindow.xaml;Windows\TeacherGameWindow.xaml;Windows\TeamCreationWindow.xaml;Windows\Theme\AnswerButtonTheme.xaml;Windows\Theme\AnswerTextBoxTheme.xaml;Windows\Theme\ButtonTheme.xaml;Windows\Theme\TeamTextBoxTheme.xaml;Windows\WelcomeWindow.xaml;
 
-True
+False
 

@@ -56,6 +56,8 @@ namespace FamilyFeudGame
             Section section = dBController.GetSection(lbx.SelectedIndex + 1); // there is no 0 section id. it starts 1
             QuestionSelectionWindow questionSelectionWindow = new(section, dBController); // Fix me - Object required, didn't allow Section in QuestionSelectionWindow
             questionSelectionWindow.Show();
+            StudentGameWindow studentGameWindow = new();
+            studentGameWindow.Show();
             Close();
         }
     }

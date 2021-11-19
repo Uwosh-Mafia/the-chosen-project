@@ -39,6 +39,9 @@
     <Page Update="Windows\TeamCreationWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Windows\Theme\AnswerButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Windows\Theme\AnswerTextBoxTheme.xaml">
       <SubType>Designer</SubType>
     </Page>

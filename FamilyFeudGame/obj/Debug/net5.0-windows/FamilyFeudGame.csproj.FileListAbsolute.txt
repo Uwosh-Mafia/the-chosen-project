@@ -122,3 +122,4 @@ C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Deb
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\App.baml
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\Theme\TeamTextBoxTheme.baml
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\Theme\AnswerTextBoxTheme.baml
+C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\Theme\AnswerButtonTheme.baml

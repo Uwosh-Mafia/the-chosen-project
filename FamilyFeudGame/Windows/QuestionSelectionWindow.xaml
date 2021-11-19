@@ -92,7 +92,7 @@
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="This is a very long answer jfkdsl a;jfdklsa;jflkdsajf;lkd sajfk;dsajfkldsa;jf;ds"
+            <TextBlock Text="Question"
                    TextWrapping="Wrap"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
@@ -104,29 +104,28 @@
 
             <StackPanel Grid.Column="0"
                     Grid.Row="1"
-                    VerticalAlignment="Center">
-
-                <TextBox Text="Answer 1"
-                     Style="{StaticResource AnswerTextBox}"/>
-                <TextBox Text="Answer 2"
-                     Style="{StaticResource AnswerTextBox}"/>
-                <TextBox Text="Answer 3"
-                     Style="{StaticResource AnswerTextBox}"/>
-                <TextBox Text="Answer 4"
-                     Style="{StaticResource AnswerTextBox}"/>
+                    VerticalAlignment="Stretch">
+                <Button Content="Answer 1"
+                         Style="{StaticResource AnswerButtonTheme}"/>
+                <Button Content="Answer 2"
+                         Style="{StaticResource AnswerButtonTheme}"/>
+                <Button Content="Answer 3"
+                         Style="{StaticResource AnswerButtonTheme}"/>
+                <Button Content="Answer 4"
+                         Style="{StaticResource AnswerButtonTheme}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1"
                         Grid.Row="1"
-                        VerticalAlignment="Center">
-                <TextBox Text="This is a very long answer"
-                     Style="{StaticResource AnswerTextBox}"/>
-                <TextBox Text="This is a very long answer"
-                     Style="{StaticResource AnswerTextBox}"/>
-                <TextBox Text="Answer 7"
-                     Style="{StaticResource AnswerTextBox}"/>
-                <TextBox Text="Answer 8"
-                     Style="{StaticResource AnswerTextBox}"/>
+                        VerticalAlignment="Stretch">
+                <Button Content="Answer 5"
+                         Style="{StaticResource AnswerButtonTheme}"/>
+                <Button Content="Answer 6"
+                         Style="{StaticResource AnswerButtonTheme}"/>
+                <Button Content="Answer 7"
+                         Style="{StaticResource AnswerButtonTheme}"/>
+                <Button Content="Answer 8"
+                         Style="{StaticResource AnswerButtonTheme}"/>
             </StackPanel>
 
             <Button Style="{StaticResource ButtonTheme}"
