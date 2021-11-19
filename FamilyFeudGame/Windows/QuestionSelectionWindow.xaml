@@ -47,7 +47,24 @@
                  Grid.Column="0"
                  Grid.Row="1"
                  Grid.ColumnSpan="2"
-                 SelectionChanged="ListBox_SelectionChanged"/>
+                 SelectionChanged="ListBox_SelectionChanged">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Background" Value="#fc0"/>
+                    <Setter Property="Margin" Value="9"/>
+                    <Setter Property="Padding" Value="9"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="FontFamily" Value="Segoe UI Variable Small Semibold"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Black"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
 
         <Button Content="BACK"
                 Style="{StaticResource ButtonTheme}"
@@ -72,10 +89,10 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
                 <RowDefinition/>
-                <RowDefinition Height="75"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="This is a very long answer jfkdsla;jfdklsa;jflkdsajf;lkdsajfk;dsajfkldsa;jf;ds"
+            <TextBlock Text="This is a very long answer jfkdsl a;jfdklsa;jflkdsajf;lkd sajfk;dsajfkldsa;jf;ds"
                    TextWrapping="Wrap"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"

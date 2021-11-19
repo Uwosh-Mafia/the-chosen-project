@@ -17,7 +17,7 @@
                                       Text="{TemplateBinding Text}"
                                       FontFamily="Segoe UI Variable Small Semibold"
                                       FontSize="20"
-                                     TextWrapping="Wrap"
+                                      TextWrapping="Wrap"
                                       BorderThickness="0"
                                       Background="Transparent"
                                       VerticalContentAlignment="Center"

@@ -30,5 +30,10 @@
             <Setter Property="FontFamily" Value="Segoe UI Variable Small Semibold"/>
             <Setter Property="FontSize" Value="25"/>
         </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="LightCyan"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

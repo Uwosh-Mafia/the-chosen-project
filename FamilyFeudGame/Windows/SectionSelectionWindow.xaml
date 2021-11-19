@@ -16,15 +16,15 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
     </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="#444" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
 
     <Grid HorizontalAlignment="Stretch"
           VerticalAlignment="Stretch">
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black"/>
-                <GradientStop Color="#444" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -45,6 +45,18 @@
                  Grid.Row="1"
                  BorderBrush="Black"
                  SelectionChanged="ListBox_SelectionChanged"
-                 Margin="76,10,76,46"/>
+                 Margin="210,10,210,46">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Background" Value="#fc0"/>
+                    <Setter Property="Margin" Value="9"/>
+                    <Setter Property="Padding" Value="9"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontFamily" Value="Segoe UI Variable Small Semibold"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
     </Grid>
 </Window>
