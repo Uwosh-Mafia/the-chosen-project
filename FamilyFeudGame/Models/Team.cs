@@ -18,5 +18,15 @@ namespace FamilyFeudGame.Models
             IsPlaying = isPlaying;
             Points = 0;
         }
+        /// <summary>
+        /// This will add points to the team class.
+        /// </summary>
+        /// <param name="addPoints"></param>
+        public void AddPoints(int addPoints)
+        {
+            Points += addPoints;
+        }
     }
+
+
 }

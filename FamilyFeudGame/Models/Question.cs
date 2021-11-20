@@ -67,4 +67,19 @@ public class Question
         foreach (Answer answer in currAnswersList)
             _answers.Add(answer);
     }
+    /// <summary>
+    /// This will return the total point count for the Question. 
+    /// </summary>
+    /// <returns></returns>
+    public int GetPointTotal()
+    {
+        int totalPoints = 0;
+        int answerLocation = 0;
+        foreach (Answer a in _answers)
+        {
+            totalPoints += _answers[answerLocation].ReturnPoints();
+            answerLocation++;
+        }
+        return totalPoints;
+    }
 }

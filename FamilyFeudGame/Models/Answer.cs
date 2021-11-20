@@ -14,4 +14,20 @@ public class Answer
         this.Text = text;
         this.Points = points;
     }
+    /// <summary>
+    /// This will return the Points for the question. 
+    /// </summary>
+    /// <returns>int Points</returns>
+    public int ReturnPoints()
+    {
+        return Points;
+    }
+    /// <summary>
+    /// This will return the string value of the selected answer.
+    /// </summary>
+    /// <returns></returns>
+    public string ReturnString()
+    {
+        return Text;
+    }
 }

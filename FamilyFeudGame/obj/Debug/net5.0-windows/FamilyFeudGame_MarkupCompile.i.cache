@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\
+C:\Users\ryanm\source\repos\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\
 FamilyFeudGame
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\App.xaml
+C:\Users\ryanm\source\repos\the-chosen-project\FamilyFeudGame\App.xaml
 10720809192
 
-171768307151
-2051705710987
+18-1139454577
+205-1321524204
 Windows\QuestionSelectionWindow.xaml;Windows\SectionSelectionWindow.xaml;Windows\StudentGameWindow.xaml;Windows\TeacherGameWindow.xaml;Windows\TeamCreationWindow.xaml;Windows\Theme\AnswerButtonTheme.xaml;Windows\Theme\AnswerTextBoxTheme.xaml;Windows\Theme\ButtonTheme.xaml;Windows\Theme\TeamTextBoxTheme.xaml;Windows\WelcomeWindow.xaml;
 
 False
