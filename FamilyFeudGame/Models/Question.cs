@@ -22,7 +22,7 @@ public class Question
         this.Id = Id;
     }
     /// <summary>
-    /// Gets the liste of answers associated with the question
+    /// Gets the list of answers associated with the question
     /// </summary>
     /// <returns>list of answers</returns>
     public List<Answer> GetAnswers()

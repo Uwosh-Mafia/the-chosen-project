@@ -53,9 +53,9 @@ public class Round
 	/// <summary>
 	/// This will determine if the current round is over. 
 	/// </summary>
-	private void _isCurrentRoundOver()
+	private void IsCurrentRoundOver()
 	{
-		if(_WrongAnswerCounter >= 3 && _isStealing == false)
+		if(_WrongAnswerCounter >= 3 && _isStealing == false || PointBucket == _TotalPoints)
         {
 			_isRoundOver = true;
         }
