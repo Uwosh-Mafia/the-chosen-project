@@ -34,35 +34,17 @@
             <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <TextBlock Text="Team 1"
                    Grid.Row="0"
                    Grid.Column="0"
                    HorizontalAlignment="Center"/>
-        
+
         <TextBlock Text="Team 2"
                    Grid.Row="0"
                    Grid.Column="2"
                    HorizontalAlignment="Center"/>
-        
-        <TextBox x:Name="txtTeam1"
-                 Style="{StaticResource TeamTextBox}"
-                 Grid.Row="1"
-                 Grid.Column="0"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
-                 FontFamily="Segoe UI Variable Small Semibold"
-                 FontSize="20" TextChanged="txtTeam1_TextChanged"/>
-        
-        <TextBox x:Name="txtTeam2"
-                 Style="{StaticResource TeamTextBox}"
-                 Grid.Row="1"
-                 Grid.Column="2"
-                 HorizontalAlignment="Center"
-                 VerticalAlignment="Center"
-                 FontFamily="Segoe UI Variable Small Semibold"
-                 FontSize="20"/>
-        
+
         <Button x:Name="btnTeam1" Style="{StaticResource ButtonTheme}"
                 Content="Go First"
                 Grid.Row="2"
@@ -75,6 +57,84 @@
                 Grid.Column="2"
                 Click="BtnTeam2_Click"
                 />
+        <Grid Grid.Row="1"
+              Grid.Column="0">
+            <Rectangle StrokeThickness="1"/>
+            <TextBox Style="{StaticResource TeamTextBox}"/>
+            <TextBox 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontFamily="Segoe UI Variable Small Semibold"
+                    FontSize="20"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="Black"
+                    x:Name="txtTeam1" 
+                    Width="292" Height="80"/>
+
+            <TextBlock IsHitTestVisible="False"
+                    Text="Enter team name"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="104,0,0,0"
+                    FontSize="20"
+                    Foreground="#444"
+                    FontStyle="Italic"
+                    Grid.Column="0">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=txtTeam1}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                        <Setter Property="Visibility" Value="Hidden"/>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Grid.Column="2">
+            <Rectangle StrokeThickness="1"/>
+            <TextBox Style="{StaticResource TeamTextBox}"/>
+            <TextBox 
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontFamily="Segoe UI Variable Small Semibold"
+                    FontSize="20"
+                    Margin="104,0,0,0"
+                    BorderThickness="0"
+                    Background="Transparent"
+                    VerticalContentAlignment="Center"
+                    Padding="5"
+                    Foreground="Black"
+                    x:Name="txtTeam2"
+                    Width="292" Height="80"/>
+
+            <TextBlock IsHitTestVisible="False"
+                    Text="Enter team name"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="104,0,0,0"
+                    FontSize="20"
+                    Foreground="#444"
+                    FontStyle="Italic"
+                    Grid.Column="0">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=txtTeam2}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                        <Setter Property="Visibility" Value="Hidden"/>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
 
         <Rectangle StrokeThickness="10"
                    Grid.Column="1"

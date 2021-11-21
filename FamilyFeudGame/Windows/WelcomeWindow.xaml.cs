@@ -27,7 +27,7 @@ namespace FamilyFeudGame
         {
             InitializeComponent();
             dBController = new(dbmodel);
-         //   DBReader dBReader = new("a", dBController);
+            //   DBReader dBReader = new("a", dBController);
         }
 
         /// <summary>

@@ -29,7 +29,7 @@ public class DBReader
             using var package = new ExcelPackage(file);
             await package.LoadAsync(file);
 
-            for(int i = 0; i < package.Workbook.Worksheets.Count; i++)
+            for (int i = 0; i < package.Workbook.Worksheets.Count; i++)
             {
                 Section section = await loadSectionFromExcel(package, i);
                 dbController.AddSection(section);
@@ -74,7 +74,8 @@ public class DBReader
                 column += 2;
             }
             return section;
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Console.WriteLine(e.Message.ToString());
             return null;
@@ -109,7 +110,7 @@ public class DBReader
                     int points;
                     // If there is no points or points can not be int, assume the points are 0
                     bool success = int.TryParse(ws.Cells[row, column + 1].Value?.ToString(), out points);
-                    Answer answer = new(row,text, success ? points : 0);
+                    Answer answer = new(row, text, success ? points : 0);
                     question.AddAnswer(answer);
                     row++;
                 }

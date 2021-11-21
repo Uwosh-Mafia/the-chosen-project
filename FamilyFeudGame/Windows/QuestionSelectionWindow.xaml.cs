@@ -24,7 +24,7 @@ namespace FamilyFeudGame
         StudentGameWindow studentGameWindow;
         Section section;
         Question question;
-        public QuestionSelectionWindow(Section section, DBController controller, GameLogicController gameController, StudentGameWindow studentGameWindow) 
+        public QuestionSelectionWindow(Section section, DBController controller, GameLogicController gameController, StudentGameWindow studentGameWindow)
         {
             InitializeComponent();
             this.dBController = controller;
@@ -69,9 +69,9 @@ namespace FamilyFeudGame
 
         private void FillAnswers(List<Answer> answers)
         {
-            for(int i = 0; i < answers.Count; i++)
+            for (int i = 0; i < answers.Count; i++)
             {
-                switch(i)
+                switch (i)
                 {
                     case 0:
                         answer1.Content = answers[i].Text;
@@ -103,14 +103,21 @@ namespace FamilyFeudGame
 
         private void CorrectAnswer(object sender, RoutedEventArgs e)
         {
-            int index = (sender as Answer).Id;
-            gameController.CorrectAnswer(index);
+            string answerNumber = (sender as Button).Name;
+            int.TryParse(answerNumber.Substring(6), out int index);
+            Answer correctAnswer = gameController.CorrectAnswer(index);
+            studentGameWindow.FillAnswer(correctAnswer);
         }
 
         private void Play_Question(object sender, RoutedEventArgs e)
         {
-            gameController.SetCurrentQuestion(question.Id);
+            gameController.StartRound(question.Id);
             studentGameWindow.question_box.Text = question.Text;
+        }
+
+        private void wrong_answer(object sender, RoutedEventArgs e)
+        {
+            gameController.WrongAnswer();
         }
     }
 }

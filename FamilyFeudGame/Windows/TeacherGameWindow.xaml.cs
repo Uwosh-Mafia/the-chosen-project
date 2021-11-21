@@ -32,6 +32,6 @@ namespace FamilyFeudGame
             Current_Question1.Text = question != null ? question.Text : "question text";
         }
 
-       
+
     }
 }

@@ -45,5 +45,10 @@ namespace FamilyFeudGame
         {
 
         }
+
+        private void txtTeam2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

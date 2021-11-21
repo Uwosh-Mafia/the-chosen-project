@@ -108,30 +108,30 @@
                 <Button Name="answer1" Content="Answer 1"
                          Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
                 <Button Name="answer2" Content="Answer 2"
-                         Style="{StaticResource AnswerButtonTheme}"/>
+                         Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
                 <Button Name="answer3" Content="Answer 3"
-                         Style="{StaticResource AnswerButtonTheme}"/>
+                         Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
                 <Button Name="answer4" Content="Answer 4"
-                         Style="{StaticResource AnswerButtonTheme}"/>
+                         Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1"
                         Grid.Row="1"
                         VerticalAlignment="Stretch">
                 <Button Name="answer5" Content="Answer 5"
-                         Style="{StaticResource AnswerButtonTheme}"/>
+                         Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
                 <Button Name="answer6" Content="Answer 6"
-                         Style="{StaticResource AnswerButtonTheme}"/>
+                         Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
                 <Button Name="answer7" Content="Answer 7"
-                         Style="{StaticResource AnswerButtonTheme}"/>
+                         Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
                 <Button Name="answer8" Content="Answer 8"
-                         Style="{StaticResource AnswerButtonTheme}"/>
+                         Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
             </StackPanel>
 
             <Button Style="{StaticResource ButtonTheme}"
                     Content="WRONG"
                     Grid.Column="0"
-                    Grid.Row="2"/>
+                    Grid.Row="2" Click="wrong_answer"/>
 
             <Button Style="{StaticResource ButtonTheme}"
                     Content="PLAY"

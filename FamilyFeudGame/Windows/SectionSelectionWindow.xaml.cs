@@ -57,9 +57,9 @@ namespace FamilyFeudGame
             Section section = dBController.GetSection(lbx.SelectedIndex + 1); // there is no 0 section id. it starts 1
             gameController = new(section, team1, team2, 0);
             StudentGameWindow studentGameWindow = new(gameController);
-            QuestionSelectionWindow questionSelectionWindow = new(section, dBController, gameController, studentGameWindow); 
+            QuestionSelectionWindow questionSelectionWindow = new(section, dBController, gameController, studentGameWindow);
             questionSelectionWindow.Show();
-            
+
             studentGameWindow.Show();
             Close();
         }

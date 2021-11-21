@@ -30,7 +30,36 @@ namespace FamilyFeudGame
             Team2Score.Text = teams[1].Name + ": " + teams[1].Points;
         }
 
+        public void FillAnswer(Answer answer)
+        {
+            switch (answer.Id)
+            {
+                case 0:
+                    StudentAnswer1.Text = answer.Text;
+                    break;
+                case 1:
+                    StudentAnswer2.Text = answer.Text;
+                    break;
+                case 2:
+                    StudentAnswer3.Text = answer.Text;
+                    break;
+                case 3:
+                    StudentAnswer4.Text = answer.Text;
+                    break;
+                case 4:
+                    StudentAnswer5.Text = answer.Text;
+                    break;
+                case 5:
+                    StudentAnswer6.Text = answer.Text;
+                    break;
+                case 6:
+                    StudentAnswer7.Text = answer.Text;
+                    break;
+                case 7:
+                    StudentAnswer8.Text = answer.Text;
+                    break;
+            }
+        }
 
-   
     }
 }
