@@ -20,12 +20,17 @@ namespace FamilyFeudGame
     public partial class QuestionSelectionWindow : Window
     {
         DBController dBController;
+        GameLogicController gameController;
+        StudentGameWindow studentGameWindow;
         Section section;
-        public QuestionSelectionWindow(Section section, DBController controller) 
+        Question question;
+        public QuestionSelectionWindow(Section section, DBController controller, GameLogicController gameController, StudentGameWindow studentGameWindow) 
         {
             InitializeComponent();
             this.dBController = controller;
+            this.gameController = gameController;
             this.section = section;
+            this.studentGameWindow = studentGameWindow;
             populateQuestions();
         }
 
@@ -44,13 +49,68 @@ namespace FamilyFeudGame
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ClearAnswers();
             int index = (sender as ListBox).SelectedIndex;
-            Question question = section.GetQuestions()[index];
-            TeacherGameWindow teacherGameWindow = new(question, dBController);
-            StudentGameWindow studentGameWindow = new();
-            teacherGameWindow.Show();
-            studentGameWindow.Show();
-            Close(); // Do we want to close this window?
+            this.question = section.GetQuestions()[index];
+            FillAnswers(question.GetAnswers());
+            question_text.Text = question.Text;
+        }
+        private void ClearAnswers()
+        {
+            answer1.Content = "";
+            answer2.Content = "";
+            answer3.Content = "";
+            answer4.Content = "";
+            answer5.Content = "";
+            answer6.Content = "";
+            answer7.Content = "";
+            answer8.Content = "";
+        }
+
+        private void FillAnswers(List<Answer> answers)
+        {
+            for(int i = 0; i < answers.Count; i++)
+            {
+                switch(i)
+                {
+                    case 0:
+                        answer1.Content = answers[i].Text;
+                        break;
+                    case 1:
+                        answer2.Content = answers[i].Text;
+                        break;
+                    case 2:
+                        answer3.Content = answers[i].Text;
+                        break;
+                    case 3:
+                        answer4.Content = answers[i].Text;
+                        break;
+                    case 4:
+                        answer5.Content = answers[i].Text;
+                        break;
+                    case 5:
+                        answer6.Content = answers[i].Text;
+                        break;
+                    case 6:
+                        answer7.Content = answers[i].Text;
+                        break;
+                    case 7:
+                        answer8.Content = answers[i].Text;
+                        break;
+                }
+            }
+        }
+
+        private void CorrectAnswer(object sender, RoutedEventArgs e)
+        {
+            int index = (sender as Answer).Id;
+            gameController.CorrectAnswer(index);
+        }
+
+        private void Play_Question(object sender, RoutedEventArgs e)
+        {
+            gameController.SetCurrentQuestion(question.Id);
+            studentGameWindow.question_box.Text = question.Text;
         }
     }
 }

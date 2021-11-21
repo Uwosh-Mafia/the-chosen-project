@@ -26,11 +26,10 @@ public class Round
 	public void WrongAnswer()
     {
 		_WrongAnswerCounter++;
-		if(_WrongAnswerCounter >= 3)
+		if(_WrongAnswerCounter >= 3 && !_isRoundOver)
         {
 			_isStealing = true;
         }
-		_isCurrentRoundOver();
     }
 	/// <summary>
 	/// This will return the selected Answer.
@@ -39,8 +38,8 @@ public class Round
 	/// <returns></returns>
 	public Answer CorrectAnswer(int id)
     {
+		PointBucket += _CurrQuestion.GetAnswer(id).Points;
 		return _CurrQuestion.GetAnswer(id);
-		
     }
 	/// <summary>
 	/// This will return the total value of the point bucket

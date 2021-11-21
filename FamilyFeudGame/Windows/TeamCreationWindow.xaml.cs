@@ -40,5 +40,10 @@ namespace FamilyFeudGame
         {
             throw new NotImplementedException();
         }
+
+        private void txtTeam1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

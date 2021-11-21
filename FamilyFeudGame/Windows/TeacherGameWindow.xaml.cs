@@ -22,11 +22,13 @@ namespace FamilyFeudGame
     {
         Question question;
         DBController controller;
-        public TeacherGameWindow(Question question, DBController controller)
+        GameLogicController gameController;
+        public TeacherGameWindow(Question question, DBController controller, GameLogicController gameController)
         {
             InitializeComponent();
             this.question = question;
             this.controller = controller;
+            this.gameController = gameController;
             Current_Question1.Text = question != null ? question.Text : "question text";
         }
 

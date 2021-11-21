@@ -67,7 +67,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Question"
+            <TextBlock Name="question_box" Text="Question"
                    TextWrapping="Wrap"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"

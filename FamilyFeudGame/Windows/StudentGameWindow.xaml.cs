@@ -20,10 +20,16 @@ namespace FamilyFeudGame
     /// </summary>
     public partial class StudentGameWindow : Window
     {
-        public StudentGameWindow()
+        GameLogicController gameController;
+        public StudentGameWindow(GameLogicController gameController)
         {
             InitializeComponent();
+            this.gameController = gameController;
+            Team[] teams = gameController.GetTeams();
+            Team1Score.Text = teams[0].Name + ": " + teams[0].Points;
+            Team2Score.Text = teams[1].Name + ": " + teams[1].Points;
         }
+
 
    
     }

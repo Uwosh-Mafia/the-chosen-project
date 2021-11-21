@@ -92,7 +92,7 @@
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Question"
+            <TextBlock Name="question_text" Text="Question"
                    TextWrapping="Wrap"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
@@ -105,26 +105,26 @@
             <StackPanel Grid.Column="0"
                     Grid.Row="1"
                     VerticalAlignment="Stretch">
-                <Button Content="Answer 1"
+                <Button Name="answer1" Content="Answer 1"
+                         Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
+                <Button Name="answer2" Content="Answer 2"
                          Style="{StaticResource AnswerButtonTheme}"/>
-                <Button Content="Answer 2"
+                <Button Name="answer3" Content="Answer 3"
                          Style="{StaticResource AnswerButtonTheme}"/>
-                <Button Content="Answer 3"
-                         Style="{StaticResource AnswerButtonTheme}"/>
-                <Button Content="Answer 4"
+                <Button Name="answer4" Content="Answer 4"
                          Style="{StaticResource AnswerButtonTheme}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1"
                         Grid.Row="1"
                         VerticalAlignment="Stretch">
-                <Button Content="Answer 5"
+                <Button Name="answer5" Content="Answer 5"
                          Style="{StaticResource AnswerButtonTheme}"/>
-                <Button Content="Answer 6"
+                <Button Name="answer6" Content="Answer 6"
                          Style="{StaticResource AnswerButtonTheme}"/>
-                <Button Content="Answer 7"
+                <Button Name="answer7" Content="Answer 7"
                          Style="{StaticResource AnswerButtonTheme}"/>
-                <Button Content="Answer 8"
+                <Button Name="answer8" Content="Answer 8"
                          Style="{StaticResource AnswerButtonTheme}"/>
             </StackPanel>
 
@@ -136,7 +136,7 @@
             <Button Style="{StaticResource ButtonTheme}"
                     Content="PLAY"
                     Grid.Column="1"
-                    Grid.Row="2"/>
+                    Grid.Row="2" Click="Play_Question"/>
         </Grid>
     </Grid>
 </Window>

@@ -52,7 +52,7 @@
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center"
                  FontFamily="Segoe UI Variable Small Semibold"
-                 FontSize="20"/>
+                 FontSize="20" TextChanged="txtTeam1_TextChanged"/>
         
         <TextBox x:Name="txtTeam2"
                  Style="{StaticResource TeamTextBox}"

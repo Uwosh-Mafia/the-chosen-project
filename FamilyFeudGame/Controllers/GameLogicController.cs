@@ -13,18 +13,21 @@ public class GameLogicController
 	private int _currentTeam { get; set; }
 	private Round _currRound { get; set; }
 
-	public GameLogicController(Section currSection, Team teamOne, Team teamTwo, int currentTeamIndex, Round round)
+	public GameLogicController(Section currSection, Team teamOne, Team teamTwo, int currentTeamIndex)
 	{
 		_theTwoTeams[0] = teamOne;
 		_theTwoTeams[1] = teamTwo;
 		_theChosenSection = currSection;
 		questions = _theChosenSection.GetQuestions();
-		showAnswers = false;
+        showAnswers = false;
 		_currentQuestionIndex = 0;
 		isGameOver = false;
 		_currentTeam = currentTeamIndex;
-		_currRound = round;
 	}
+	public Team[] GetTeams()
+    {
+		return _theTwoTeams;
+    }
 	/// <summary>
 	/// This will return the round points
 	/// </summary>
@@ -43,6 +46,7 @@ public class GameLogicController
 		_currentQuestionIndex = id;
 		return _theChosenSection.GetQuestion(id);
     }
+
 	/// <summary>
 	/// This returns the Correct Answer for the unput id
 	/// </summary>
