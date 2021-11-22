@@ -32,30 +32,30 @@ namespace FamilyFeudGame
 
         public void FillAnswer(Answer answer)
         {
-            switch (answer.Id)
+            switch (answer.Id) // ID's start at 1
             {
-                case 0:
+                case 1:
                     StudentAnswer1.Text = answer.Text;
                     break;
-                case 1:
+                case 2:
                     StudentAnswer2.Text = answer.Text;
                     break;
-                case 2:
+                case 3:
                     StudentAnswer3.Text = answer.Text;
                     break;
-                case 3:
+                case 4:
                     StudentAnswer4.Text = answer.Text;
                     break;
-                case 4:
+                case 5:
                     StudentAnswer5.Text = answer.Text;
                     break;
-                case 5:
+                case 6:
                     StudentAnswer6.Text = answer.Text;
                     break;
-                case 6:
+                case 7:
                     StudentAnswer7.Text = answer.Text;
                     break;
-                case 7:
+                case 8:
                     StudentAnswer8.Text = answer.Text;
                     break;
             }

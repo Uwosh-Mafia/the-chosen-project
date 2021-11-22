@@ -38,7 +38,7 @@ public class Round
     /// <returns></returns>
     public Answer CorrectAnswer(int id)
     {
-        Answer correctAnswer = _CurrQuestion.GetAnswer(id + 1);
+        Answer correctAnswer = _CurrQuestion.GetAnswer(id);
         PointBucket += correctAnswer.ReturnPoints();
         return correctAnswer;
     }

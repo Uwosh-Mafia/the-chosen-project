@@ -110,7 +110,7 @@ public class DBReader
                     int points;
                     // If there is no points or points can not be int, assume the points are 0
                     bool success = int.TryParse(ws.Cells[row, column + 1].Value?.ToString(), out points);
-                    Answer answer = new(row, text, success ? points : 0);
+                    Answer answer = new(row-1, text, success ? points : 0);
                     question.AddAnswer(answer);
                     row++;
                 }

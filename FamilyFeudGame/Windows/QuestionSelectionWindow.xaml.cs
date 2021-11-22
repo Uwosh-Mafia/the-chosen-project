@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FamilyFeudGame.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace FamilyFeudGame
         StudentGameWindow studentGameWindow;
         Section section;
         Question question;
+        bool _isPlaying = false;
         public QuestionSelectionWindow(Section section, DBController controller, GameLogicController gameController, StudentGameWindow studentGameWindow)
         {
             InitializeComponent();
@@ -31,13 +33,15 @@ namespace FamilyFeudGame
             this.gameController = gameController;
             this.section = section;
             this.studentGameWindow = studentGameWindow;
-            populateQuestions();
+            PopulateQuestions();
+            ToggleAnswers(false);
+            Wrong_Button.IsEnabled = false;
         }
 
         /// <summary>
         /// This method populates the questions
         /// </summary>
-        private void populateQuestions()
+        private void PopulateQuestions()
         {
             List<Question> questions = section.GetQuestions();
             String[] sectionNames = new string[questions.Count];
@@ -49,11 +53,14 @@ namespace FamilyFeudGame
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ClearAnswers();
-            int index = (sender as ListBox).SelectedIndex;
-            this.question = section.GetQuestions()[index];
-            FillAnswers(question.GetAnswers());
-            question_text.Text = question.Text;
+            if (!_isPlaying)
+            {
+                ClearAnswers();
+                int index = (sender as ListBox).SelectedIndex;
+                this.question = section.GetQuestions()[index];
+                FillAnswers(question.GetAnswers());
+                question_text.Text = question.Text;
+            }
         }
         private void ClearAnswers()
         {
@@ -104,7 +111,7 @@ namespace FamilyFeudGame
         private void CorrectAnswer(object sender, RoutedEventArgs e)
         {
             string answerNumber = (sender as Button).Name;
-            int.TryParse(answerNumber.Substring(6), out int index);
+            int.TryParse(answerNumber.Substring(6), out int index); // Add a check to see if parse succeeded
             Answer correctAnswer = gameController.CorrectAnswer(index);
             studentGameWindow.FillAnswer(correctAnswer);
         }
@@ -113,11 +120,40 @@ namespace FamilyFeudGame
         {
             gameController.StartRound(question.Id);
             studentGameWindow.question_box.Text = question.Text;
+            Play_Button.IsEnabled = false;
+            _isPlaying = true;
+            Wrong_Button.IsEnabled = true;
+            ToggleAnswers(true);
         }
 
-        private void wrong_answer(object sender, RoutedEventArgs e)
+        private void ToggleAnswers(bool toggle)
+        {
+            answer1.IsEnabled = toggle;
+            answer2.IsEnabled = toggle;
+            answer3.IsEnabled = toggle;
+            answer4.IsEnabled = toggle;
+            answer5.IsEnabled = toggle;
+            answer6.IsEnabled = toggle;
+            answer7.IsEnabled = toggle;
+            answer8.IsEnabled = toggle;
+        }
+
+        private void Wrong_Answer(object sender, RoutedEventArgs e)
         {
             gameController.WrongAnswer();
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            Team[] teams = gameController.GetTeams();
+            SectionSelectionWindow selectionWindow = new(teams[0], teams[1], dBController);
+            Close();
+            studentGameWindow.Close();
+        }
+
+        private void EndGame_Click(object sender, RoutedEventArgs e)
+        {
+            gameController.EndGame();
         }
     }
 }

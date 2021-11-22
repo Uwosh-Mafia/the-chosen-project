@@ -66,15 +66,15 @@
             </ListBox.ItemContainerStyle>
         </ListBox>
 
-        <Button Content="BACK"
+        <Button Name="Back_Button" Content="BACK"
                 Style="{StaticResource ButtonTheme}"
                 Grid.Column="0"
-                Grid.Row="0"/>
+                Grid.Row="0" Click="BackButton_Click"/>
 
-        <Button Content="END GAME"
+        <Button Name="EndGame_Button" Content="END GAME"
                 Style="{StaticResource ButtonTheme}"
                 Grid.Column="4"
-                Grid.Row="0"/>
+                Grid.Row="0" Click="EndGame_Click"/>
         <Grid Grid.Column="2"
               Grid.Row="1"
               Grid.ColumnSpan="2"
@@ -128,12 +128,12 @@
                          Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
             </StackPanel>
 
-            <Button Style="{StaticResource ButtonTheme}"
+            <Button Name="Wrong_Button" Style="{StaticResource ButtonTheme}"
                     Content="WRONG"
                     Grid.Column="0"
-                    Grid.Row="2" Click="wrong_answer"/>
+                    Grid.Row="2" Click="Wrong_Answer"/>
 
-            <Button Style="{StaticResource ButtonTheme}"
+            <Button Name="Play_Button" Style="{StaticResource ButtonTheme}"
                     Content="PLAY"
                     Grid.Column="1"
                     Grid.Row="2" Click="Play_Question"/>
