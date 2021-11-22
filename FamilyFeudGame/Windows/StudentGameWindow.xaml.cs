@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace FamilyFeudGame
 {
@@ -25,9 +26,7 @@ namespace FamilyFeudGame
         {
             InitializeComponent();
             this.gameController = gameController;
-            Team[] teams = gameController.GetTeams();
-            Team1Score.Text = teams[0].Name + ": " + teams[0].Points;
-            Team2Score.Text = teams[1].Name + ": " + teams[1].Points;
+            UpdatePoints();
         }
 
         public void FillAnswer(Answer answer)
@@ -59,6 +58,45 @@ namespace FamilyFeudGame
                     StudentAnswer8.Text = answer.Text;
                     break;
             }
+            UpdatePoints();
+        }
+
+        private void UpdatePoints()
+        {
+            Team[] teams = gameController.GetTeams();
+            Team1Score.Text = teams[0].Name + ": " + teams[0].Points;
+            Team2Score.Text = teams[1].Name + ": " + teams[1].Points;
+        }
+
+        public void DisplayWrong(int amountWrong)
+        {
+            switch(amountWrong)
+            {
+                case 1:
+                    OneWrong.Visibility = Visibility.Visible;
+                    PopupTimer(OneWrong);
+                    break;
+                case 2:
+                    TwoWrong.Visibility = Visibility.Visible;
+                    PopupTimer(OneWrong);
+                    break;
+                case 3:
+                    ThreeWrong.Visibility = Visibility.Visible;
+                    PopupTimer(OneWrong);
+                    break;
+            }
+        }
+
+        private void PopupTimer(TextBlock wrongPopup)
+        {
+            DispatcherTimer time = new();
+            time.Interval = TimeSpan.FromSeconds(3);
+            time.Start();
+            time.Tick += delegate
+            {
+                time.Stop();
+                wrongPopup.Visibility = Visibility.Collapsed;
+            };
         }
 
     }

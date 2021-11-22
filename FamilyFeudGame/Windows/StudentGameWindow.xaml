@@ -34,7 +34,7 @@
             <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <TextBlock Name="Team1Score"
                    Text="Team 1: 50"
                    Grid.Column="0"
@@ -110,6 +110,37 @@
                          Style="{StaticResource AnswerTextBox}"
                          Height="90"/>
             </StackPanel>
+
         </Grid>
+        <TextBlock x:Name="OneWrong" Grid.Column="1" Margin="51,66,50,0" Grid.Row="1" Height="252" Width="190" Visibility="Collapsed">
+            <InlineUIContainer>
+                <Image Source="Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </InlineUIContainer>
+        </TextBlock>
+        <TextBlock x:Name="TwoWrong" Margin="253,66,257,0" Grid.Row="1" Height="252" Width="410" Grid.ColumnSpan="3" Visibility="Collapsed">
+            <InlineUIContainer>
+                <Image Source="Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </InlineUIContainer>
+            <Run Text=" "/>
+            <InlineUIContainer>
+                <Image Source="Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </InlineUIContainer>
+        </TextBlock>
+        <TextBlock x:Name="ThreeWrong" Margin="141,66,139,0" Height="252" Width="640" Grid.ColumnSpan="3" Visibility="Collapsed" Grid.Row="1">
+            <InlineUIContainer>
+                <Image Source="Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </InlineUIContainer>
+            <Run Text=" "/>
+            <InlineUIContainer>
+                <Image Source="Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </InlineUIContainer>
+            <Run Text=" "/>
+            <InlineUIContainer>
+                <Image Source="Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </InlineUIContainer>
+        </TextBlock>
+
+
+
     </Grid>
 </Window>

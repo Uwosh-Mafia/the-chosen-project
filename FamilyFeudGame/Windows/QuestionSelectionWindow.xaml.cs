@@ -26,6 +26,7 @@ namespace FamilyFeudGame
         Section section;
         Question question;
         bool _isPlaying = false;
+        int _wrongAnswerCount = 0;
         public QuestionSelectionWindow(Section section, DBController controller, GameLogicController gameController, StudentGameWindow studentGameWindow)
         {
             InitializeComponent();
@@ -141,6 +142,8 @@ namespace FamilyFeudGame
         private void Wrong_Answer(object sender, RoutedEventArgs e)
         {
             gameController.WrongAnswer();
+            _wrongAnswerCount++;
+            studentGameWindow.DisplayWrong(_wrongAnswerCount);
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -154,6 +157,8 @@ namespace FamilyFeudGame
         private void EndGame_Click(object sender, RoutedEventArgs e)
         {
             gameController.EndGame();
+            Close();
+            studentGameWindow.Close();
         }
     }
 }
