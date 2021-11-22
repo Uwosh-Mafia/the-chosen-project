@@ -78,11 +78,11 @@ namespace FamilyFeudGame
                     break;
                 case 2:
                     TwoWrong.Visibility = Visibility.Visible;
-                    PopupTimer(OneWrong);
+                    PopupTimer(TwoWrong);
                     break;
                 case 3:
                     ThreeWrong.Visibility = Visibility.Visible;
-                    PopupTimer(OneWrong);
+                    PopupTimer(ThreeWrong);
                     break;
             }
         }
