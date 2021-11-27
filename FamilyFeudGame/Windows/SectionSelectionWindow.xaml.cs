@@ -23,6 +23,7 @@ namespace FamilyFeudGame
         private Team team1;
         private Team team2;
         public DBController dBController;
+        public GameLogicController gameController;
         public SectionSelectionWindow(Team team1, Team team2, DBController controller)
         {
             InitializeComponent();
@@ -54,9 +55,11 @@ namespace FamilyFeudGame
         {
             ListBox lbx = sender as ListBox;
             Section section = dBController.GetSection(lbx.SelectedIndex + 1); // there is no 0 section id. it starts 1
-            QuestionSelectionWindow questionSelectionWindow = new(section, dBController); // Fix me - Object required, didn't allow Section in QuestionSelectionWindow
+            gameController = new(section, team1, team2, 0);
+            StudentGameWindow studentGameWindow = new(gameController);
+            QuestionSelectionWindow questionSelectionWindow = new(section, dBController, gameController, studentGameWindow);
             questionSelectionWindow.Show();
-            StudentGameWindow studentGameWindow = new();
+
             studentGameWindow.Show();
             Close();
         }

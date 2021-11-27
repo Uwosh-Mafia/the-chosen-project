@@ -11,40 +11,6 @@
                             BorderThickness="2"
                             Width="300"
                             Height="75">
-
-                        <Grid>
-                            <Rectangle StrokeThickness="1"/>
-                            <TextBox Margin="1"
-                                      Text="{TemplateBinding Text}"
-                                      BorderThickness="0"
-                                      Background="Transparent"
-                                      VerticalContentAlignment="Center"
-                                      Padding="5"
-                                      Foreground="Black"
-                                      x:Name="TeamTextBox"/>
-
-                            <TextBlock IsHitTestVisible="False"
-                                   Text="Enter team name"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Left"
-                                   Margin="10,0,0,0"
-                                   FontSize="20"
-                                   Foreground="#444"
-                                   FontStyle="Italic"
-                                   Grid.Column="0">
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=TeamTextBox}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                        <Setter Property="Visibility" Value="Hidden"/>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-
-                        </Grid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
