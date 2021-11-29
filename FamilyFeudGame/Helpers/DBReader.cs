@@ -24,62 +24,43 @@ public class DBReader
     /// <returns></returns>
     public async Task loadExcelFile()
     {
-        try
-        {
-            using var package = new ExcelPackage(file);
-            await package.LoadAsync(file);
+        using var package = new ExcelPackage(file);
+        await package.LoadAsync(file);
 
-            for (int i = 0; i < package.Workbook.Worksheets.Count; i++)
-            {
-                Section section = await loadSectionFromExcel(package, i);
-                dbController.AddSection(section);
-            }
-        }
-        catch (AggregateException ea)
+        for (int i = 0; i < package.Workbook.Worksheets.Count; i++)
         {
-            Console.WriteLine("You have the excel file open somwhere else, please close ");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message.ToString());
+            Section section = await loadSectionFromExcel(package, i);
+            dbController.AddSection(section);
         }
     }
 
 
     private async Task<Section> loadSectionFromExcel(ExcelPackage package, int sectionID = 0)
     {
-        try
+        ExcelWorksheet ws = package.Workbook.Worksheets[PositionID: sectionID];
+        Section section = new(sectionID + 1, ws.Name); // section starts 0; we want 1
+
+        // Column number will keep track of questions, since our questions are columns 
+        int column = 1;
+
+        // While we still have questions in that column of the first row, keep reading
+        while (string.IsNullOrWhiteSpace(ws.Cells[1, column].Value?.ToString()) == false)
         {
-            ExcelWorksheet ws = package.Workbook.Worksheets[PositionID: sectionID];
-            Section section = new(sectionID + 1, ws.Name); // section starts 0; we want 1
-
-            // Column number will keep track of questions, since our questions are columns 
-            int column = 1;
-
-            // While we still have questions in that column of the first row, keep reading
-            while (string.IsNullOrWhiteSpace(ws.Cells[1, column].Value?.ToString()) == false)
+            Question question = readQuestionFromExcel(ws, column);
+            if (question == null)
             {
-                Question question = readQuestionFromExcel(ws, column);
-                if (question == null)
-                {
-                    // If there is an error and we can't read any cell 
-                    // remove everythig have already read and return null 
-                    section.clear();
-                    section = null;
-                    break;
-                }
-
-                section.AddQuestion(question);
-                // The question cell spans two colums, that is why we need to go right 2 colums each
-                column += 2;
+                // If there is an error and we can't read any cell 
+                // remove everythig have already read and return null 
+                section.clear();
+                section = null;
+                break;
             }
-            return section;
+
+            section.AddQuestion(question);
+            // The question cell spans two colums, that is why we need to go right 2 colums each
+            column += 2;
         }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message.ToString());
-            return null;
-        }
+        return section;
     }
 
 
@@ -110,7 +91,7 @@ public class DBReader
                     int points;
                     // If there is no points or points can not be int, assume the points are 0
                     bool success = int.TryParse(ws.Cells[row, column + 1].Value?.ToString(), out points);
-                    Answer answer = new(row-1, text, success ? points : 0);
+                    Answer answer = new(row - 1, text, success ? points : 0);
                     question.AddAnswer(answer);
                     row++;
                 }

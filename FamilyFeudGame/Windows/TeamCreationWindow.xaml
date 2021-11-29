@@ -80,6 +80,7 @@
                     HorizontalAlignment="Left"
                     Margin="104,0,0,0"
                     FontSize="20"
+                    Padding="5"
                     Foreground="#444"
                     FontStyle="Italic"
                     Grid.Column="0">
