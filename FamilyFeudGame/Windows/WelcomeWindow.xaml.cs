@@ -27,7 +27,6 @@ namespace FamilyFeudGame
         {
             InitializeComponent();
             dBController = new(dbmodel);
-            //   DBReader dBReader = new("a", dBController);
         }
 
         /// <summary>
@@ -40,24 +39,40 @@ namespace FamilyFeudGame
             await reader.loadExcelFile();
         }
 
+        /// <summary>
+        /// The welcome bottom is the frist button user calls to start the game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void BtnWelcome_Click(object sender, RoutedEventArgs e)
         {
-            // Configure open file dialog box
-            var dialog = new Microsoft.Win32.OpenFileDialog();
-            dialog.Filter = "Text documents (.xlsx)|*.xlsx"; // Filter files by extension
-
-            // Show open file dialog box
-            bool? result = dialog.ShowDialog();
-
-            // Process open file dialog box results
-            if (result == true)
+            try
             {
-                await loadExcelFileData(dialog.FileName);
-            }
+                // Configure open file dialog box
+                var dialog = new Microsoft.Win32.OpenFileDialog();
+                dialog.Filter = "Text documents (.xlsx)|*.xlsx"; // Filter files by extension
 
-            TeamCreationWindow teamCreationWindow = new(dBController);
-            teamCreationWindow.Show();
-            Close();
+                // Show open file dialog box
+                bool? result = dialog.ShowDialog();
+
+                // Process open file dialog box results
+                if (result == true)
+                {
+                    await loadExcelFileData(dialog.FileName);
+                }
+
+                TeamCreationWindow teamCreationWindow = new(dBController);
+                teamCreationWindow.Show();
+                Close();
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Please close the excel file first");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sorry, something went wrong");
+            }
         }
     }
 }

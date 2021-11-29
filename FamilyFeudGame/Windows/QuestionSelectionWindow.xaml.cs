@@ -45,11 +45,11 @@ namespace FamilyFeudGame
         private void PopulateQuestions()
         {
             List<Question> questions = section.GetQuestions();
-            String[] sectionNames = new string[questions.Count];
+            String[] questionNames = new string[questions.Count];
 
             for (int i = 0; i < questions.Count; i++)
-                sectionNames[i] = questions[i].Text;
-            QuestionBox.ItemsSource = sectionNames;
+                questionNames[i] = questions[i].Text;
+            QuestionBox.ItemsSource = questionNames;
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

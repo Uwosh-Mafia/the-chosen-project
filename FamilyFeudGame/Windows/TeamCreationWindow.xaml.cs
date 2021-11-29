@@ -29,26 +29,61 @@ namespace FamilyFeudGame
 
         private void BtnTeam1_Click(object sender, RoutedEventArgs e)
         {
-            Team team1 = new(txtTeam1.Text, true);
-            Team team2 = new(txtTeam2.Text, false);
-            SectionSelectionWindow sectionSelectionWindow = new(team1, team2, dBController);
-            sectionSelectionWindow.Show();
-            Close();
+            try
+            {
+                (Team, Team) teams = createTeamsInOrder(team1First: true);
+                CallSelectionWindow(teams.Item1, teams.Item2);
+                Close();
+            }
+            catch (Exception)
+            {
+               showInvalidMassage();
+            }
         }
 
         private void BtnTeam2_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                (Team, Team) teams = createTeamsInOrder(team1First: false);
+                CallSelectionWindow(teams.Item1, teams.Item2);
+                Close();
+            }
+            catch (Exception)
+            {
+                showInvalidMassage();
+            }
         }
 
-        private void txtTeam1_TextChanged(object sender, TextChangedEventArgs e)
+        private void showInvalidMassage()
         {
-
+            MessageBox.Show($"Team Name Length must be more than 2 characters long.");
         }
 
-        private void txtTeam2_TextChanged(object sender, TextChangedEventArgs e)
+        private (Team, Team) createTeamsInOrder(bool team1First)
         {
+            if (!isNameValid(txtTeam1.Text))
+                throw new Exception("Invalid Name");
 
+            if (!isNameValid(txtTeam2.Text))
+                throw new Exception("Invalid Name");
+
+            Team team1 = new(txtTeam1.Text, team1First);
+            Team team2 = new(txtTeam2.Text, !team1First);
+
+            return team1First ? (team1, team2) : (team2, team1);
         }
+
+        private void CallSelectionWindow(Team first, Team second)
+        {
+            SectionSelectionWindow sectionSelectionWindow = new(first, second, dBController);
+            sectionSelectionWindow.Show();
+        }
+
+        private bool isNameValid(string name)
+        {
+            return name.Length > 2 ;
+        }
+
     }
 }
