@@ -59,11 +59,10 @@ namespace FamilyFeudGame
                 if (result == true)
                 {
                     await loadExcelFileData(dialog.FileName);
+                    TeamCreationWindow teamCreationWindow = new(dBController);
+                    teamCreationWindow.Show();
+                    Close();
                 }
-
-                TeamCreationWindow teamCreationWindow = new(dBController);
-                teamCreationWindow.Show();
-                Close();
             }
             catch (IOException ex)
             {
