@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JE9bM94JYZnlNHaarqnI7EDTP2lIXDYzVRW0A5jgrd/BO7NRrBwZXZ0cEG7cWazUH2QBPoa5Olou0uNc/7lH+Q==",
+  "dgSpecHash": "rSPHTm4SWdxXa2d2Vz68umuRJ+rBuvu/Tj2dIMoq3dyWmzBkwet7Gg2CURtA1/u6yflYYaM3z8xUwyyNnFeiFA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\epple\\OneDrive\\Documents\\Fall 2021\\CS341_SoftwareEngineering\\Project-Main\\FamilyFeudGame\\FamilyFeudGame.csproj",
+  "projectFilePath": "C:\\Users\\epple\\OneDrive\\Documents\\Fall 2021\\CS341_SoftwareEngineering\\Project-12-6\\FamilyFeudGame\\FamilyFeudGame.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\epple\\.nuget\\packages\\epplus\\5.8.2\\epplus.5.8.2.nupkg.sha512",
     "C:\\Users\\epple\\.nuget\\packages\\microsoft.extensions.configuration\\5.0.0\\microsoft.extensions.configuration.5.0.0.nupkg.sha512",

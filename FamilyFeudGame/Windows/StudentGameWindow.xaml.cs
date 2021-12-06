@@ -1,17 +1,9 @@
 ﻿using FamilyFeudGame.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Media;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace FamilyFeudGame
@@ -22,6 +14,7 @@ namespace FamilyFeudGame
     public partial class StudentGameWindow : Window
     {
         GameLogicController gameController;
+        private SoundPlayer soundPlayer;
         public StudentGameWindow(GameLogicController gameController)
         {
             InitializeComponent();
@@ -33,36 +26,43 @@ namespace FamilyFeudGame
         {
             switch (answer.Id) // ID's start at 1
             {
-                case 1:
-                    StudentAnswer1.Text = answer.Text;
+                case 1: // Still need to style --> maybe second box?
+                    StudentAnswer1.Content = answer.Text + "\t" + answer.Points;
                     break;
                 case 2:
-                    StudentAnswer2.Text = answer.Text;
+                    StudentAnswer2.Content = answer.Text + "\t" + answer.Points;
                     break;
                 case 3:
-                    StudentAnswer3.Text = answer.Text;
+                    StudentAnswer3.Content = answer.Text + "\t" + answer.Points;
                     break;
                 case 4:
-                    StudentAnswer4.Text = answer.Text;
+                    StudentAnswer4.Content = answer.Text + "\t" + answer.Points;
                     break;
                 case 5:
-                    StudentAnswer5.Text = answer.Text;
+                    StudentAnswer5.Content = answer.Text + "\t" + answer.Points;
                     break;
                 case 6:
-                    StudentAnswer6.Text = answer.Text;
+                    StudentAnswer6.Content = answer.Text + "\t" + answer.Points;
                     break;
                 case 7:
-                    StudentAnswer7.Text = answer.Text;
+                    StudentAnswer7.Content = answer.Text + "\t" + answer.Points;
                     break;
                 case 8:
-                    StudentAnswer8.Text = answer.Text;
+                    StudentAnswer8.Content = answer.Text + "\t" + answer.Points;
                     break;
             }
+            RoundPointsUpdate();
             UpdatePoints();
+        }
+        
+        private void RoundPointsUpdate()
+        {
+            RoundScore.Text = gameController.GetRoundPoints().ToString();
         }
 
         private void UpdatePoints()
         {
+            
             Team[] teams = gameController.GetTeams();
             Team1Score.Text = teams[0].Name + ": " + teams[0].Points;
             Team2Score.Text = teams[1].Name + ": " + teams[1].Points;
@@ -90,7 +90,14 @@ namespace FamilyFeudGame
         private void PopupTimer(TextBlock wrongPopup)
         {
             DispatcherTimer time = new();
-            time.Interval = TimeSpan.FromSeconds(3);
+            string fileName = "Family Feud Sound Effects - #1 Main Game - #2 Strike.wav";
+            string directory = Environment.CurrentDirectory;
+            directory = directory.Substring(0, directory.IndexOf("\\bin")); // To get rid of bin\Debug\net5.0-windows\ part 
+            string path = Path.Combine(directory, @"Windows\Sounds\", fileName);
+            soundPlayer = new(path);
+            soundPlayer.Load();
+            soundPlayer.Play();
+            time.Interval = TimeSpan.FromSeconds(1.2);
             time.Start();
             time.Tick += delegate
             {

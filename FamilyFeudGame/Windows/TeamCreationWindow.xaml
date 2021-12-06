@@ -72,7 +72,7 @@
                     Padding="5"
                     Foreground="Black"
                     x:Name="txtTeam1" 
-                    Width="292" Height="80"/>
+                    Width="248" Height="80"/>
 
             <TextBlock IsHitTestVisible="False"
                     Text="Enter team name"
@@ -102,18 +102,17 @@
             <Rectangle StrokeThickness="1"/>
             <TextBox Style="{StaticResource TeamTextBox}"/>
             <TextBox 
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontFamily="Segoe UI Variable Small Semibold"
                     FontSize="20"
-                    Margin="104,0,0,0"
                     BorderThickness="0"
                     Background="Transparent"
                     VerticalContentAlignment="Center"
                     Padding="5"
                     Foreground="Black"
                     x:Name="txtTeam2"
-                    Width="292" Height="80"/>
+                    Width="248" Height="80"/>
 
             <TextBlock IsHitTestVisible="False"
                     Text="Enter team name"
