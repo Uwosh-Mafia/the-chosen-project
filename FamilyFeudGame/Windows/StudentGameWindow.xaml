@@ -51,7 +51,7 @@
                    Text="Round"
                    Grid.Column="1"
                    Grid.Row="0"
-                   HorizontalAlignment="Center"/>
+                   HorizontalAlignment="Center" Margin="0,10,0,0"/>
 
         <Grid HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch"
@@ -80,61 +80,61 @@
                     Grid.Row="1"
                     VerticalAlignment="Stretch">
 
-                <TextBox x:Name="StudentAnswer1" Text="1"
-                         Style="{StaticResource AnswerTextBox}"
+                <Label x:Name="StudentAnswer1" Content="1"
+                         Style="{StaticResource AnswerLabel}"
                          Height="90"/>
-                <TextBox x:Name="StudentAnswer2" Text="2"
-                         Style="{StaticResource AnswerTextBox}"
+                <Label x:Name="StudentAnswer2" Content="2"
+                         Style="{StaticResource AnswerLabel}"
                          Height="90"/>
-                <TextBox x:Name="StudentAnswer3" Text="3"
-                         Style="{StaticResource AnswerTextBox}"
+                <Label x:Name="StudentAnswer3" Content="3"
+                         Style="{StaticResource AnswerLabel}"
                          Height="90"/>
-                <TextBox x:Name="StudentAnswer4" Text="4"
-                         Style="{StaticResource AnswerTextBox}"
+                <Label x:Name="StudentAnswer4" Content="4"
+                         Style="{StaticResource AnswerLabel}"
                          Height="90"/>
             </StackPanel>
 
             <StackPanel Grid.Column="1"
                         Grid.Row="1"
                         VerticalAlignment="Stretch">
-                <TextBox x:Name="StudentAnswer5" Text="5"
-                         Style="{StaticResource AnswerTextBox}"
+                <Label x:Name="StudentAnswer5" Content="5"
+                         Style="{StaticResource AnswerLabel}"
                          Height="90"/>
-                <TextBox x:Name="StudentAnswer6" Text="6"
-                         Style="{StaticResource AnswerTextBox}"
+                <Label x:Name="StudentAnswer6" Content="6"
+                         Style="{StaticResource AnswerLabel}"
                          Height="90"/>
-                <TextBox x:Name="StudentAnswer7" Text="7"
-                         Style="{StaticResource AnswerTextBox}"
+                <Label x:Name="StudentAnswer7" Content="7"
+                         Style="{StaticResource AnswerLabel}"
                          Height="90"/>
-                <TextBox x:Name="StudentAnswer8" Text="8"
-                         Style="{StaticResource AnswerTextBox}"
+                <Label x:Name="StudentAnswer8" Content="8"
+                         Style="{StaticResource AnswerLabel}"
                          Height="90"/>
             </StackPanel>
 
         </Grid>
-        <TextBlock x:Name="OneWrong" Grid.Column="1" Margin="51,66,50,0" Grid.Row="1" Height="252" Width="190" Visibility="Collapsed">
+        <TextBlock x:Name="OneWrong" Margin="0,66,0,0" Height="252" Grid.ColumnSpan="3" Visibility="Collapsed" Grid.Row="1" HorizontalAlignment="Center">
             <InlineUIContainer>
                 <Image Source="Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </InlineUIContainer>
         </TextBlock>
-        <TextBlock x:Name="TwoWrong" Margin="253,66,257,0" Grid.Row="1" Height="252" Width="410" Grid.ColumnSpan="3" Visibility="Collapsed">
+        <TextBlock x:Name="TwoWrong" Margin="0,66,0,0" Height="252" Grid.ColumnSpan="3" Visibility="Collapsed" Grid.Row="1" HorizontalAlignment="Center">
             <InlineUIContainer>
                 <Image Source="Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </InlineUIContainer>
-            <Run Text=" "/>
+            <Run Text=""/>
             <InlineUIContainer>
                 <Image Source="Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </InlineUIContainer>
         </TextBlock>
-        <TextBlock x:Name="ThreeWrong" Margin="141,66,139,0" Height="252" Width="640" Grid.ColumnSpan="3" Visibility="Collapsed" Grid.Row="1">
+        <TextBlock x:Name="ThreeWrong" Margin="0,66,0,0" Height="252" Grid.ColumnSpan="3" Visibility="Collapsed" Grid.Row="1" HorizontalAlignment="Center">
             <InlineUIContainer>
                 <Image Source="Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </InlineUIContainer>
-            <Run Text=" "/>
+            <Run Text=""/>
             <InlineUIContainer>
                 <Image Source="Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </InlineUIContainer>
-            <Run Text=" "/>
+            <Run Text=""/>
             <InlineUIContainer>
                 <Image Source="Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </InlineUIContainer>

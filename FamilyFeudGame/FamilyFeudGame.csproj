@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <StartupObject>FamilyFeudGame.App</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +13,7 @@
     <None Remove="Windows\Images\Logo_of_Family_Feud.png" />
     <None Remove="Windows\Images\uwoshlogo.png" />
     <None Remove="Windows\Images\WrongAnswer.png" />
+    <None Remove="Windows\Sounds\Family Feud Sound Effects - #1 Main Game - #2 Strike.wav" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +30,7 @@
     <Resource Include="Windows\Images\WrongAnswer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Windows\Sounds\Family Feud Sound Effects - #1 Main Game - #2 Strike.wav" />
   </ItemGroup>
 
 </Project>

@@ -4445,11 +4445,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\epple\\OneDrive\\Documents\\Fall 2021\\CS341_SoftwareEngineering\\Project-Main\\FamilyFeudGame\\FamilyFeudGame.csproj",
+      "projectUniqueName": "C:\\Users\\epple\\OneDrive\\Documents\\Fall 2021\\CS341_SoftwareEngineering\\Project-12-6\\FamilyFeudGame\\FamilyFeudGame.csproj",
       "projectName": "FamilyFeudGame",
-      "projectPath": "C:\\Users\\epple\\OneDrive\\Documents\\Fall 2021\\CS341_SoftwareEngineering\\Project-Main\\FamilyFeudGame\\FamilyFeudGame.csproj",
+      "projectPath": "C:\\Users\\epple\\OneDrive\\Documents\\Fall 2021\\CS341_SoftwareEngineering\\Project-12-6\\FamilyFeudGame\\FamilyFeudGame.csproj",
       "packagesPath": "C:\\Users\\epple\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\epple\\OneDrive\\Documents\\Fall 2021\\CS341_SoftwareEngineering\\Project-Main\\FamilyFeudGame\\obj\\",
+      "outputPath": "C:\\Users\\epple\\OneDrive\\Documents\\Fall 2021\\CS341_SoftwareEngineering\\Project-12-6\\FamilyFeudGame\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
