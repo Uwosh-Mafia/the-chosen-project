@@ -8,7 +8,7 @@ public class Round
     private int _CorrectAnswerCount { get; set; }
     private int _WrongAnswerCounter { get; set; }
     private Boolean _isStealing { get; set; }
-    private Boolean _isRoundOver { get; set; }
+    public Boolean isRoundOver { get; set; }
     public Round(Question _CurrQuestion)
     {
         this._CurrQuestion = _CurrQuestion;
@@ -17,7 +17,7 @@ public class Round
         PointBucket = 0;
         _WrongAnswerCounter = 0;
         _isStealing = false;
-        _isRoundOver = false;
+        isRoundOver = false;
     }
     /// <summary>
     /// This will will increase the _WrongAnswerCounter.
@@ -26,7 +26,7 @@ public class Round
     public void WrongAnswer()
     {
         _WrongAnswerCounter++;
-        if (_WrongAnswerCounter >= 3 && !_isRoundOver)
+        if (_WrongAnswerCounter >= 3 && !isRoundOver)
         {
             _isStealing = true;
         }
@@ -53,11 +53,11 @@ public class Round
     /// <summary>
     /// This will determine if the current round is over. 
     /// </summary>
-    private void IsCurrentRoundOver()
+    private void IsRoundOver() // Do we need this method since we don't call it 
     {
         if ((_WrongAnswerCounter >= 3 && _isStealing == false) || PointBucket == _TotalPoints)
         {
-            _isRoundOver = true;
+            isRoundOver = true;
         }
     }
 }

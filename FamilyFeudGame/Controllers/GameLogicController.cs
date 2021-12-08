@@ -8,7 +8,6 @@ public class GameLogicController
     private Section _theChosenSection { get; set; }
     public List<Question> questions = new();
     public Boolean showAnswers { get; set; }
-    private int _currentQuestionIndex { get; set; }
     public Boolean isGameOver { get; set; }
     private int _currentTeam { get; set; }
     private Round _currRound { get; set; }
@@ -20,7 +19,6 @@ public class GameLogicController
         _theChosenSection = currSection;
         questions = _theChosenSection.GetQuestions();
         showAnswers = false;
-        _currentQuestionIndex = 0;
         isGameOver = false;
         _currentTeam = currentTeamIndex;
     }
@@ -41,10 +39,10 @@ public class GameLogicController
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    private Question SetCurrentQuestion(int id)
+    public void SelectQuestion(int id)
     {
-        _currentQuestionIndex = id;
-        return _theChosenSection.GetQuestion(id);
+        var question =  _theChosenSection.GetQuestion(id);
+        StartRound(question);
     }
 
     /// <summary>
@@ -96,6 +94,11 @@ public class GameLogicController
             isGameOver = true;
         }
     }
+
+    public bool GameIsNotOver()
+    {
+        return !isGameOver;
+    }
     /// <summary>
     /// This will determine if there is a winner and it will return who it is or null if it is a tie.
     /// </summary>
@@ -144,8 +147,15 @@ public class GameLogicController
     /// Please not I'm a little confused on what this is suppose to do
     /// </summary>
     /// <param name="currRound"></param>
-    public void StartRound(int questionId)
+    public void StartRound(Question question)
     {
-		this._currRound = new(SetCurrentQuestion(questionId));
+        this._currRound = new Round(question);
     }
+
+    public bool RoundIsNotOver()
+    {
+        return !_currRound.isRoundOver;
+    }
+
+
 }
