@@ -26,7 +26,12 @@ namespace FamilyFeudGame
             InitializeComponent();
             dBController = controller;
         }
-
+        /// <summary>
+        /// This will upload both teams and allow the first team to play first. 
+        /// This will close the window and go to the next stage of the program.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnTeam1_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -40,7 +45,12 @@ namespace FamilyFeudGame
                showInvalidMassage();
             }
         }
-
+        /// <summary>
+        /// This will upload both teams and allow the second team to play first. 
+        /// This will close the current window and go to the next stage of the program.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnTeam2_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -54,12 +64,18 @@ namespace FamilyFeudGame
                 showInvalidMassage();
             }
         }
-
+        /// <summary>
+        /// This will show a message box saying the user inputed name is in valid.
+        /// </summary>
         private void showInvalidMassage()
         {
             MessageBox.Show($"Team Name Length must be more than 2 characters long and at max 20 characters.");
         }
-
+        /// <summary>
+        /// This will create the teams based on the user input.
+        /// </summary>
+        /// <param name="team1First"></param>
+        /// <returns></returns>
         private (Team, Team) createTeamsInOrder(bool team1First)
         {
             if (!isNameValid(txtTeam1.Text))
@@ -73,13 +89,21 @@ namespace FamilyFeudGame
 
             return team1First ? (team1, team2) : (team2, team1);
         }
-
+        /// <summary>
+        /// This will pull up the next window in the program. 
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
         private void CallSelectionWindow(Team first, Team second)
         {
             SectionSelectionWindow sectionSelectionWindow = new(first, second, dBController);
             sectionSelectionWindow.Show();
         }
-
+        /// <summary>
+        /// This will test if the user input names are valid.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         private bool isNameValid(string name)
         {
             return name.Length > 2 && name.Length < 21 ;

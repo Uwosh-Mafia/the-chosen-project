@@ -47,7 +47,7 @@ namespace FamilyFeudGame
         }
 
         /// <summary>
-        /// This method handles when we select an item
+        /// This method handles when we select a section.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
