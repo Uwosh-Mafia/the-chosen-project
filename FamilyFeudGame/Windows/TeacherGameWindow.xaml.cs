@@ -53,7 +53,11 @@ namespace FamilyFeudGame
                 questionNames[i] = questions[i].Text;
             QuestionBox.ItemsSource = questionNames;
         }
-
+        /// <summary>
+        /// This will allow the game host 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!_isPlaying)
@@ -65,6 +69,9 @@ namespace FamilyFeudGame
                 question_text.Text = question.Text;
             }
         }
+        /// <summary>
+        /// This will clear the answers on each of the buttons once the round is over. 
+        /// </summary>
         private void ClearAnswers()
         {
             answer1.Content = "";
@@ -76,7 +83,10 @@ namespace FamilyFeudGame
             answer7.Content = "";
             answer8.Content = "";
         }
-
+        /// <summary>
+        /// Once a question is selected and being played this will fill in the buttons the game host can select from. 
+        /// </summary>
+        /// <param name="answers"></param>
         private void FillAnswers(List<Answer> answers)
         {
             _answerCount = answers.Count;
@@ -111,7 +121,12 @@ namespace FamilyFeudGame
                 }
             }
         }
-
+        /// <summary>
+        /// This will allow the game host to select the correct answer.
+        /// The method allows the game host to select the same answer once. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CorrectAnswer(object sender, RoutedEventArgs e)
         {
             string answerNumber = (sender as Button).Name;
@@ -146,7 +161,11 @@ namespace FamilyFeudGame
                     break;
             }
         }
-
+        /// <summary>
+        /// This method will allow the game host to play the selected question.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Play_Question(object sender, RoutedEventArgs e)
         {
             gameController.StartRound(question.Id);
@@ -156,7 +175,12 @@ namespace FamilyFeudGame
             Wrong_Button.IsEnabled = true;
             ToggleAnswers(true);
         }
-
+        /// <summary>
+        /// This method allows the buttons to be toggled on and off.
+        /// It acts like a filter. 
+        /// It allows all the falses and only the required number of trues. 
+        /// </summary>
+        /// <param name="toggle"></param>
         private void ToggleAnswers(bool toggle)
         {
             if (_answerCount >= 1 || toggle == false)
@@ -183,14 +207,23 @@ namespace FamilyFeudGame
             if (_answerCount >= 8 || toggle == false)
                 answer8.IsEnabled = toggle;
         }
-
+        /// <summary>
+        /// This enables the game host to select the wrong answer button.
+        /// The game host will select this when the playing team says a wrong answer. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Wrong_Answer(object sender, RoutedEventArgs e)
         {
             gameController.WrongAnswer();
             _wrongAnswerCount++;
             studentGameWindow.DisplayWrong(_wrongAnswerCount);
         }
-
+        /// <summary>
+        /// This will allow the user to return the section selection page if they picked the worng answer.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Team[] teams = gameController.GetTeams();
@@ -198,7 +231,11 @@ namespace FamilyFeudGame
             Close();
             studentGameWindow.Close();
         }
-
+        /// <summary>
+        /// This will allow the game host to manually end the game before every question has been answered. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EndGame_Click(object sender, RoutedEventArgs e)
         {
             gameController.EndGame();
