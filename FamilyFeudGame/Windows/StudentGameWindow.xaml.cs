@@ -27,47 +27,47 @@ namespace FamilyFeudGame
 
         public void FillAnswer(Answer answer)
         {
-            switch (answer.Id) // ID's start at 1
+            switch (answer.Id)
             {
-                case 1: // Still need to style --> maybe second box?
+                case 1:
                     StudentAnswer1.Content = answer.Text;
                     Answer1PointsImg.Visibility = Visibility.Hidden;
-                    Answer1Points.Content = answer.Points;
+                    Answer1Points.Content = answer.Points.ToString();
                     break;
                 case 2:
                     StudentAnswer2.Content = answer.Text;
                     Answer2PointsImg.Visibility = Visibility.Hidden;
-                    Answer2Points.Content = answer.Points;
+                    Answer2Points.Content = answer.Points.ToString();
                     break;
                 case 3:
                     StudentAnswer3.Content = answer.Text;
                     Answer3PointsImg.Visibility = Visibility.Hidden;
-                    Answer3Points.Content = answer.Points;
+                    Answer3Points.Content = answer.Points.ToString();
                     break;
                 case 4:
                     StudentAnswer4.Content = answer.Text;
                     Answer4PointsImg.Visibility = Visibility.Hidden;
-                    Answer4Points.Content = answer.Points;
+                    Answer4Points.Content = answer.Points.ToString();
                     break;
                 case 5:
                     StudentAnswer5.Content = answer.Text;
                     Answer5PointsImg.Visibility = Visibility.Hidden;
-                    Answer5Points.Content = answer.Points;
+                    Answer5Points.Content = answer.Points.ToString();
                     break;
                 case 6:
                     StudentAnswer6.Content = answer.Text;
                     Answer6PointsImg.Visibility = Visibility.Hidden;
-                    Answer6Points.Content = answer.Points;
+                    Answer6Points.Content = answer.Points.ToString();
                     break;
                 case 7:
                     StudentAnswer7.Content = answer.Text;
                     Answer7PointsImg.Visibility = Visibility.Hidden;
-                    Answer7Points.Content = answer.Points;
+                    Answer7Points.Content = answer.Points.ToString();
                     break;
                 case 8:
                     StudentAnswer8.Content = answer.Text;
                     Answer8PointsImg.Visibility = Visibility.Hidden;
-                    Answer8Points.Content = answer.Points;
+                    Answer8Points.Content = answer.Points.ToString();
                     break;
             }
             RoundPointsUpdate();
