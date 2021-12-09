@@ -14,11 +14,14 @@ namespace FamilyFeudGame
     public partial class StudentGameWindow : Window
     {
         GameLogicController gameController;
-        private SoundPlayer soundPlayer;
+        private SoundPlayer _soundPlayer;
+        private Team[] _teams;
         public StudentGameWindow(GameLogicController gameController)
         {
             InitializeComponent();
             this.gameController = gameController;
+            _teams = gameController.GetTeams();
+            ShowTeamNames();
             UpdatePoints();
         }
 
@@ -27,28 +30,44 @@ namespace FamilyFeudGame
             switch (answer.Id) // ID's start at 1
             {
                 case 1: // Still need to style --> maybe second box?
-                    StudentAnswer1.Content = answer.Text + "\t" + answer.Points;
+                    StudentAnswer1.Content = answer.Text;
+                    Answer1PointsImg.Visibility = Visibility.Hidden;
+                    Answer1Points.Content = answer.Points;
                     break;
                 case 2:
-                    StudentAnswer2.Content = answer.Text + "\t" + answer.Points;
+                    StudentAnswer2.Content = answer.Text;
+                    Answer2PointsImg.Visibility = Visibility.Hidden;
+                    Answer2Points.Content = answer.Points;
                     break;
                 case 3:
-                    StudentAnswer3.Content = answer.Text + "\t" + answer.Points;
+                    StudentAnswer3.Content = answer.Text;
+                    Answer3PointsImg.Visibility = Visibility.Hidden;
+                    Answer3Points.Content = answer.Points;
                     break;
                 case 4:
-                    StudentAnswer4.Content = answer.Text + "\t" + answer.Points;
+                    StudentAnswer4.Content = answer.Text;
+                    Answer4PointsImg.Visibility = Visibility.Hidden;
+                    Answer4Points.Content = answer.Points;
                     break;
                 case 5:
-                    StudentAnswer5.Content = answer.Text + "\t" + answer.Points;
+                    StudentAnswer5.Content = answer.Text;
+                    Answer5PointsImg.Visibility = Visibility.Hidden;
+                    Answer5Points.Content = answer.Points;
                     break;
                 case 6:
-                    StudentAnswer6.Content = answer.Text + "\t" + answer.Points;
+                    StudentAnswer6.Content = answer.Text;
+                    Answer6PointsImg.Visibility = Visibility.Hidden;
+                    Answer6Points.Content = answer.Points;
                     break;
                 case 7:
-                    StudentAnswer7.Content = answer.Text + "\t" + answer.Points;
+                    StudentAnswer7.Content = answer.Text;
+                    Answer7PointsImg.Visibility = Visibility.Hidden;
+                    Answer7Points.Content = answer.Points;
                     break;
                 case 8:
-                    StudentAnswer8.Content = answer.Text + "\t" + answer.Points;
+                    StudentAnswer8.Content = answer.Text;
+                    Answer8PointsImg.Visibility = Visibility.Hidden;
+                    Answer8Points.Content = answer.Points;
                     break;
             }
             RoundPointsUpdate();
@@ -60,23 +79,27 @@ namespace FamilyFeudGame
             RoundScore.Text = gameController.GetRoundPoints().ToString();
         }
 
+        private void ShowTeamNames()
+        {
+            if (_teams[0].Name.Length >= 15)
+            {
+                Team1.FontSize = 20;
+                Team1.Margin = new Thickness(0, 23, 0, 0);
+            }
+
+            if (_teams[1].Name.Length >= 15)
+            {
+                Team2.FontSize = 20;
+                Team2.Margin = new Thickness(0, 23, 0, 0);
+            }
+
+            Team1.Text = _teams[0].Name.ToUpper();
+            Team2.Text = _teams[1].Name.ToUpper();
+        }
         private void UpdatePoints()
         {
-            Team[] teams = gameController.GetTeams();
-            if (teams[0].Name.Length >= 15) 
-            {
-                Team1Score.FontSize = 20;
-                Team1Score.Margin = new Thickness(0, 23, 0, 0);
-            }
-
-            if (teams[1].Name.Length >= 15)
-            {
-                Team2Score.FontSize = 20;
-                Team2Score.Margin = new Thickness(0, 23, 0, 0);
-            }
-
-            Team1Score.Text = teams[0].Name + ": " + teams[0].Points;
-            Team2Score.Text = teams[1].Name + ": " + teams[1].Points;
+            Team1Score.Text = $"{_teams[0].Points}";
+            Team2Score.Text = $"{_teams[1].Points}";
         }
 
         public void DisplayWrong(int amountWrong)
@@ -105,9 +128,9 @@ namespace FamilyFeudGame
             string directory = Environment.CurrentDirectory;
             directory = directory.Substring(0, directory.IndexOf("\\bin")); // To get rid of bin\Debug\net5.0-windows\ part 
             string path = Path.Combine(directory, @"Windows\Sounds\", fileName);
-            soundPlayer = new(path);
-            soundPlayer.Load();
-            soundPlayer.Play();
+            _soundPlayer = new(path);
+            _soundPlayer.Load();
+            _soundPlayer.Play();
             time.Interval = TimeSpan.FromSeconds(1.2);
             time.Start();
             time.Tick += delegate

@@ -11,6 +11,7 @@
     <None Remove="Windows\Family Feud.jpg" />
     <None Remove="Windows\familyfeud-fb.jpg" />
     <None Remove="Windows\Images\Logo_of_Family_Feud.png" />
+    <None Remove="Windows\Images\titanlogo.png" />
     <None Remove="Windows\Images\uwoshlogo.png" />
     <None Remove="Windows\Images\WrongAnswer.png" />
     <None Remove="Windows\Sounds\Family Feud Sound Effects - #1 Main Game - #2 Strike.wav" />
@@ -24,6 +25,7 @@
     <Resource Include="Windows\Images\Logo_of_Family_Feud.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Windows\Images\titanlogo.png" />
     <Resource Include="Windows\Images\uwoshlogo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

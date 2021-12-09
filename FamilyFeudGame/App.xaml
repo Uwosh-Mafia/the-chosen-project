@@ -8,8 +8,9 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Windows/Theme/ButtonTheme.xaml"/>
                 <ResourceDictionary Source="/Windows/Theme/TeamTextBoxTheme.xaml"/>
-                <ResourceDictionary Source="/Windows/Theme/AnswerTextBoxTheme.xaml"/>
+                <ResourceDictionary Source="/Windows/Theme/AnswerLabelTheme.xaml"/>
                 <ResourceDictionary Source="/Windows/Theme/AnswerButtonTheme.xaml"/>
+                <ResourceDictionary Source="/Windows/Theme/PointsLabelTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
