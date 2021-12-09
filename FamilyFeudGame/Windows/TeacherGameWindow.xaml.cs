@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 namespace FamilyFeudGame
 {
     /// <summary>
-    /// Interaction logic for QuestionSelectionWindow.xaml
+    /// Interaction logic for TeacherGameWindow.xaml
     /// </summary>
-    public partial class QuestionSelectionWindow : Window
+    public partial class TeacherGameWindow : Window
     {
         DBController dBController;
         GameLogicController gameController;
@@ -29,7 +29,7 @@ namespace FamilyFeudGame
         private int _wrongAnswerCount = 0;
         private int _answerCount;
 
-        public QuestionSelectionWindow(Section section, DBController controller, GameLogicController gameController, StudentGameWindow studentGameWindow)
+        public TeacherGameWindow(Section section, DBController controller, GameLogicController gameController, StudentGameWindow studentGameWindow)
         {
             InitializeComponent();
             this.dBController = controller;
