@@ -57,7 +57,7 @@ namespace FamilyFeudGame
 
         private void showInvalidMassage()
         {
-            MessageBox.Show($"Team Name Length must be more than 2 characters long.");
+            MessageBox.Show($"Team Name Length must be more than 2 characters long and at max 20 characters.");
         }
 
         private (Team, Team) createTeamsInOrder(bool team1First)
@@ -82,7 +82,7 @@ namespace FamilyFeudGame
 
         private bool isNameValid(string name)
         {
-            return name.Length > 2 ;
+            return name.Length > 2 && name.Length < 21 ;
         }
 
     }

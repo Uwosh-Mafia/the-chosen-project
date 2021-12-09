@@ -62,8 +62,19 @@ namespace FamilyFeudGame
 
         private void UpdatePoints()
         {
-            
             Team[] teams = gameController.GetTeams();
+            if (teams[0].Name.Length >= 15) 
+            {
+                Team1Score.FontSize = 20;
+                Team1Score.Margin = new Thickness(0, 23, 0, 0);
+            }
+
+            if (teams[1].Name.Length >= 15)
+            {
+                Team2Score.FontSize = 20;
+                Team2Score.Margin = new Thickness(0, 23, 0, 0);
+            }
+
             Team1Score.Text = teams[0].Name + ": " + teams[0].Points;
             Team2Score.Text = teams[1].Name + ": " + teams[1].Points;
         }
