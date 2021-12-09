@@ -9,7 +9,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Windows\QuestionSelectionWindow.xaml.cs">
+    <Compile Update="Windows\TeacherGameWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Windows\SectionSelectionWindow.xaml.cs">
@@ -18,15 +18,12 @@
     <Compile Update="Windows\StudentGameWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Windows\TeacherGameWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Windows\TeamCreationWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Windows\QuestionSelectionWindow.xaml">
+    <Page Update="Windows\TeacherGameWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\SectionSelectionWindow.xaml">
@@ -35,19 +32,19 @@
     <Page Update="Windows\StudentGameWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Windows\TeacherGameWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Windows\TeamCreationWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\Theme\AnswerButtonTheme.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Windows\Theme\AnswerTextBoxTheme.xaml">
+    <Page Update="Windows\Theme\AnswerLabelTheme.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\Theme\ButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\Theme\PointsLabelTheme.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\Theme\TeamTextBoxTheme.xaml">
