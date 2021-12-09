@@ -24,7 +24,11 @@ namespace FamilyFeudGame
             ShowTeamNames();
             UpdatePoints();
         }
-
+        /// <summary>
+        /// This will take in the answer ID from the Teacher Game window. 
+        /// Once an answer is selected from the answer and point value will be visible to the class.
+        /// </summary>
+        /// <param name="answer"></param>
         public void FillAnswer(Answer answer)
         {
             switch (answer.Id)
@@ -73,12 +77,18 @@ namespace FamilyFeudGame
             RoundPointsUpdate();
             UpdatePoints();
         }
-        
+        /// <summary>
+        /// This will update the point total for the round.
+        /// These points are not assigned to a team yet, but they what the team that wins the round will recieve. 
+        /// </summary>
         private void RoundPointsUpdate()
         {
             RoundScore.Text = gameController.GetRoundPoints().ToString();
         }
-
+        /// <summary>
+        /// This will show the team names on the student view.
+        /// It will modify the size and location of the text if its character count is higher.
+        /// </summary>
         private void ShowTeamNames()
         {
             if (_teams[0].Name.Length >= 15)
@@ -96,12 +106,19 @@ namespace FamilyFeudGame
             Team1.Text = _teams[0].Name.ToUpper();
             Team2.Text = _teams[1].Name.ToUpper();
         }
+        /// <summary>
+        /// This will update the team points once the round is completed.
+        /// </summary>
         private void UpdatePoints()
         {
             Team1Score.Text = $"{_teams[0].Points}";
             Team2Score.Text = $"{_teams[1].Points}";
         }
-
+        /// <summary>
+        /// This method displays the Xs on the screen.
+        /// It will also call the method that plays the worng answer buzzer. 
+        /// </summary>
+        /// <param name="amountWrong"></param>
         public void DisplayWrong(int amountWrong)
         {
             switch(amountWrong)
@@ -120,7 +137,10 @@ namespace FamilyFeudGame
                     break;
             }
         }
-
+        /// <summary>
+        /// This will play the wrong answer buzz. 
+        /// </summary>
+        /// <param name="wrongPopup"></param>
         private void PopupTimer(TextBlock wrongPopup)
         {
             DispatcherTimer time = new();

@@ -34,7 +34,12 @@ public class DBReader
         }
     }
 
-
+    /// <summary>
+    /// This will load the selected section.
+    /// </summary>
+    /// <param name="package"></param>
+    /// <param name="sectionID"></param>
+    /// <returns></returns>
     private async Task<Section> loadSectionFromExcel(ExcelPackage package, int sectionID = 0)
     {
         ExcelWorksheet ws = package.Workbook.Worksheets[PositionID: sectionID];
