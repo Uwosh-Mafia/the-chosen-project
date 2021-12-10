@@ -1,20 +1,20 @@
-﻿FamilyFeudGame
+﻿FamilyFeudGame_i1wx24tl_wpftmp
 
 
 winexe
 C#
 .cs
 C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12-9\FamilyFeudGame\obj\Debug\net5.0-windows\
-FamilyFeudGame
+FamilyFeudGame_i1wx24tl_wpftmp
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12-9\FamilyFeudGame\App.xaml
 101776384608
 
-16315245827
-2052012897563
+22-2004405654
+410-269172170
 Windows\SectionSelectionWindow.xaml;Windows\StudentGameWindow.xaml;Windows\TeacherGameWindow.xaml;Windows\TeamCreationWindow.xaml;Windows\Theme\AnswerButtonTheme.xaml;Windows\Theme\AnswerLabelTheme.xaml;Windows\Theme\ButtonTheme.xaml;Windows\Theme\PointsLabelTheme.xaml;Windows\Theme\TeamTextBoxTheme.xaml;Windows\WelcomeWindow.xaml;
 
-False
+True
 
