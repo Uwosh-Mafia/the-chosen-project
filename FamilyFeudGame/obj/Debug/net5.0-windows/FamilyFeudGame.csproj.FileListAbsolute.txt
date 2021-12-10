@@ -265,3 +265,4 @@ C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Deb
 C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\TeacherGameWindow.baml
 C:\Users\ryanm\source\repos\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\Theme\AnswerLabelTheme.baml
 C:\Users\ryanm\source\repos\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\Theme\PointsLabelTheme.baml
+C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.csproj.AssemblyReference.cache

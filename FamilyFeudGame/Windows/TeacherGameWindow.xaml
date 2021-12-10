@@ -71,7 +71,7 @@
                 Grid.Column="0"
                 Grid.Row="0" Click="BackButton_Click"/>
 
-        <Button Name="EndGame_Button" Content="END GAME"
+        <Button Name="EndGame_Button" Content="End Game"
                 Style="{StaticResource ButtonTheme}"
                 Grid.Column="4"
                 Grid.Row="0" Click="EndGame_Click"/>
@@ -87,25 +87,86 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
-                <RowDefinition Height="5"/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition Height="5"/>
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Name="question_text" Text="Question"
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          Grid.ColumnSpan="2"
+                          Grid.Column="0"
+                          Grid.Row="0">
+                <Grid Grid.Column="0"
+                  Grid.Row="0"
+                  Grid.ColumnSpan="2"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                <TextBlock Name="question_text" Text="Question"
                    TextWrapping="Wrap"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
+                   TextAlignment="Center"
                    Grid.Column="0"
                    Grid.Row="0"
                    Grid.ColumnSpan="2"
                    Foreground="Black"
-                   FontSize="20"/>
+                   FontSize="28"
+                   Margin="10"/>
+
+                <Button Name="answer1" Content="Answer 1"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
+                <Button Name="answer2" Content="Answer 2"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
+                <Button Name="answer3" Content="Answer 3"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
+                <Button Name="answer4" Content="Answer 4"
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
+                <Button Name="answer5" Content="Answer 5"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
+                <Button Name="answer6" Content="Answer 6"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
+                <Button Name="answer7" Content="Answer 7"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
+                <Button Name="answer8" Content="Answer 8"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
+
+            </Grid>
+            </ScrollViewer>
+
+            <Button Name="Incorrect_Button" Style="{StaticResource ButtonTheme}"
+                    Content="Incorrect"
+                    Grid.Column="0"
+                    Grid.Row="7" Click="Wrong_Answer"/>
 
             <Rectangle StrokeThickness="10"
                    Grid.Column="0"
@@ -113,52 +174,8 @@
                    Grid.ColumnSpan="2"
                    Stroke="Black"/>
 
-            <Button Name="answer1" Content="Answer 1"
-                    Grid.Column="0"
-                    Grid.Row="2"
-                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-            <Button Name="answer2" Content="Answer 2"
-                    Grid.Column="0"
-                    Grid.Row="3"
-                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-            <Button Name="answer3" Content="Answer 3"
-                    Grid.Column="0"
-                    Grid.Row="4"
-                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-            <Button Name="answer4" Content="Answer 4"
-                    Grid.Column="0"
-                    Grid.Row="5"
-                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-            <Button Name="answer5" Content="Answer 5"
-                    Grid.Column="1"
-                    Grid.Row="2"
-                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-            <Button Name="answer6" Content="Answer 6"
-                    Grid.Column="1"
-                    Grid.Row="3"
-                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-            <Button Name="answer7" Content="Answer 7"
-                    Grid.Column="1"
-                    Grid.Row="4"
-                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-            <Button Name="answer8" Content="Answer 8"
-                    Grid.Column="1"
-                    Grid.Row="5"
-                    Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-
-            <Button Name="Wrong_Button" Style="{StaticResource ButtonTheme}"
-                    Content="WRONG"
-                    Grid.Column="0"
-                    Grid.Row="7" Click="Wrong_Answer"/>
-
-            <Rectangle StrokeThickness="10"
-                   Grid.Column="0"
-                   Grid.Row="6"
-                   Grid.ColumnSpan="2"
-                   Stroke="Black"/>
-
             <Button Name="Play_Button" Style="{StaticResource ButtonTheme}"
-                    Content="PLAY"
+                    Content="Play Question"
                     Grid.Column="1"
                     Grid.Row="7" Click="Play_Question"/>
         </Grid>

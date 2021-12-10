@@ -91,21 +91,10 @@ namespace FamilyFeudGame
         /// </summary>
         private void ShowTeamNames()
         {
-            if (_teams[0].Name.Length >= 15)
-            {
-                Team1.FontSize = 20;
-                Team1.Margin = new Thickness(0, 23, 0, 0);
-            }
-
-            if (_teams[1].Name.Length >= 15)
-            {
-                Team2.FontSize = 20;
-                Team2.Margin = new Thickness(0, 23, 0, 0);
-            }
-
             Team1.Text = _teams[0].Name.ToUpper();
             Team2.Text = _teams[1].Name.ToUpper();
         }
+
         /// <summary>
         /// This will update the team points once the round is completed.
         /// </summary>

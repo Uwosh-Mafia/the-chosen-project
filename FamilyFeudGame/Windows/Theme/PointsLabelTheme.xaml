@@ -8,7 +8,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Label">
                         <Border Background="{TemplateBinding Background}"
-                                CornerRadius="50"
+                                CornerRadius="100"
                                 BorderBrush="Black"
                                 BorderThickness="2">
                             <Grid VerticalAlignment="Stretch"
@@ -27,10 +27,8 @@
             <Setter Property="Background" Value="White"/>
             <Setter Property="Margin" Value="0,5,5,5"/>
             <Setter Property="FontFamily" Value="Segoe UI Variable Small Semibold"/>
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="36"/>
             <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="MaxHeight" Value="100"/>
-            <Setter Property="MaxWidth" Value="100"/>
         </Style.Setters>
     </Style>
 </ResourceDictionary>
