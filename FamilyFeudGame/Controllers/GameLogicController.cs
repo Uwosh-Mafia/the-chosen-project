@@ -1,32 +1,33 @@
-﻿using FamilyFeudGame.Models;
+﻿using FamilyFeudGame;
+using FamilyFeudGame.Models;
 using System;
 using System.Collections.Generic;
 
 public class GameLogicController
 {
-    private Team[] _theTwoTeams = new Team[2];
+    private Team[] _teams;
     private Section _theChosenSection { get; set; }
     public List<Question> questions = new();
-    public Boolean showAnswers { get; set; }
+    public bool showAnswers { get; set; }
     private int _currentQuestionIndex { get; set; }
-    public Boolean isGameOver { get; set; }
-    private int _currentTeam { get; set; }
+    public bool isGameOver { get; set; }
+    private int _currentTeamIndex { get; set; }
     private Round _currRound { get; set; }
 
-    public GameLogicController(Section currSection, Team teamOne, Team teamTwo, int currentTeamIndex)
+    public GameLogicController(Section currSection, Team[] teams, int currentTeamIndex)
     {
-        _theTwoTeams[0] = teamOne;
-        _theTwoTeams[1] = teamTwo;
+        _teams = teams;
         _theChosenSection = currSection;
         questions = _theChosenSection.GetQuestions();
         showAnswers = false;
         _currentQuestionIndex = 0;
         isGameOver = false;
-        _currentTeam = currentTeamIndex;
+        _currentTeamIndex = currentTeamIndex;
     }
+
     public Team[] GetTeams()
     {
-        return _theTwoTeams;
+        return _teams;
     }
     /// <summary>
     /// This will return the round points
@@ -68,7 +69,7 @@ public class GameLogicController
     /// </summary>
     public void TogglePlayingTeam()
     {
-        _currentTeam = _currentTeam == 0 ? 1 : 0;
+        _currentTeamIndex = _currentTeamIndex == 0 ? 1 : 0;
     }
     /// <summary>
     /// This will delete the question at an index
@@ -81,7 +82,7 @@ public class GameLogicController
     /// <summary>
     /// This will enable the user to manually to end the game
     /// </summary>
-    private void isCurrGameOverManual()
+    private void IsCurrGameOverManual()
     {
         isGameOver = true;
     }
@@ -89,7 +90,7 @@ public class GameLogicController
     /// This will determine if the round is over. 
     /// It does this by counting how many quesitons are left in the questions list. 
     /// </summary>
-    private void isCurrGameOver()
+    private void IsCurrGameOver()
     {
         if (questions.Count == 0)
         {
@@ -97,31 +98,22 @@ public class GameLogicController
         }
     }
     /// <summary>
-    /// This will determine if there is a winner and it will return who it is or null if it is a tie.
+    /// This will open the results window and in turn, end the game.
     /// </summary>
     /// <returns></returns>
-    public Team EndGame()
+    public void EndGame()
     {
-        int teamOnePoints = _theTwoTeams[0].GetPoints();
-        int teamTwoPoints = _theTwoTeams[1].GetPoints();
-        if (teamOnePoints == teamTwoPoints)
-        {
-            return null;
-        }
-        else
-        {
-            return teamOnePoints > teamTwoPoints ? _theTwoTeams[0] : _theTwoTeams[1];
-        }
-
+        ResultWindow resultWindow = new(_teams);
+        resultWindow.Show();
     }
     /// <summary>
-    /// This will add points to the starting team.
+    /// This will add points to the playing team.
     /// The starting team or the three question team will be the _currentTeam
     /// </summary>
     /// <param name="points"></param>
     private void AddPoints(int points)
     {
-        _theTwoTeams[_currentTeam].AddPoints(points);
+        _teams[_currentTeamIndex].AddPoints(points);
     }
     /// <summary>
     ///This will add points to the stealing team.
@@ -130,13 +122,13 @@ public class GameLogicController
     /// <param name="points"></param>
     private void AddPointsToStealingTeam(int points)
     {
-        if (_currentTeam == 0)
+        if (_currentTeamIndex == 0)
         {
-            _theTwoTeams[1].AddPoints(points);
+            _teams[1].AddPoints(points);
         }
         else
         {
-            _theTwoTeams[0].AddPoints(points);
+            _teams[0].AddPoints(points);
         }
     }
     /// <summary>
@@ -146,6 +138,6 @@ public class GameLogicController
     /// <param name="currRound"></param>
     public void StartRound(int questionId)
     {
-		this._currRound = new(SetCurrentQuestion(questionId));
+        this._currRound = new(SetCurrentQuestion(questionId));
     }
 }
