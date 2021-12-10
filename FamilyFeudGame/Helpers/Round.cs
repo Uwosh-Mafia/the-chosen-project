@@ -4,20 +4,21 @@ public class Round
 {
     private int _TotalPoints { get; set; }
     public int PointBucket { get; set; }
-    private Question _CurrQuestion { get; set; }
-    private int _CorrectAnswerCount { get; set; }
+    private Question _question { get; set; }
+    private int _answerCount { get; set; }
     private int _WrongAnswerCounter { get; set; }
     private Boolean _isStealing { get; set; }
-    private Boolean _isRoundOver { get; set; }
-    public Round(Question _CurrQuestion)
+    private Boolean isRoundOver { get; set; }
+    public Round(Question question)
     {
-        this._CurrQuestion = _CurrQuestion;
-        _CorrectAnswerCount = _CurrQuestion.GetAnswerCount();
-        _TotalPoints = _CurrQuestion.GetPointTotal();
+        this._question = question;
+        _answerCount = question.GetAnswerCount();
+        _TotalPoints = question.GetPointTotal();
         PointBucket = 0;
         _WrongAnswerCounter = 0;
+        _answerCount = 0;
         _isStealing = false;
-        _isRoundOver = false;
+        isRoundOver = false;
     }
     /// <summary>
     /// This will will increase the _WrongAnswerCounter.
@@ -26,9 +27,11 @@ public class Round
     public void WrongAnswer()
     {
         _WrongAnswerCounter++;
-        if (_WrongAnswerCounter >= 3 && !_isRoundOver)
+        _answerCount++;
+        if (_WrongAnswerCounter >= 3)
         {
             _isStealing = true;
+            isRoundOver = true;
         }
     }
     /// <summary>
@@ -38,7 +41,10 @@ public class Round
     /// <returns></returns>
     public Answer CorrectAnswer(int id)
     {
-        Answer correctAnswer = _CurrQuestion.GetAnswer(id);
+        _answerCount++;
+        if (_answerCount == (_question.GetAnswerCount() - 1))
+            isRoundOver = true;
+        Answer correctAnswer = _question.GetAnswer(id);
         PointBucket += correctAnswer.ReturnPoints();
         return correctAnswer;
     }
@@ -53,11 +59,13 @@ public class Round
     /// <summary>
     /// This will determine if the current round is over. 
     /// </summary>
-    private void IsCurrentRoundOver()
+    public Boolean IsRoundOver() // Do we need this method since we don't call it 
     {
-        if ((_WrongAnswerCounter >= 3 && _isStealing == false) || PointBucket == _TotalPoints)
-        {
-            _isRoundOver = true;
-        }
+        return isRoundOver;
+    }
+
+    public Boolean didRoundEndNormally()
+    {
+        return isRoundOver && _WrongAnswerCounter < 3;
     }
 }

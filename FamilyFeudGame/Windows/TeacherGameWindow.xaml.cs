@@ -20,21 +20,17 @@ namespace FamilyFeudGame
     /// </summary>
     public partial class TeacherGameWindow : Window
     {
-        DBController dBController;
         GameLogicController gameController;
         StudentGameWindow studentGameWindow;
-        Section section;
-        Question question;
+        Question playingQuestion;
         private bool _isPlaying = false;
         private int _wrongAnswerCount = 0;
         private int _answerCount;
 
-        public TeacherGameWindow(Section section, DBController controller, GameLogicController gameController, StudentGameWindow studentGameWindow)
+        public TeacherGameWindow(GameLogicController gameController, StudentGameWindow studentGameWindow)
         {
             InitializeComponent();
-            this.dBController = controller;
             this.gameController = gameController;
-            this.section = section;
             this.studentGameWindow = studentGameWindow;
             PopulateQuestions();
             ToggleAnswers(false);
@@ -46,7 +42,7 @@ namespace FamilyFeudGame
         /// </summary>
         private void PopulateQuestions()
         {
-            List<Question> questions = section.GetQuestions();
+            List<Question> questions = gameController.questions;
             string[] questionNames = new string[questions.Count];
 
             for (int i = 0; i < questions.Count; i++)
@@ -60,13 +56,13 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!_isPlaying)
+            int index = (sender as ListBox).SelectedIndex;
+            if (!_isPlaying && index > -1)
             {
                 ClearAnswers();
-                int index = (sender as ListBox).SelectedIndex;
-                this.question = section.GetQuestions()[index];
-                FillAnswers(question.GetAnswers());
-                question_text.Text = question.Text;
+                this.playingQuestion = gameController.SetPlayingQuestion(index);
+                FillAnswers(playingQuestion.GetAnswers());
+                question_text.Text = playingQuestion.Text;
             }
         }
         /// <summary>
@@ -129,9 +125,12 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void CorrectAnswer(object sender, RoutedEventArgs e)
         {
+            if (gameController.IsRoundOver())
+                Play_Button.IsEnabled = true;
             string answerNumber = (sender as Button).Name;
             int.TryParse(answerNumber.Substring(6), out int index); // Add a check to see if parse succeeded
-            Answer correctAnswer = gameController.CorrectAnswer(index);
+            gameController.CorrectAnswer(index);
+            Answer correctAnswer = gameController.getAnswer(index);
             studentGameWindow.FillAnswer(correctAnswer);
             switch (correctAnswer.Id)
             {
@@ -159,6 +158,8 @@ namespace FamilyFeudGame
                 case 8:
                     answer8.IsEnabled = false;
                     break;
+                default:
+                    break;
             }
         }
         /// <summary>
@@ -168,12 +169,12 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void Play_Question(object sender, RoutedEventArgs e)
         {
-            gameController.StartRound(question.Id);
-            studentGameWindow.question_box.Text = question.Text;
+            gameController.PlayCurrentQuestion();
+            studentGameWindow.question_box.Text = playingQuestion.Text;
             Play_Button.IsEnabled = false;
-            _isPlaying = true;
             Incorrect_Button.IsEnabled = true;
             ToggleAnswers(true);
+            PopulateQuestions();
         }
         /// <summary>
         /// This method allows the buttons to be toggled on and off.
@@ -226,8 +227,8 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            Team[] teams = gameController.GetTeams();
-            SectionSelectionWindow selectionWindow = new(teams[0], teams[1], dBController);
+           // Team[] teams = gameController.GetTeams();
+            // SectionSelectionWindow selectionWindow = new(teams[0], teams[1], dBController);
             Close();
             studentGameWindow.Close();
         }

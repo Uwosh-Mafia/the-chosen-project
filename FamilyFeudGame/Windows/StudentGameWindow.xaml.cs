@@ -77,6 +77,14 @@ namespace FamilyFeudGame
             RoundPointsUpdate();
             UpdatePoints();
         }
+
+        /// <summary>
+        /// This method clears all answers 
+        /// </summary>
+        public void ClearAnswers()
+        {
+
+        }
         /// <summary>
         /// This will update the point total for the round.
         /// These points are not assigned to a team yet, but they what the team that wins the round will recieve. 
