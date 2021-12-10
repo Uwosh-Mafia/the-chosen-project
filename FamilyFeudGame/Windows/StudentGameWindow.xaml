@@ -240,12 +240,12 @@
                    Margin="0,5,5,5"/>
 
         </Grid>
-        <TextBlock x:Name="OneWrong" Grid.Column="1" Margin="51,66,50,0" Grid.Row="1" Height="252" Width="190" Visibility="Collapsed">
+        <TextBlock x:Name="OneWrong" Margin="0,20,0,0" Height="252" Visibility="Collapsed" HorizontalAlignment="Center" Grid.RowSpan="4" VerticalAlignment="Center" Grid.ColumnSpan="4" TextWrapping="NoWrap">
             <InlineUIContainer>
                 <Image Source="\Windows\Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </InlineUIContainer>
         </TextBlock>
-        <TextBlock x:Name="TwoWrong" Margin="253,66,257,0" Grid.Row="1" Height="252" Width="410" Grid.ColumnSpan="3" Visibility="Collapsed">
+        <TextBlock x:Name="TwoWrong" Margin="0,20,0,0" Height="252" Visibility="Collapsed" HorizontalAlignment="Center" Grid.RowSpan="4" VerticalAlignment="Center" Grid.ColumnSpan="4" TextWrapping="NoWrap">
             <InlineUIContainer>
                 <Image Source="\Windows\Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </InlineUIContainer>
@@ -254,7 +254,7 @@
                 <Image Source="\Windows\Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </InlineUIContainer>
         </TextBlock>
-        <TextBlock x:Name="ThreeWrong" Margin="141,66,139,0" Height="252" Width="640" Grid.ColumnSpan="3" Visibility="Collapsed" Grid.Row="1">
+        <TextBlock x:Name="ThreeWrong" Margin="0,20,0,0" Height="252" Visibility="Collapsed" HorizontalAlignment="Center" Grid.RowSpan="4" VerticalAlignment="Center" Grid.ColumnSpan="4" TextWrapping="NoWrap">
             <InlineUIContainer>
                 <Image Source="\Windows\Images\WrongAnswer.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </InlineUIContainer>
