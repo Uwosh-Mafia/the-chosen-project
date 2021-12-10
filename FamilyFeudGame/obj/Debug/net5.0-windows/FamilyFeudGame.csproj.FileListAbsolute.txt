@@ -312,3 +312,5 @@ C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12
 C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12-9\FamilyFeudGame\obj\Debug\net5.0-windows\ref\FamilyFeudGame.dll
 C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12-9\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.pdb
 C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12-9\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.genruntimeconfig.cache
+C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\ResultWindow.g.cs
+C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\ResultWindow.baml
