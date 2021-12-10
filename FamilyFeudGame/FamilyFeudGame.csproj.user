@@ -9,6 +9,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ResultWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\TeacherGameWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -23,6 +26,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ResultWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Windows\TeacherGameWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
