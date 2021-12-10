@@ -5,9 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FamilyFeudGame"
         mc:Ignorable="d"
-        Title="TeamCreationWindow" Height="600" Width="920"
-        ResizeMode="NoResize"
-        WindowStyle="None">
+        Title="TeamCreationWindow" Height="600" Width="920">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Segoe UI Variable Small Semibold"/>

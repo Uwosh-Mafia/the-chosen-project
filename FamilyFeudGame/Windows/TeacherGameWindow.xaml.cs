@@ -38,7 +38,7 @@ namespace FamilyFeudGame
             this.studentGameWindow = studentGameWindow;
             PopulateQuestions();
             ToggleAnswers(false);
-            Wrong_Button.IsEnabled = false;
+            Incorrect_Button.IsEnabled = false;
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace FamilyFeudGame
             studentGameWindow.question_box.Text = question.Text;
             Play_Button.IsEnabled = false;
             _isPlaying = true;
-            Wrong_Button.IsEnabled = true;
+            Incorrect_Button.IsEnabled = true;
             ToggleAnswers(true);
         }
         /// <summary>
