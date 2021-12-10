@@ -175,6 +175,7 @@ namespace FamilyFeudGame
             Incorrect_Button.IsEnabled = true;
             ToggleAnswers(true);
             PopulateQuestions();
+            studentGameWindow.ClearAnswers();
         }
         /// <summary>
         /// This method allows the buttons to be toggled on and off.
