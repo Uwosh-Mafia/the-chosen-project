@@ -30,9 +30,9 @@ namespace FamilyFeudGame
             Team2PointsTB.Text = team2.GetPoints().ToString();
         }
 
-        private void exitBTN_Click(object sender, RoutedEventArgs e)
+        private void ExitBTN_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

@@ -23,6 +23,15 @@ public class GameLogicController
     {
         return _teams;
     }
+
+    /// <summary>
+    /// This method gives you current playing team index
+    /// </summary>
+    /// <returns></returns>
+    public int GetCurrentPlayingTeamIndex()
+    {
+        return currentTeamIndex;
+    }
     /// <summary>
     /// This will return the round points
     /// </summary>

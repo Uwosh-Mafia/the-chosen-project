@@ -293,9 +293,7 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void EndGame_Click(object sender, RoutedEventArgs e)
         {
-            gameController.EndGame();
-            Close();
-            studentGameWindow.Close();
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }
