@@ -31,6 +31,7 @@ namespace FamilyFeudGame
         /// <param name="answer"></param>
         public void FillAnswer(Answer answer)
         {
+            if (answer == null) return;
             switch (answer.Id)
             {
                 case 1:
