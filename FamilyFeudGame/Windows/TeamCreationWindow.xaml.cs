@@ -20,11 +20,11 @@ namespace FamilyFeudGame
     /// </summary>
     public partial class TeamCreationWindow : Window
     {
-        private DBController _dBController;
+        private DBController dBController;
         public TeamCreationWindow(DBController controller)
         {
             InitializeComponent();
-            _dBController = controller;
+            dBController = controller;
         }
         /// <summary>
         /// This will upload both teams and allow the first team to play first. 
@@ -36,12 +36,13 @@ namespace FamilyFeudGame
         {
             try
             {
-                CallSelectionWindow(CreateTeams(true));
+                (Team, Team) teams = createTeamsInOrder(team1First: true);
+                CallSelectionWindow(teams.Item1, teams.Item2);
                 Close();
             }
             catch (Exception)
             {
-               ShowInvalidMassage();
+                showInvalidMassage();
             }
         }
         /// <summary>
@@ -54,56 +55,48 @@ namespace FamilyFeudGame
         {
             try
             {
-                CallSelectionWindow(CreateTeams(false));
+                (Team, Team) teams = createTeamsInOrder(team1First: false);
+                CallSelectionWindow(teams.Item1, teams.Item2);
                 Close();
             }
             catch (Exception)
             {
-                ShowInvalidMassage();
+                showInvalidMassage();
             }
         }
         /// <summary>
         /// This will show a message box saying the user inputed name is in valid.
         /// </summary>
-        private void ShowInvalidMassage()
+        private void showInvalidMassage()
         {
             MessageBox.Show($"Team Name Length must be more than 2 characters long and at max 20 characters.");
         }
-
         /// <summary>
-        /// Creates the two teams if the names are valid
+        /// This will create the teams based on the user input.
         /// </summary>
-        /// <param name="isTeamOnePlaying"></param>
-        /// <returns> The two teams </returns>
-        private Team[] CreateTeams(bool isTeamOnePlaying)
+        /// <param name="team1First"></param>
+        /// <returns></returns>
+        private (Team, Team) createTeamsInOrder(bool team1First)
         {
-            if (!IsNameValid(txtTeam1.Text))
+            if (!isNameValid(txtTeam1.Text))
                 throw new Exception("Invalid Name");
 
-            if (!IsNameValid(txtTeam2.Text))
+            if (!isNameValid(txtTeam2.Text))
                 throw new Exception("Invalid Name");
 
-            Team[] teams = new Team[2];
+            Team team1 = new(txtTeam1.Text, team1First);
+            Team team2 = new(txtTeam2.Text, !team1First);
 
-            if (isTeamOnePlaying)
-            {
-                teams[0] = new(txtTeam1.Text, true);
-                teams[1] = new(txtTeam2.Text, false);
-            } else
-            {
-                teams[0] = new(txtTeam1.Text, false);
-                teams[1] = new(txtTeam2.Text, true);
-            }
-            return teams;
+            return team1First ? (team1, team2) : (team2, team1);
         }
         /// <summary>
         /// This will pull up the next window in the program. 
         /// </summary>
         /// <param name="first"></param>
         /// <param name="second"></param>
-        private void CallSelectionWindow(Team[] teams)
+        private void CallSelectionWindow(Team first, Team second)
         {
-            SectionSelectionWindow sectionSelectionWindow = new(teams, _dBController);
+            SectionSelectionWindow sectionSelectionWindow = new(first, second, dBController);
             sectionSelectionWindow.Show();
         }
         /// <summary>
@@ -111,9 +104,9 @@ namespace FamilyFeudGame
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        private bool IsNameValid(string name)
+        private bool isNameValid(string name)
         {
-            return name.Length > 2 && name.Length < 21 ;
+            return name.Length > 2 && name.Length < 21;
         }
 
     }

@@ -20,21 +20,23 @@ namespace FamilyFeudGame
     /// </summary>
     public partial class SectionSelectionWindow : Window
     {
-        private Team[] _teams;
+        private Team team1;
+        private Team team2;
         public DBController dBController;
         public GameLogicController gameController;
-        public SectionSelectionWindow(Team[] teams, DBController controller)
+        public SectionSelectionWindow(Team team1, Team team2, DBController controller)
         {
             InitializeComponent();
-            _teams = teams;
+            this.team1 = team1;
+            this.team2 = team2;
             dBController = controller;
-            PopulateSelection();
+            populateSelection();
         }
 
         /// <summary>
         /// This method populates the selections
         /// </summary>
-        public void PopulateSelection()
+        public void populateSelection()
         {
             List<Section> sections = dBController.GetSections();
             string[] sectionNames = new string[sections.Count];
@@ -53,7 +55,7 @@ namespace FamilyFeudGame
         {
             ListBox lbx = sender as ListBox;
             Section section = dBController.GetSection(lbx.SelectedIndex + 1); // there is no 0 section id. it starts 1
-            gameController = new(section, _teams, 0);
+            gameController = new(section, team1, team2, 0);
 
             StudentGameWindow studentGameWindow = new(gameController);
             TeacherGameWindow teacherGameWindow = new(gameController, studentGameWindow);
