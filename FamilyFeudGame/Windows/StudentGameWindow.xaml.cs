@@ -80,6 +80,45 @@ namespace FamilyFeudGame
             RoundPointsUpdate();
             UpdatePoints();
         }
+
+
+        /// <summary>
+        /// This method clears all answers 
+        /// </summary>
+        public void ClearAnswers()
+        {
+            StudentAnswer1.Content = "";
+            Answer1PointsImg.Visibility = Visibility.Visible;
+            Answer1Points.Content = "";
+  
+             StudentAnswer2.Content = "";
+            Answer2PointsImg.Visibility = Visibility.Visible;
+            Answer2Points.Content = "";
+     
+            StudentAnswer3.Content = "";
+            Answer3PointsImg.Visibility = Visibility.Visible;
+            Answer3Points.Content = "";
+ 
+            StudentAnswer4.Content = "";
+            Answer4PointsImg.Visibility = Visibility.Visible;
+            Answer4Points.Content = "";
+
+            StudentAnswer5.Content = "";
+            Answer5PointsImg.Visibility = Visibility.Visible;
+            Answer5Points.Content = "";
+           
+            StudentAnswer6.Content = "";
+            Answer6PointsImg.Visibility = Visibility.Visible;
+            Answer6Points.Content = "";
+          
+            StudentAnswer7.Content = "";
+            Answer7PointsImg.Visibility = Visibility.Visible;
+            Answer7Points.Content = "";
+           
+            StudentAnswer8.Content = "";
+            Answer8PointsImg.Visibility = Visibility.Visible;
+            Answer8Points.Content = "";
+        }
         /// <summary>
         /// This will update the point total for the round.
         /// These points are not assigned to a team yet, but they what the team that wins the round will recieve. 
@@ -129,7 +168,7 @@ namespace FamilyFeudGame
         /// <summary>
         /// This will update the team points once the round is completed.
         /// </summary>
-        private void UpdatePoints()
+        public void UpdatePoints()
         {
             Team1Score.Text = $"{_teams[0].Points}";
             Team2Score.Text = $"{_teams[1].Points}";

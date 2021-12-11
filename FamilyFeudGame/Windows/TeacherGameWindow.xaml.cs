@@ -20,21 +20,16 @@ namespace FamilyFeudGame
     /// </summary>
     public partial class TeacherGameWindow : Window
     {
-        DBController dBController;
         GameLogicController gameController;
         StudentGameWindow studentGameWindow;
-        Section section;
-        Question question;
-        private bool _isPlaying = false;
+        Question playingQuestion;
         private int _wrongAnswerCount = 0;
         private int _answerCount;
 
-        public TeacherGameWindow(Section section, DBController controller, GameLogicController gameController, StudentGameWindow studentGameWindow)
+        public TeacherGameWindow(GameLogicController gameController, StudentGameWindow studentGameWindow)
         {
             InitializeComponent();
-            this.dBController = controller;
             this.gameController = gameController;
-            this.section = section;
             this.studentGameWindow = studentGameWindow;
             PopulateQuestions();
             ToggleAnswers(false);
@@ -46,7 +41,7 @@ namespace FamilyFeudGame
         /// </summary>
         private void PopulateQuestions()
         {
-            List<Question> questions = section.GetQuestions();
+            List<Question> questions = gameController.questions;
             string[] questionNames = new string[questions.Count];
 
             for (int i = 0; i < questions.Count; i++)
@@ -60,13 +55,13 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!_isPlaying)
+            int index = (sender as ListBox).SelectedIndex;
+            if (index > -1)
             {
                 ClearAnswers();
-                int index = (sender as ListBox).SelectedIndex;
-                this.question = section.GetQuestions()[index];
-                FillAnswers(question.GetAnswers());
-                question_text.Text = question.Text;
+                this.playingQuestion = gameController.SetPlayingQuestion(index);
+                FillAnswers(playingQuestion.GetAnswers());
+                question_text.Text = playingQuestion.Text;
             }
         }
         /// <summary>
@@ -131,9 +126,76 @@ namespace FamilyFeudGame
         {
             string answerNumber = (sender as Button).Name;
             int.TryParse(answerNumber.Substring(6), out int index); // Add a check to see if parse succeeded
-            Answer correctAnswer = gameController.CorrectAnswer(index);
+
+            if (gameController.IsRoundOver())
+            {
+                Play_Button.IsEnabled = true;
+                Incorrect_Button.IsEnabled = false;
+                gameController.CorrectAnswer(index);
+                DisableAllAnswers();
+                studentGameWindow.UpdatePoints();
+
+                IfGameIsOverShowResultWindow();
+                return;
+            }
+
+            gameController.CorrectAnswer(index);
+            Answer correctAnswer = gameController.getAnswer(index);
             studentGameWindow.FillAnswer(correctAnswer);
-            switch (correctAnswer.Id)
+            DisableAnswer(correctAnswer.Id);
+        }
+
+        /// <summary>
+        /// This method shows the correct window and closes the student one 
+        /// </summary>
+        private void IfGameIsOverShowResultWindow()
+        {
+            if (!gameController.IsGameOver()) return;
+            Team[] teams = gameController.GetTeams();
+            studentGameWindow.Close();
+            ResultWindow resultWindow = new ResultWindow(teams[0], teams[1]);
+            resultWindow.Show();
+        }
+
+        /// <summary>
+        /// This enables the game host to select the wrong answer button.
+        /// The game host will select this when the playing team says a wrong answer. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Wrong_Answer(object sender, RoutedEventArgs e)
+        {
+            if (gameController.IsRoundOver())
+            {
+                Play_Button.IsEnabled = true;
+                Incorrect_Button.IsEnabled = false;
+                gameController.WrongAnswer();
+                DisableAllAnswers();
+                studentGameWindow.UpdatePoints();
+
+                IfGameIsOverShowResultWindow();
+                return;
+            }
+            gameController.WrongAnswer();
+            _wrongAnswerCount++;
+            studentGameWindow.DisplayWrong(_wrongAnswerCount);
+        }
+
+        /// <summary>
+        /// This method disables all answers 
+        /// </summary>
+        private void DisableAllAnswers()
+        {
+            for (int i = 1; i < 9; i++)
+                DisableAnswer(i);
+        }
+
+        /// <summary>
+        /// This function disables all answers 
+        /// </summary>
+        private void DisableAnswer(int id)
+        {
+            switch (id)
             {
                 case 1:
                     answer1.IsEnabled = false;
@@ -159,6 +221,8 @@ namespace FamilyFeudGame
                 case 8:
                     answer8.IsEnabled = false;
                     break;
+                default:
+                    break;
             }
         }
         /// <summary>
@@ -168,12 +232,14 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void Play_Question(object sender, RoutedEventArgs e)
         {
-            gameController.StartRound(question.Id);
-            studentGameWindow.question_box.Text = question.Text;
+            gameController.PlayCurrentQuestion();
+            studentGameWindow.question_box.Text = playingQuestion.Text;
             Play_Button.IsEnabled = false;
-            _isPlaying = true;
             Incorrect_Button.IsEnabled = true;
             ToggleAnswers(true);
+            PopulateQuestions();
+            _wrongAnswerCount = 0;
+            studentGameWindow.ClearAnswers();
         }
         /// <summary>
         /// This method allows the buttons to be toggled on and off.
@@ -207,6 +273,21 @@ namespace FamilyFeudGame
             if (_answerCount >= 8 || toggle == false)
                 answer8.IsEnabled = toggle;
         }
+<<<<<<< HEAD
+  
+        /// <summary>
+        /// This will allow the user to return the section selection page if they picked the worng answer.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+           // Team[] teams = gameController.GetTeams();
+            // SectionSelectionWindow selectionWindow = new(teams[0], teams[1], dBController);
+            Close();
+            studentGameWindow.Close();
+        }
+=======
         /// <summary>
         /// This enables the game host to select the wrong answer button.
         /// The game host will select this when the playing team says a wrong answer. 
@@ -220,6 +301,7 @@ namespace FamilyFeudGame
             studentGameWindow.DisplayWrong(_wrongAnswerCount);
         }
 
+>>>>>>> 57ed2c1f8eb73478fde67380bb88f2acf19ee048
         /// <summary>
         /// This will allow the game host to manually end the game before every question has been answered. 
         /// </summary>
@@ -227,9 +309,7 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void EndGame_Click(object sender, RoutedEventArgs e)
         {
-            gameController.EndGame();
-            Close();
-            studentGameWindow.Close();
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

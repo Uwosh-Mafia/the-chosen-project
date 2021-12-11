@@ -56,7 +56,7 @@ namespace FamilyFeudGame
             gameController = new(section, _teams, 0);
 
             StudentGameWindow studentGameWindow = new(gameController);
-            TeacherGameWindow teacherGameWindow = new(section, dBController, gameController, studentGameWindow);
+            TeacherGameWindow teacherGameWindow = new(gameController, studentGameWindow);
 
             teacherGameWindow.Show();
             studentGameWindow.Show();

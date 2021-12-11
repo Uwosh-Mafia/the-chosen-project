@@ -51,6 +51,17 @@ namespace FamilyFeudGame {
         
         
         #line 69 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+<<<<<<< HEAD
+=======
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button Back_Button;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 74 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button EndGame_Button;
         
@@ -58,7 +69,11 @@ namespace FamilyFeudGame {
         #line hidden
         
         
+<<<<<<< HEAD
         #line 113 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+        #line 118 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock question_text;
         
@@ -66,7 +81,11 @@ namespace FamilyFeudGame {
         #line hidden
         
         
+<<<<<<< HEAD
         #line 125 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+        #line 130 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button answer1;
         
@@ -74,7 +93,11 @@ namespace FamilyFeudGame {
         #line hidden
         
         
+<<<<<<< HEAD
         #line 129 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+        #line 134 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button answer2;
         
@@ -82,7 +105,11 @@ namespace FamilyFeudGame {
         #line hidden
         
         
+<<<<<<< HEAD
         #line 133 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+        #line 138 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button answer3;
         
@@ -90,7 +117,11 @@ namespace FamilyFeudGame {
         #line hidden
         
         
+<<<<<<< HEAD
         #line 137 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+        #line 142 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button answer4;
         
@@ -98,7 +129,11 @@ namespace FamilyFeudGame {
         #line hidden
         
         
+<<<<<<< HEAD
         #line 141 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+        #line 146 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button answer5;
         
@@ -106,7 +141,11 @@ namespace FamilyFeudGame {
         #line hidden
         
         
+<<<<<<< HEAD
         #line 145 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+        #line 150 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button answer6;
         
@@ -114,7 +153,11 @@ namespace FamilyFeudGame {
         #line hidden
         
         
+<<<<<<< HEAD
         #line 149 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+        #line 154 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button answer7;
         
@@ -122,7 +165,11 @@ namespace FamilyFeudGame {
         #line hidden
         
         
+<<<<<<< HEAD
         #line 153 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+        #line 158 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button answer8;
         
@@ -130,7 +177,11 @@ namespace FamilyFeudGame {
         #line hidden
         
         
+<<<<<<< HEAD
         #line 161 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+        #line 166 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button Incorrect_Button;
         
@@ -138,7 +189,11 @@ namespace FamilyFeudGame {
         #line hidden
         
         
+<<<<<<< HEAD
         #line 172 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+        #line 177 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button Play_Button;
         
@@ -151,13 +206,21 @@ namespace FamilyFeudGame {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+<<<<<<< HEAD
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.12.0")]
+=======
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.9.0")]
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
             }
             _contentLoaded = true;
+<<<<<<< HEAD
             System.Uri resourceLocater = new System.Uri("/FamilyFeudGame;component/windows/teachergamewindow.xaml", System.UriKind.Relative);
+=======
+            System.Uri resourceLocater = new System.Uri("/FamilyFeudGame;V1.0.0.0;component/windows/teachergamewindow.xaml", System.UriKind.Relative);
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
             
             #line 1 "..\..\..\..\Windows\TeacherGameWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -167,7 +230,7 @@ namespace FamilyFeudGame {
         }
         
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.12.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.9.0")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
@@ -185,102 +248,190 @@ namespace FamilyFeudGame {
             #line hidden
             return;
             case 2:
+<<<<<<< HEAD
             this.EndGame_Button = ((System.Windows.Controls.Button)(target));
             
             #line 72 "..\..\..\..\Windows\TeacherGameWindow.xaml"
             this.EndGame_Button.Click += new System.Windows.RoutedEventHandler(this.EndGame_Click);
+=======
+            this.Back_Button = ((System.Windows.Controls.Button)(target));
+            
+            #line 72 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+            this.Back_Button.Click += new System.Windows.RoutedEventHandler(this.BackButton_Click);
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
             
             #line default
             #line hidden
             return;
             case 3:
+<<<<<<< HEAD
             this.question_text = ((System.Windows.Controls.TextBlock)(target));
             return;
             case 4:
             this.answer1 = ((System.Windows.Controls.Button)(target));
             
             #line 128 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+            this.EndGame_Button = ((System.Windows.Controls.Button)(target));
+            
+            #line 77 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+            this.EndGame_Button.Click += new System.Windows.RoutedEventHandler(this.EndGame_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 4:
+            this.question_text = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 5:
+            this.answer1 = ((System.Windows.Controls.Button)(target));
+            
+            #line 133 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
             this.answer1.Click += new System.Windows.RoutedEventHandler(this.CorrectAnswer);
             
             #line default
             #line hidden
             return;
+<<<<<<< HEAD
             case 5:
             this.answer2 = ((System.Windows.Controls.Button)(target));
             
             #line 132 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+            case 6:
+            this.answer2 = ((System.Windows.Controls.Button)(target));
+            
+            #line 137 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
             this.answer2.Click += new System.Windows.RoutedEventHandler(this.CorrectAnswer);
             
             #line default
             #line hidden
             return;
+<<<<<<< HEAD
             case 6:
             this.answer3 = ((System.Windows.Controls.Button)(target));
             
             #line 136 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+            case 7:
+            this.answer3 = ((System.Windows.Controls.Button)(target));
+            
+            #line 141 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
             this.answer3.Click += new System.Windows.RoutedEventHandler(this.CorrectAnswer);
             
             #line default
             #line hidden
             return;
+<<<<<<< HEAD
             case 7:
             this.answer4 = ((System.Windows.Controls.Button)(target));
             
             #line 140 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+            case 8:
+            this.answer4 = ((System.Windows.Controls.Button)(target));
+            
+            #line 145 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
             this.answer4.Click += new System.Windows.RoutedEventHandler(this.CorrectAnswer);
             
             #line default
             #line hidden
             return;
+<<<<<<< HEAD
             case 8:
             this.answer5 = ((System.Windows.Controls.Button)(target));
             
             #line 144 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+            case 9:
+            this.answer5 = ((System.Windows.Controls.Button)(target));
+            
+            #line 149 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
             this.answer5.Click += new System.Windows.RoutedEventHandler(this.CorrectAnswer);
             
             #line default
             #line hidden
             return;
+<<<<<<< HEAD
             case 9:
             this.answer6 = ((System.Windows.Controls.Button)(target));
             
             #line 148 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+            case 10:
+            this.answer6 = ((System.Windows.Controls.Button)(target));
+            
+            #line 153 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
             this.answer6.Click += new System.Windows.RoutedEventHandler(this.CorrectAnswer);
             
             #line default
             #line hidden
             return;
+<<<<<<< HEAD
             case 10:
             this.answer7 = ((System.Windows.Controls.Button)(target));
             
             #line 152 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+            case 11:
+            this.answer7 = ((System.Windows.Controls.Button)(target));
+            
+            #line 157 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
             this.answer7.Click += new System.Windows.RoutedEventHandler(this.CorrectAnswer);
             
             #line default
             #line hidden
             return;
+<<<<<<< HEAD
             case 11:
             this.answer8 = ((System.Windows.Controls.Button)(target));
             
             #line 156 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+            case 12:
+            this.answer8 = ((System.Windows.Controls.Button)(target));
+            
+            #line 161 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
             this.answer8.Click += new System.Windows.RoutedEventHandler(this.CorrectAnswer);
             
             #line default
             #line hidden
             return;
+<<<<<<< HEAD
             case 12:
             this.Incorrect_Button = ((System.Windows.Controls.Button)(target));
             
             #line 164 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+            case 13:
+            this.Incorrect_Button = ((System.Windows.Controls.Button)(target));
+            
+            #line 169 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
             this.Incorrect_Button.Click += new System.Windows.RoutedEventHandler(this.Wrong_Answer);
             
             #line default
             #line hidden
             return;
+<<<<<<< HEAD
             case 13:
             this.Play_Button = ((System.Windows.Controls.Button)(target));
             
             #line 175 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+=======
+            case 14:
+            this.Play_Button = ((System.Windows.Controls.Button)(target));
+            
+            #line 180 "..\..\..\..\Windows\TeacherGameWindow.xaml"
+>>>>>>> 4ee29b813aa88f676ccc776d27deaefa7351c04c
             this.Play_Button.Click += new System.Windows.RoutedEventHandler(this.Play_Question);
             
             #line default
