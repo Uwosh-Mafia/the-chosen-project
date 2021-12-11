@@ -6,18 +6,16 @@ public class GameLogicController
 {
     private Team[] _teams = new Team[2];
     public List<Question> questions = new();
-    public Boolean showAnswers { get; set; }
-    private int currentTeamIndex { get; set; }
-    private Question playingQuestion { get; set; }
-    private Round round { get; set; }
+    public bool showAnswers { get; set; }
+    private int _currentTeamIndex { get; set; }
+    private Question _playingQuestion { get; set; }
+    private Round _round { get; set; }
 
-    public GameLogicController(Section currSection, Team teamOne, Team teamTwo, int currentTeamIndex)
+    public GameLogicController(Section currSection, Team[] teams)
     {
-        _teams[0] = teamOne;
-        _teams[1] = teamTwo;
+        _teams = teams;
         questions = currSection.GetQuestions();
         showAnswers = false;
-        this.currentTeamIndex = currentTeamIndex;
     }
     public Team[] GetTeams()
     {
@@ -30,7 +28,7 @@ public class GameLogicController
     /// <returns></returns>
     public int GetCurrentPlayingTeamIndex()
     {
-        return currentTeamIndex;
+        return _currentTeamIndex;
     }
     /// <summary>
     /// This will return the round points
@@ -38,13 +36,13 @@ public class GameLogicController
     /// <returns></returns>
     public int GetRoundPoints()
     {
-        return round.GetRoundPoints();
+        return _round.GetRoundPoints();
     }
 
     public Question SetPlayingQuestion(int index)
     {
-        playingQuestion = questions[index];
-        return playingQuestion;
+        _playingQuestion = questions[index];
+        return _playingQuestion;
     }
 
     /// <summary>
@@ -54,7 +52,7 @@ public class GameLogicController
     /// <returns></returns>
     public void PlayCurrentQuestion()
     {
-        StartRound(playingQuestion);
+        StartRound(_playingQuestion);
         DeleteCurrentQuestionFromTheList();
         if (!IsFirstRound()) TogglePlayingTeam();
     }
@@ -64,7 +62,7 @@ public class GameLogicController
     /// </summary>
     public void TogglePlayingTeam()
     {
-        currentTeamIndex = currentTeamIndex == 0 ? 1 : 0;
+        _currentTeamIndex = _currentTeamIndex == 0 ? 1 : 0;
     }
 
     /// <summary>
@@ -83,41 +81,41 @@ public class GameLogicController
     /// <returns></returns>
     public void CorrectAnswer(int id)
     {
-        if (round.IsRoundOver())
+        if (_round.IsRoundOver())
         {
-            if (round.didRoundEndNormally())
+            if (_round.didRoundEndNormally())
             {
-                round.CorrectAnswer(id);
-                AddPoints(round.GetRoundPoints());
+                _round.CorrectAnswer(id);
+                AddPoints(_round.GetRoundPoints());
             }
             else
             {
-                round.CorrectAnswer(id);
-                AddPointsToStealingTeam(round.GetRoundPoints());
+                _round.CorrectAnswer(id);
+                AddPointsToStealingTeam(_round.GetRoundPoints());
             }
         }
         else
         {
-            round.CorrectAnswer(id);
+            _round.CorrectAnswer(id);
         }
     }
 
     public Answer getAnswer(int id)
     {
-        return playingQuestion.GetAnswer(id);
+        return _playingQuestion.GetAnswer(id);
     }
     /// <summary>
     /// This will call the WrongAnswer method in the round.
     /// </summary>
     public void WrongAnswer()
     {
-        if (round.IsRoundOver())
+        if (_round.IsRoundOver())
         {
-            AddPoints(round.GetRoundPoints());
+            AddPoints(_round.GetRoundPoints());
         }
         else
         {
-            round.WrongAnswer();
+            _round.WrongAnswer();
         }
     }
 
@@ -127,7 +125,7 @@ public class GameLogicController
     /// <param name="questionIndex"></param>
     private void DeleteCurrentQuestionFromTheList()
     {
-        questions.Remove(playingQuestion);
+        questions.Remove(_playingQuestion);
     }
 
     /// <summary>
@@ -168,7 +166,7 @@ public class GameLogicController
     /// <param name="points"></param>
     private void AddPoints(int points)
     {
-        _teams[currentTeamIndex].AddPoints(points);
+        _teams[_currentTeamIndex].AddPoints(points);
     }
     /// <summary>
     ///This will add points to the stealing team.
@@ -177,7 +175,7 @@ public class GameLogicController
     /// <param name="points"></param>
     private void AddPointsToStealingTeam(int points)
     {
-        if (currentTeamIndex == 0)
+        if (_currentTeamIndex == 0)
         {
             _teams[1].AddPoints(points);
         }
@@ -193,12 +191,12 @@ public class GameLogicController
     /// <param name="currRound"></param>
     public void StartRound(Question question)
     {
-        this.round = new Round(question);
+        this._round = new Round(question);
     }
 
     public bool IsRoundOver()
     {
-        return round.IsRoundOver();
+        return _round.IsRoundOver();
     }
 
 }

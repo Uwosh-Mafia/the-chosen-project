@@ -20,11 +20,11 @@ namespace FamilyFeudGame
     /// </summary>
     public partial class TeamCreationWindow : Window
     {
-        private DBController dBController;
+        private DBController _dBController;
         public TeamCreationWindow(DBController controller)
         {
             InitializeComponent();
-            dBController = controller;
+            _dBController = controller;
         }
         /// <summary>
         /// This will upload both teams and allow the first team to play first. 
@@ -36,13 +36,12 @@ namespace FamilyFeudGame
         {
             try
             {
-                (Team, Team) teams = createTeamsInOrder(team1First: true);
-                CallSelectionWindow(teams.Item1, teams.Item2);
+                CallSelectionWindow(CreateTeams(true));
                 Close();
             }
             catch (Exception)
             {
-                showInvalidMassage();
+                ShowInvalidMassage();
             }
         }
         /// <summary>
@@ -55,48 +54,53 @@ namespace FamilyFeudGame
         {
             try
             {
-                (Team, Team) teams = createTeamsInOrder(team1First: false);
-                CallSelectionWindow(teams.Item1, teams.Item2);
+                CallSelectionWindow(CreateTeams(false));
                 Close();
             }
             catch (Exception)
             {
-                showInvalidMassage();
+                ShowInvalidMassage();
             }
         }
         /// <summary>
         /// This will show a message box saying the user inputed name is in valid.
         /// </summary>
-        private void showInvalidMassage()
+        private void ShowInvalidMassage()
         {
             MessageBox.Show($"Team Name Length must be more than 2 characters long and at max 20 characters.");
         }
-        /// <summary>
-        /// This will create the teams based on the user input.
-        /// </summary>
-        /// <param name="team1First"></param>
-        /// <returns></returns>
-        private (Team, Team) createTeamsInOrder(bool team1First)
+
+        private Team[] CreateTeams(bool isTeamOnePlaying)
         {
-            if (!isNameValid(txtTeam1.Text))
+            if (!IsNameValid(txtTeam1.Text))
                 throw new Exception("Invalid Name");
 
-            if (!isNameValid(txtTeam2.Text))
+            if (!IsNameValid(txtTeam2.Text))
                 throw new Exception("Invalid Name");
 
-            Team team1 = new(txtTeam1.Text, team1First);
-            Team team2 = new(txtTeam2.Text, !team1First);
+            Team[] teams = new Team[2];
 
-            return team1First ? (team1, team2) : (team2, team1);
+            if (isTeamOnePlaying)
+            {
+                teams[0] = new(txtTeam1.Text, true);
+                teams[1] = new(txtTeam2.Text, false);
+            } else
+            {
+                teams[0] = new(txtTeam1.Text, false);
+                teams[1] = new(txtTeam2.Text, true);
+            }
+
+            return teams;
         }
+
         /// <summary>
         /// This will pull up the next window in the program. 
         /// </summary>
         /// <param name="first"></param>
         /// <param name="second"></param>
-        private void CallSelectionWindow(Team first, Team second)
+        private void CallSelectionWindow(Team[] teams)
         {
-            SectionSelectionWindow sectionSelectionWindow = new(first, second, dBController);
+            SectionSelectionWindow sectionSelectionWindow = new(teams, _dBController);
             sectionSelectionWindow.Show();
         }
         /// <summary>
@@ -104,7 +108,7 @@ namespace FamilyFeudGame
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        private bool isNameValid(string name)
+        private bool IsNameValid(string name)
         {
             return name.Length > 2 && name.Length < 21;
         }
