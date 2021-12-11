@@ -218,6 +218,15 @@ namespace FamilyFeudGame
                 wrongPopup.Visibility = Visibility.Collapsed;
             };
         }
+        /// <summary>
+        /// This will show all the info needed on the the screen once a round is over
+        /// </summary>
+        public void RoundOverFill()
+        {
+            RoundPointsUpdate();
+            UpdatePoints();
+
+        }
 
     }
 }

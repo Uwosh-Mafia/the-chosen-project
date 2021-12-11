@@ -27,11 +27,11 @@ public class Round
     public void WrongAnswer()
     {
         _WrongAnswerCounter++;
-        _answerCount++;
+        _answerCount++;//This maybe the issue
         if (_WrongAnswerCounter >= 3)
         {
             _isStealing = true;
-            isRoundOver = true;
+            isRoundOver = true; //ALso this maybe it 
         }
     }
     /// <summary>
@@ -42,7 +42,7 @@ public class Round
     public Answer CorrectAnswer(int id)
     {
         _answerCount++;
-        if (_answerCount == (_question.GetAnswerCount() - 1))
+        if (_answerCount == _question.GetAnswerCount())
             isRoundOver = true;
         Answer correctAnswer = _question.GetAnswer(id);
         PointBucket += correctAnswer.ReturnPoints();

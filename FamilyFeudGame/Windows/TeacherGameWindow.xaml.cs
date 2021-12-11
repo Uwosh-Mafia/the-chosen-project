@@ -25,6 +25,7 @@ namespace FamilyFeudGame
         Question playingQuestion;
         private int _wrongAnswerCount = 0;
         private int _answerCount;
+        private Boolean firstClick = true;
 
         public TeacherGameWindow(GameLogicController gameController, StudentGameWindow studentGameWindow)
         {
@@ -34,6 +35,7 @@ namespace FamilyFeudGame
             PopulateQuestions();
             ToggleAnswers(false);
             Incorrect_Button.IsEnabled = false;
+            Play_Button.IsEnabled = false;
         }
 
         /// <summary>
@@ -41,6 +43,7 @@ namespace FamilyFeudGame
         /// </summary>
         private void PopulateQuestions()
         {
+            
             List<Question> questions = gameController.questions;
             string[] questionNames = new string[questions.Count];
 
@@ -55,14 +58,21 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(Incorrect_Button.IsEnabled == false || firstClick == true)
+            {
+                Play_Button.IsEnabled = true;
+                firstClick = false;
+            }
+            
             int index = (sender as ListBox).SelectedIndex;
-            if (index > -1)
+            if (index > -1 && Play_Button.IsEnabled == true)
             {
                 ClearAnswers();
                 this.playingQuestion = gameController.SetPlayingQuestion(index);
                 FillAnswers(playingQuestion.GetAnswers());
                 question_text.Text = playingQuestion.Text;
             }
+            
         }
         /// <summary>
         /// This will clear the answers on each of the buttons once the round is over. 
@@ -129,12 +139,11 @@ namespace FamilyFeudGame
 
             if (gameController.IsRoundOver())
             {
-                Play_Button.IsEnabled = true;
                 Incorrect_Button.IsEnabled = false;
                 gameController.CorrectAnswer(index);
                 DisableAllAnswers();
+                RoundOver();
                 studentGameWindow.UpdatePoints();
-
                 IfGameIsOverShowResultWindow();
                 return;
             }
@@ -167,12 +176,11 @@ namespace FamilyFeudGame
         {
             if (gameController.IsRoundOver())
             {
-                Play_Button.IsEnabled = true;
                 Incorrect_Button.IsEnabled = false;
                 gameController.WrongAnswer();
                 DisableAllAnswers();
                 studentGameWindow.UpdatePoints();
-
+                RoundOver();
                 IfGameIsOverShowResultWindow();
                 return;
             }
@@ -294,6 +302,20 @@ namespace FamilyFeudGame
         private void EndGame_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+        /// <summary>
+        /// This will allow us to see all the final results once the round has ended.
+        /// </summary>
+        private void RoundOver()
+        {
+          
+           studentGameWindow.RoundOverFill();
+           List<Answer> finalAnswerList = playingQuestion.GetAnswers();
+           for(int i = 0; i < finalAnswerList.Count; i++)
+            {
+                studentGameWindow.FillAnswer(finalAnswerList[i]);
+            } 
+
         }
     }
 }
