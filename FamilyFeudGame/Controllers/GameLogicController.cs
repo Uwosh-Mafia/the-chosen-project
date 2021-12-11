@@ -4,30 +4,24 @@ using System.Collections.Generic;
 
 public class GameLogicController
 {
-    private Team[] _theTwoTeams = new Team[2];
-    private Section _theChosenSection { get; set; }
+    private Team[] _teams = new Team[2];
     public List<Question> questions = new();
     public Boolean showAnswers { get; set; }
-    public Boolean isGameOver { get; set; }
-    private Boolean isRoundOver { get; set; }
-    private Boolean isRoundNormal { get; set; }
     private int currentTeamIndex { get; set; }
     private Question playingQuestion { get; set; }
     private Round round { get; set; }
 
     public GameLogicController(Section currSection, Team teamOne, Team teamTwo, int currentTeamIndex)
     {
-        _theTwoTeams[0] = teamOne;
-        _theTwoTeams[1] = teamTwo;
-        _theChosenSection = currSection;
-        questions = _theChosenSection.GetQuestions();
+        _teams[0] = teamOne;
+        _teams[1] = teamTwo;
+        questions = currSection.GetQuestions();
         showAnswers = false;
-        isGameOver = false;
         this.currentTeamIndex = currentTeamIndex;
     }
     public Team[] GetTeams()
     {
-        return _theTwoTeams;
+        return _teams;
     }
     /// <summary>
     /// This will return the round points
@@ -52,8 +46,25 @@ public class GameLogicController
     public void PlayCurrentQuestion()
     {
         StartRound(playingQuestion);
-        isRoundOver = false;
         DeleteCurrentQuestionFromTheList();
+        if (!IsFirstRound()) TogglePlayingTeam();
+    }
+
+    /// <summary>
+    /// This will switch what team is currently playing
+    /// </summary>
+    public void TogglePlayingTeam()
+    {
+        currentTeamIndex = currentTeamIndex == 0 ? 1 : 0;
+    }
+
+    /// <summary>
+    /// This method checks if it is the first round 
+    /// </summary>
+    /// <returns></returns>
+    private bool IsFirstRound()
+    {
+        return _teams[0].GetPoints() == 0 && _teams[1].GetPoints() == 0;
     }
 
     /// <summary>
@@ -99,13 +110,7 @@ public class GameLogicController
             round.WrongAnswer();
         }
     }
-    /// <summary>
-    /// This will switch what team is currently playing
-    /// </summary>
-    public void TogglePlayingTeam()
-    {
-        currentTeamIndex = currentTeamIndex == 0 ? 1 : 0;
-    }
+
     /// <summary>
     /// This will delete the question at an index
     /// </summary>
@@ -114,28 +119,19 @@ public class GameLogicController
     {
         questions.Remove(playingQuestion);
     }
-    /// <summary>
-    /// This will enable the user to manually to end the game
-    /// </summary>
-    private void isCurrGameOverManual()
-    {
-        isGameOver = true;
-    }
+
     /// <summary>
     /// This will determine if the round is over. 
     /// It does this by counting how many quesitons are left in the questions list. 
     /// </summary>
-    private void isCurrGameOver()
+    public bool IsGameOver()
     {
-        if (questions.Count == 0)
-        {
-            isGameOver = true;
-        }
+        return questions.Count == 0;
     }
 
     public bool GameIsNotOver()
     {
-        return !isGameOver;
+        return !IsGameOver();
     }
     /// <summary>
     /// This will determine if there is a winner and it will return who it is or null if it is a tie.
@@ -143,15 +139,15 @@ public class GameLogicController
     /// <returns></returns>
     public Team EndGame()
     {
-        int teamOnePoints = _theTwoTeams[0].GetPoints();
-        int teamTwoPoints = _theTwoTeams[1].GetPoints();
+        int teamOnePoints = _teams[0].GetPoints();
+        int teamTwoPoints = _teams[1].GetPoints();
         if (teamOnePoints == teamTwoPoints)
         {
             return null;
         }
         else
         {
-            return teamOnePoints > teamTwoPoints ? _theTwoTeams[0] : _theTwoTeams[1];
+            return teamOnePoints > teamTwoPoints ? _teams[0] : _teams[1];
         }
 
     }
@@ -162,7 +158,7 @@ public class GameLogicController
     /// <param name="points"></param>
     private void AddPoints(int points)
     {
-        _theTwoTeams[currentTeamIndex].AddPoints(points);
+        _teams[currentTeamIndex].AddPoints(points);
     }
     /// <summary>
     ///This will add points to the stealing team.
@@ -173,11 +169,11 @@ public class GameLogicController
     {
         if (currentTeamIndex == 0)
         {
-            _theTwoTeams[1].AddPoints(points);
+            _teams[1].AddPoints(points);
         }
         else
         {
-            _theTwoTeams[0].AddPoints(points);
+            _teams[0].AddPoints(points);
         }
     }
     /// <summary>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using FamilyFeudGame.Models;
 
 namespace FamilyFeudGame
 {
@@ -19,9 +20,19 @@ namespace FamilyFeudGame
     /// </summary>
     public partial class ResultWindow : Window
     {
-        public ResultWindow()
+        public ResultWindow(Team team1, Team team2)
         {
             InitializeComponent();
+            Team1TB.Text = team1.Name;
+            Team1PointsTB.Text = team1.GetPoints().ToString();
+
+            Team2TB.Text = team2.Name;
+            Team2PointsTB.Text = team2.GetPoints().ToString();
+        }
+
+        private void exitBTN_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

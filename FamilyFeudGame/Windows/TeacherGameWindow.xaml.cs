@@ -23,7 +23,6 @@ namespace FamilyFeudGame
         GameLogicController gameController;
         StudentGameWindow studentGameWindow;
         Question playingQuestion;
-        private bool _isPlaying = false;
         private int _wrongAnswerCount = 0;
         private int _answerCount;
 
@@ -57,7 +56,7 @@ namespace FamilyFeudGame
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = (sender as ListBox).SelectedIndex;
-            if (!_isPlaying && index > -1)
+            if (index > -1)
             {
                 ClearAnswers();
                 this.playingQuestion = gameController.SetPlayingQuestion(index);
@@ -125,20 +124,61 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void CorrectAnswer(object sender, RoutedEventArgs e)
         {
+            string answerNumber = (sender as Button).Name;
+            int.TryParse(answerNumber.Substring(6), out int index); // Add a check to see if parse succeeded
+
             if (gameController.IsRoundOver())
             {
                 Play_Button.IsEnabled = true;
                 Incorrect_Button.IsEnabled = false;
+                gameController.CorrectAnswer(index);
+                DisableAllAnswers();
                 studentGameWindow.UpdatePoints();
+
+                IfGameIsOverShowResultWindow();
                 return;
             }
 
-            string answerNumber = (sender as Button).Name;
-            int.TryParse(answerNumber.Substring(6), out int index); // Add a check to see if parse succeeded
             gameController.CorrectAnswer(index);
             Answer correctAnswer = gameController.getAnswer(index);
             studentGameWindow.FillAnswer(correctAnswer);
             DisableAnswer(correctAnswer.Id);
+        }
+
+        /// <summary>
+        /// This method shows the correct window and closes the student one 
+        /// </summary>
+        private void IfGameIsOverShowResultWindow()
+        {
+            if (!gameController.IsGameOver()) return;
+            Team[] teams = gameController.GetTeams();
+            studentGameWindow.Close();
+            ResultWindow resultWindow = new ResultWindow(teams[0], teams[1]);
+            resultWindow.Show();
+        }
+
+        /// <summary>
+        /// This enables the game host to select the wrong answer button.
+        /// The game host will select this when the playing team says a wrong answer. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Wrong_Answer(object sender, RoutedEventArgs e)
+        {
+            if (gameController.IsRoundOver())
+            {
+                Play_Button.IsEnabled = true;
+                Incorrect_Button.IsEnabled = false;
+                gameController.WrongAnswer();
+                DisableAllAnswers();
+                studentGameWindow.UpdatePoints();
+
+                IfGameIsOverShowResultWindow();
+                return;
+            }
+            gameController.WrongAnswer();
+            _wrongAnswerCount++;
+            studentGameWindow.DisplayWrong(_wrongAnswerCount);
         }
 
         /// <summary>
@@ -233,27 +273,7 @@ namespace FamilyFeudGame
             if (_answerCount >= 8 || toggle == false)
                 answer8.IsEnabled = toggle;
         }
-        /// <summary>
-        /// This enables the game host to select the wrong answer button.
-        /// The game host will select this when the playing team says a wrong answer. 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Wrong_Answer(object sender, RoutedEventArgs e)
-        {
-            if (gameController.IsRoundOver())
-            {
-                Play_Button.IsEnabled = true;
-                Incorrect_Button.IsEnabled = false;
-                gameController.WrongAnswer();
-                DisableAllAnswers();
-                studentGameWindow.UpdatePoints();
-                return;
-            }
-            gameController.WrongAnswer();
-            _wrongAnswerCount++;
-            studentGameWindow.DisplayWrong(_wrongAnswerCount);
-        }
+  
         /// <summary>
         /// This will allow the user to return the section selection page if they picked the worng answer.
         /// </summary>
