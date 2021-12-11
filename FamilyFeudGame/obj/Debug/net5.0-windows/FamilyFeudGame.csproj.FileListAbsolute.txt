@@ -312,8 +312,6 @@ C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12
 C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12-9\FamilyFeudGame\obj\Debug\net5.0-windows\ref\FamilyFeudGame.dll
 C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12-9\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.pdb
 C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12-9\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.genruntimeconfig.cache
-C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\ResultWindow.g.cs
-C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\ResultWindow.baml
 C:\Users\ryanm\source\repos\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\ResultWindow.g.cs
 C:\Users\ryanm\source\repos\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\ResultWindow.baml
 C:\Users\Sam\source\repos\the-chosen-project\FamilyFeudGame\bin\Debug\net5.0-windows\FamilyFeudGame.exe
@@ -366,3 +364,5 @@ C:\Users\Sam\source\repos\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-win
 C:\Users\Sam\source\repos\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\ref\FamilyFeudGame.dll
 C:\Users\Sam\source\repos\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.pdb
 C:\Users\Sam\source\repos\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\FamilyFeudGame.genruntimeconfig.cache
+C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\ResultWindow.g.cs
+C:\Users\Sam\OneDrive\Documents\GitHub\the-chosen-project\FamilyFeudGame\obj\Debug\net5.0-windows\Windows\ResultWindow.baml
