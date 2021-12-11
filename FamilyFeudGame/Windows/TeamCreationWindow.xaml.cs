@@ -36,8 +36,7 @@ namespace FamilyFeudGame
         {
             try
             {
-                (Team, Team) teams = CreateTeamsInOrder(team1First: true);
-                CallSelectionWindow(teams.Item1, teams.Item2);
+                CallSelectionWindow(CreateTeams(true));
                 Close();
             }
             catch (Exception)
@@ -55,8 +54,7 @@ namespace FamilyFeudGame
         {
             try
             {
-                (Team, Team) teams = CreateTeamsInOrder(team1First: false);
-                CallSelectionWindow(teams.Item1, teams.Item2);
+                CallSelectionWindow(CreateTeams(false));
                 Close();
             }
             catch (Exception)
@@ -71,12 +69,13 @@ namespace FamilyFeudGame
         {
             MessageBox.Show($"Team Name Length must be more than 2 characters long and at max 20 characters.");
         }
+
         /// <summary>
-        /// This will create the teams based on the user input.
+        /// Creates the two teams if the names are valid
         /// </summary>
-        /// <param name="team1First"></param>
-        /// <returns></returns>
-        private (Team, Team) CreateTeamsInOrder(bool team1First)
+        /// <param name="isTeamOnePlaying"></param>
+        /// <returns> The two teams </returns>
+        private Team[] CreateTeams(bool isTeamOnePlaying)
         {
             if (!IsNameValid(txtTeam1.Text))
                 throw new Exception("Invalid Name");
@@ -84,19 +83,27 @@ namespace FamilyFeudGame
             if (!IsNameValid(txtTeam2.Text))
                 throw new Exception("Invalid Name");
 
-            Team team1 = new(txtTeam1.Text, team1First);
-            Team team2 = new(txtTeam2.Text, !team1First);
+            Team[] teams = new Team[2];
 
-            return team1First ? (team1, team2) : (team2, team1);
+            if (isTeamOnePlaying)
+            {
+                teams[0] = new(txtTeam1.Text, true);
+                teams[1] = new(txtTeam2.Text, false);
+            } else
+            {
+                teams[0] = new(txtTeam1.Text, false);
+                teams[1] = new(txtTeam2.Text, true);
+            }
+            return teams;
         }
         /// <summary>
         /// This will pull up the next window in the program. 
         /// </summary>
         /// <param name="first"></param>
         /// <param name="second"></param>
-        private void CallSelectionWindow(Team first, Team second)
+        private void CallSelectionWindow(Team[] teams)
         {
-            SectionSelectionWindow sectionSelectionWindow = new(first, second, _dBController);
+            SectionSelectionWindow sectionSelectionWindow = new(teams, _dBController);
             sectionSelectionWindow.Show();
         }
         /// <summary>

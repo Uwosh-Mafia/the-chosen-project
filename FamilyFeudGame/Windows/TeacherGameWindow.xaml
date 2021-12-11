@@ -65,12 +65,7 @@
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
-
-        <Button Name="Back_Button" Content="BACK"
-                Style="{StaticResource ButtonTheme}"
-                Grid.Column="0"
-                Grid.Row="0" Click="BackButton_Click"/>
-
+        
         <Button Name="EndGame_Button" Content="End Game"
                 Style="{StaticResource ButtonTheme}"
                 Grid.Column="4"
