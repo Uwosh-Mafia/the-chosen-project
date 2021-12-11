@@ -273,6 +273,7 @@ namespace FamilyFeudGame
             if (_answerCount >= 8 || toggle == false)
                 answer8.IsEnabled = toggle;
         }
+<<<<<<< HEAD
   
         /// <summary>
         /// This will allow the user to return the section selection page if they picked the worng answer.
@@ -286,6 +287,21 @@ namespace FamilyFeudGame
             Close();
             studentGameWindow.Close();
         }
+=======
+        /// <summary>
+        /// This enables the game host to select the wrong answer button.
+        /// The game host will select this when the playing team says a wrong answer. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Wrong_Answer(object sender, RoutedEventArgs e)
+        {
+            gameController.WrongAnswer();
+            _wrongAnswerCount++;
+            studentGameWindow.DisplayWrong(_wrongAnswerCount);
+        }
+
+>>>>>>> 57ed2c1f8eb73478fde67380bb88f2acf19ee048
         /// <summary>
         /// This will allow the game host to manually end the game before every question has been answered. 
         /// </summary>
