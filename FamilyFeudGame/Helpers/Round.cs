@@ -1,5 +1,9 @@
 ﻿using System;
-
+/// <summary>
+/// Created by Ryan Schauer.
+/// Modified by Nasir Muhumed.
+/// This class will take care of all the round related functions. 
+/// </summary>
 public class Round
 {
     private int _TotalPoints { get; set; }
@@ -27,11 +31,11 @@ public class Round
     public void WrongAnswer()
     {
         _WrongAnswerCounter++;
-        _answerCount++;//This maybe the issue
+        _answerCount++;
         if (_WrongAnswerCounter >= 3)
         {
             _isStealing = true;
-            isRoundOver = true; //ALso this maybe it 
+            isRoundOver = true; 
         }
     }
     /// <summary>
@@ -41,7 +45,7 @@ public class Round
     /// <returns></returns>
     public Answer CorrectAnswer(int id)
     {
-        _answerCount++;
+       _answerCount++;
         if (_answerCount == _question.GetAnswerCount())
             isRoundOver = true;
         Answer correctAnswer = _question.GetAnswer(id);
@@ -63,7 +67,10 @@ public class Round
     {
         return isRoundOver;
     }
-
+    /// <summary>
+    /// This method will determine if the first team answered all the questions correctly. 
+    /// </summary>
+    /// <returns></returns>
     public Boolean didRoundEndNormally()
     {
         return isRoundOver && _WrongAnswerCounter < 3;

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// <summary>
+/// Created by Ryan Schauer
+/// This class takes care of anything realted to the teams. 
+/// </summary>
 namespace FamilyFeudGame.Models
 {
     public class Team

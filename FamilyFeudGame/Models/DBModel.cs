@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 
 /// <summary>
+/// Created by Ryan Schauer 
 /// This class retrieves and adds the sections to a 
-/// list of sections
+/// list of sections.
 /// </summary>
 public class DBModel
 {

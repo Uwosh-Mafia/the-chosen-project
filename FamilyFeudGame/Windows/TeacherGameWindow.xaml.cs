@@ -25,7 +25,7 @@ namespace FamilyFeudGame
         Question playingQuestion;
         private int _wrongAnswerCount = 0;
         private int _answerCount;
-        private Boolean firstClick = true;
+        private Boolean _firstClick = true;
 
         public TeacherGameWindow(GameLogicController gameController, StudentGameWindow studentGameWindow)
         {
@@ -58,10 +58,10 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(Incorrect_Button.IsEnabled == false || firstClick == true)
+            if(Incorrect_Button.IsEnabled == false || _firstClick == true)
             {
                 Play_Button.IsEnabled = true;
-                firstClick = false;
+                _firstClick = false;
             }
             
             int index = (sender as ListBox).SelectedIndex;

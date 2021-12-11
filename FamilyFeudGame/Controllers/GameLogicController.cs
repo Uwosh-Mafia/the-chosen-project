@@ -1,7 +1,11 @@
 ﻿using FamilyFeudGame.Models;
 using System;
 using System.Collections.Generic;
-
+/// <summary>
+/// Created by Nasir Muhumed and Ryan Schauer 
+/// This is the controller that interacts with the teacher view. 
+/// Its responible for anything related to playing the game.
+/// </summary>
 public class GameLogicController
 {
     private Team[] _teams = new Team[2];
