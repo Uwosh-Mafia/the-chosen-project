@@ -251,6 +251,7 @@ namespace FamilyFeudGame
             PopulateQuestions();
             _wrongAnswerCount = 0;
             studentGameWindow.ClearAnswers();
+            studentGameWindow.FillAnswerAmount(playingQuestion.GetAnswerCount());
         }
         /// <summary>
         /// This method allows the buttons to be toggled on and off.

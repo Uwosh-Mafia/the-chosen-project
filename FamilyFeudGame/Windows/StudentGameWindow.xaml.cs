@@ -84,6 +84,39 @@ namespace FamilyFeudGame
             }
         }
 
+        public void FillAnswerAmount(int answerCount)
+        {
+            for(int i = 1; i <= answerCount; i++)
+            {
+                switch(i)
+                {
+                    case 1:
+                        StudentAnswer1.Content = i.ToString();
+                        break;
+                    case 2:
+                        StudentAnswer2.Content = i.ToString();
+                        break;
+                    case 3:
+                        StudentAnswer3.Content = i.ToString();
+                        break;
+                    case 4:
+                        StudentAnswer4.Content = i.ToString();
+                        break;
+                    case 5:
+                        StudentAnswer5.Content = i.ToString();
+                        break;
+                    case 6:
+                        StudentAnswer6.Content = i.ToString();
+                        break;
+                    case 7:
+                        StudentAnswer7.Content = i.ToString();
+                        break;
+                    case 8:
+                        StudentAnswer8.Content = i.ToString();
+                        break;
+                }
+            }
+        }
 
         /// <summary>
         /// This method clears all answers 
