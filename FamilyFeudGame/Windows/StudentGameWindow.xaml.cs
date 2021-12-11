@@ -137,7 +137,7 @@ namespace FamilyFeudGame
         /// <summary>
         /// This will update the team points once the round is completed.
         /// </summary>
-        private void UpdatePoints()
+        public void UpdatePoints()
         {
             Team1Score.Text = $"{_teams[0].Points}";
             Team2Score.Text = $"{_teams[1].Points}";

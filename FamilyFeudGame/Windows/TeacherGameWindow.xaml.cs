@@ -126,13 +126,36 @@ namespace FamilyFeudGame
         private void CorrectAnswer(object sender, RoutedEventArgs e)
         {
             if (gameController.IsRoundOver())
+            {
                 Play_Button.IsEnabled = true;
+                Incorrect_Button.IsEnabled = false;
+                studentGameWindow.UpdatePoints();
+                return;
+            }
+
             string answerNumber = (sender as Button).Name;
             int.TryParse(answerNumber.Substring(6), out int index); // Add a check to see if parse succeeded
             gameController.CorrectAnswer(index);
             Answer correctAnswer = gameController.getAnswer(index);
             studentGameWindow.FillAnswer(correctAnswer);
-            switch (correctAnswer.Id)
+            DisableAnswer(correctAnswer.Id);
+        }
+
+        /// <summary>
+        /// This method disables all answers 
+        /// </summary>
+        private void DisableAllAnswers()
+        {
+            for (int i = 1; i < 9; i++)
+                DisableAnswer(i);
+        }
+
+        /// <summary>
+        /// This function disables all answers 
+        /// </summary>
+        private void DisableAnswer(int id)
+        {
+            switch (id)
             {
                 case 1:
                     answer1.IsEnabled = false;
@@ -175,6 +198,7 @@ namespace FamilyFeudGame
             Incorrect_Button.IsEnabled = true;
             ToggleAnswers(true);
             PopulateQuestions();
+            _wrongAnswerCount = 0;
             studentGameWindow.ClearAnswers();
         }
         /// <summary>
@@ -217,6 +241,15 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void Wrong_Answer(object sender, RoutedEventArgs e)
         {
+            if (gameController.IsRoundOver())
+            {
+                Play_Button.IsEnabled = true;
+                Incorrect_Button.IsEnabled = false;
+                gameController.WrongAnswer();
+                DisableAllAnswers();
+                studentGameWindow.UpdatePoints();
+                return;
+            }
             gameController.WrongAnswer();
             _wrongAnswerCount++;
             studentGameWindow.DisplayWrong(_wrongAnswerCount);

@@ -93,13 +93,7 @@ public class GameLogicController
     {
         if(round.IsRoundOver())
         {
-            if (round.didRoundEndNormally())
-            {
-                AddPoints(round.GetRoundPoints());
-            } else
-            {
-                AddPoints(round.GetRoundPoints());
-            }
+            AddPoints(round.GetRoundPoints());
         } else
         {
             round.WrongAnswer();
