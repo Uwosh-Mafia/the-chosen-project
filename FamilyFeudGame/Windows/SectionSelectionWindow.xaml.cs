@@ -23,10 +23,10 @@ namespace FamilyFeudGame
         private Team[] _teams;
         public DBController dBController;
         public GameLogicController gameController;
-        public SectionSelectionWindow(Team team1, Team team2, DBController controller)
+        public SectionSelectionWindow(Team[] teams, DBController controller)
         {
             InitializeComponent();
-            _teams = new Team[2] { team1, team2 };
+            _teams = teams;
             dBController = controller;
             PopulateSelection();
         }

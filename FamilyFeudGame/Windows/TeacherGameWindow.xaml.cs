@@ -219,18 +219,7 @@ namespace FamilyFeudGame
             _wrongAnswerCount++;
             studentGameWindow.DisplayWrong(_wrongAnswerCount);
         }
-        /// <summary>
-        /// This will allow the user to return the section selection page if they picked the worng answer.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            Team[] teams = gameController.GetTeams();
-            SectionSelectionWindow selectionWindow = new(teams[0], teams[1], dBController);
-            Close();
-            studentGameWindow.Close();
-        }
+
         /// <summary>
         /// This will allow the game host to manually end the game before every question has been answered. 
         /// </summary>
