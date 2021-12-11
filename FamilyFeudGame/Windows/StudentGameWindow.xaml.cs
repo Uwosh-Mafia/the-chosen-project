@@ -4,6 +4,7 @@ using System.IO;
 using System.Media;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace FamilyFeudGame
@@ -23,7 +24,9 @@ namespace FamilyFeudGame
             _teams = gameController.GetTeams();
             ShowTeamNames();
             UpdatePoints();
+            SetBackgroundColor();
         }
+
         /// <summary>
         /// This will take in the answer ID from the Teacher Game window. 
         /// Once an answer is selected from the answer and point value will be visible to the class.
@@ -95,6 +98,34 @@ namespace FamilyFeudGame
             Team2.Text = _teams[1].Name.ToUpper();
         }
 
+        /// <summary>
+        /// Changes the team that is playing
+        /// </summary>
+        private void ToggleTeamPlaying()
+        {
+            _teams[0].IsPlaying = !_teams[0].IsPlaying;
+            _teams[1].IsPlaying = !_teams[1].IsPlaying;
+            SetBackgroundColor();
+        }
+
+        /// <summary>
+        /// Changes the background color to the team that is playing
+        /// </summary>
+        private void SetBackgroundColor()
+        {
+            var bc = new BrushConverter();
+
+            if (_teams[0].IsPlaying)
+            {
+                Team1.Background = (Brush)bc.ConvertFrom("#fc0");
+                Team1.Foreground = Brushes.Black;
+            }
+            else
+            {
+                Team2.Background = (Brush)bc.ConvertFrom("#fc0");
+                Team2.Foreground = Brushes.Black;
+            }
+        }
         /// <summary>
         /// This will update the team points once the round is completed.
         /// </summary>
