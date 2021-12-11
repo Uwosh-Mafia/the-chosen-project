@@ -225,7 +225,7 @@ namespace FamilyFeudGame
         {
             RoundPointsUpdate();
             UpdatePoints();
-
+            ToggleTeamPlaying();
         }
 
     }
