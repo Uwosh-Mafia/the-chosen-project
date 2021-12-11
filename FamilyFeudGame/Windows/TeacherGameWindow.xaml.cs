@@ -1,17 +1,13 @@
 ﻿using FamilyFeudGame.Models;
 using System;
+using System.IO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Media;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace FamilyFeudGame
 {
@@ -26,6 +22,7 @@ namespace FamilyFeudGame
         private int _wrongAnswerCount = 0;
         private int _answerCount;
         private Boolean firstClick = true;
+        private SoundPlayer _soundPlayer;
 
         public TeacherGameWindow(GameLogicController gameController, StudentGameWindow studentGameWindow)
         {
@@ -136,7 +133,13 @@ namespace FamilyFeudGame
         {
             string answerNumber = (sender as Button).Name;
             int.TryParse(answerNumber.Substring(6), out int index); // Add a check to see if parse succeeded
-
+            string fileName = "Family Feud Sound Effects - #1 Main Game - #2 Revealing Answer.wav";
+            string directory = Environment.CurrentDirectory;
+            directory = directory.Substring(0, directory.IndexOf("\\bin")); // To get rid of bin\Debug\net5.0-windows\ part 
+            string path = System.IO.Path.Combine(directory, @"Windows\Sounds\", fileName);
+            _soundPlayer = new(path);
+            _soundPlayer.Load();
+            _soundPlayer.Play();
             if (gameController.IsRoundOver())
             {
                 Incorrect_Button.IsEnabled = false;
@@ -287,12 +290,10 @@ namespace FamilyFeudGame
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void NextQuestion_Click(object sender, RoutedEventArgs e)
         {
-            // Team[] teams = gameController.GetTeams();
-            // SectionSelectionWindow selectionWindow = new(teams[0], teams[1], dBController);
-            Close();
-            studentGameWindow.Close();
+            // gameController.CorrectAnswer(-1);
+            // gameController.GetCurrentPlayingTeamIndex( =gameController.GetRoundPoints();
         }
         /// <summary>
         /// This will allow the game host to manually end the game before every question has been answered. 

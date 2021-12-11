@@ -85,7 +85,7 @@ namespace FamilyFeudGame {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FamilyFeudGame;component/windows/resultwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FamilyFeudGame_1ymaate2_wpftmp;component/windows/resultwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\ResultWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

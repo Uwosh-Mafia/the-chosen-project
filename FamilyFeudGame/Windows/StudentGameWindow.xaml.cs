@@ -78,7 +78,10 @@ namespace FamilyFeudGame
                     break;
             }
             RoundPointsUpdate();
-            UpdatePoints();
+            if(gameController.IsRoundOver())
+            {
+                UpdatePoints();
+            }
         }
 
 
