@@ -166,7 +166,8 @@ namespace FamilyFeudGame
             if(gameController.IsRoundOver())
             {
                 RoundOver();
-            } else if (gameController.IsGameOver())
+            }
+            if (gameController.IsGameOver())
             {
                 ShowResultWindow();
             }
@@ -182,6 +183,7 @@ namespace FamilyFeudGame
             studentGameWindow.Close();
             ResultWindow resultWindow = new ResultWindow(teams[0], teams[1]);
             resultWindow.Show();
+            studentGameWindow.Close();
         }
 
         /// <summary>
@@ -217,7 +219,8 @@ namespace FamilyFeudGame
             if (gameController.IsRoundOver())
             {
                 RoundOver();
-            } else if(gameController.IsGameOver())
+            }
+            if(gameController.IsGameOver())
             {
                 ShowResultWindow();
             }
