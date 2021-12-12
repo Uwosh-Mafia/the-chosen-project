@@ -15,7 +15,6 @@ namespace FamilyFeudGame
     public partial class StudentGameWindow : Window
     {
         GameLogicController gameController;
-        private SoundPlayer _soundPlayer;
         private Team[] _teams;
         public StudentGameWindow(GameLogicController gameController)
         {
@@ -23,8 +22,8 @@ namespace FamilyFeudGame
             this.gameController = gameController;
             _teams = gameController.GetTeams();
             ShowTeamNames();
-            UpdatePoints();
-            SetBackgroundColor();
+            UpdateTeamPoints();
+            SetPlayingTeamBackground();
         }
 
         /// <summary>
@@ -78,9 +77,45 @@ namespace FamilyFeudGame
                     break;
             }
             RoundPointsUpdate();
-            UpdatePoints();
+            if (gameController.IsRoundOver())
+            {
+                UpdateTeamPoints();
+            }
         }
 
+        public void FillAnswerAmount(int answerCount)
+        {
+            for (int i = 1; i <= answerCount; i++)
+            {
+                switch (i)
+                {
+                    case 1:
+                        StudentAnswer1.Content = i.ToString();
+                        break;
+                    case 2:
+                        StudentAnswer2.Content = i.ToString();
+                        break;
+                    case 3:
+                        StudentAnswer3.Content = i.ToString();
+                        break;
+                    case 4:
+                        StudentAnswer4.Content = i.ToString();
+                        break;
+                    case 5:
+                        StudentAnswer5.Content = i.ToString();
+                        break;
+                    case 6:
+                        StudentAnswer6.Content = i.ToString();
+                        break;
+                    case 7:
+                        StudentAnswer7.Content = i.ToString();
+                        break;
+                    case 8:
+                        StudentAnswer8.Content = i.ToString();
+                        break;
+                }
+            }
+        }
 
         /// <summary>
         /// This method clears all answers 
@@ -140,17 +175,17 @@ namespace FamilyFeudGame
         /// <summary>
         /// Changes the team that is playing
         /// </summary>
-        private void ToggleTeamPlaying()
+        private void ToggleTeamPlaying() // Not needed!
         {
             _teams[0].IsPlaying = !_teams[0].IsPlaying;
             _teams[1].IsPlaying = !_teams[1].IsPlaying;
-            SetBackgroundColor();
+            SetPlayingTeamBackground();
         }
 
         /// <summary>
         /// Changes the background color to the team that is playing
         /// </summary>
-        private void SetBackgroundColor()
+        private void SetPlayingTeamBackground()
         {
             var bc = new BrushConverter();
 
@@ -168,7 +203,7 @@ namespace FamilyFeudGame
         /// <summary>
         /// This will update the team points once the round is completed.
         /// </summary>
-        public void UpdatePoints()
+        public void UpdateTeamPoints()
         {
             Team1Score.Text = $"{_teams[0].Points}";
             Team2Score.Text = $"{_teams[1].Points}";
@@ -203,13 +238,6 @@ namespace FamilyFeudGame
         private void PopupTimer(TextBlock wrongPopup)
         {
             DispatcherTimer time = new();
-            string fileName = "Family Feud Sound Effects - #1 Main Game - #2 Strike.wav";
-            string directory = Environment.CurrentDirectory;
-            directory = directory.Substring(0, directory.IndexOf("\\bin")); // To get rid of bin\Debug\net5.0-windows\ part 
-            string path = Path.Combine(directory, @"Windows\Sounds\", fileName);
-            _soundPlayer = new(path);
-            _soundPlayer.Load();
-            _soundPlayer.Play();
             time.Interval = TimeSpan.FromSeconds(1.2);
             time.Start();
             time.Tick += delegate
@@ -224,8 +252,9 @@ namespace FamilyFeudGame
         public void RoundOverFill()
         {
             RoundPointsUpdate();
-            UpdatePoints();
-            ToggleTeamPlaying();
+            UpdateTeamPoints();
+            //ToggleTeamPlaying();
+            SetPlayingTeamBackground();
         }
 
     }

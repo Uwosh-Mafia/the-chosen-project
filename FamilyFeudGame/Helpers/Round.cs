@@ -2,7 +2,7 @@
 
 public class Round
 {
-    private int _TotalPoints { get; set; }
+    // private int _TotalPoints { get; set; }
     public int PointBucket { get; set; }
     private Question _question { get; set; }
     private int _answerCount { get; set; }
@@ -13,7 +13,7 @@ public class Round
     {
         this._question = question;
         _answerCount = question.GetAnswerCount();
-        _TotalPoints = question.GetPointTotal();
+        // _TotalPoints = question.GetPointTotal();
         PointBucket = 0;
         _WrongAnswerCounter = 0;
         _answerCount = 0;
@@ -27,11 +27,14 @@ public class Round
     public void WrongAnswer()
     {
         _WrongAnswerCounter++;
-        _answerCount++;//This maybe the issue
-        if (_WrongAnswerCounter >= 3)
+        //_answerCount++;//This maybe the issue
+        if (_WrongAnswerCounter == 3)
         {
             _isStealing = true;
-            isRoundOver = true; //ALso this maybe it 
+            //isRoundOver = true; //ALso this maybe it 
+        } else if(_WrongAnswerCounter > 3)
+        {
+            isRoundOver = true;
         }
     }
     /// <summary>
@@ -43,7 +46,12 @@ public class Round
     {
         _answerCount++;
         if (_answerCount == _question.GetAnswerCount())
+        {
             isRoundOver = true;
+        } else if(_isStealing)
+        {
+            isRoundOver = true;
+        }
         Answer correctAnswer = _question.GetAnswer(id);
         PointBucket += correctAnswer.ReturnPoints();
         return correctAnswer;
@@ -64,8 +72,8 @@ public class Round
         return isRoundOver;
     }
 
-    public Boolean didRoundEndNormally()
+    public Boolean IsRoundStolen()
     {
-        return isRoundOver && _WrongAnswerCounter < 3;
+        return _isStealing;
     }
 }

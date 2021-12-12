@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12-9\FamilyFeudGame\obj\Release\net5.0-windows\
+C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12-12\FamilyFeudGame\obj\Release\net5.0-windows\
 FamilyFeudGame
 none
 false
 TRACE;RELEASE;NET;NET5_0;NETCOREAPP
-C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12-9\FamilyFeudGame\App.xaml
-101776384608
+C:\Users\epple\OneDrive\Documents\Fall 2021\CS341_SoftwareEngineering\Project-12-12\FamilyFeudGame\App.xaml
+11-745726538
 
-16315245827
+17955676320
 2052012897563
-Windows\SectionSelectionWindow.xaml;Windows\StudentGameWindow.xaml;Windows\TeacherGameWindow.xaml;Windows\TeamCreationWindow.xaml;Windows\Theme\AnswerButtonTheme.xaml;Windows\Theme\AnswerLabelTheme.xaml;Windows\Theme\ButtonTheme.xaml;Windows\Theme\PointsLabelTheme.xaml;Windows\Theme\TeamTextBoxTheme.xaml;Windows\WelcomeWindow.xaml;
+Windows\ResultWindow.xaml;Windows\SectionSelectionWindow.xaml;Windows\StudentGameWindow.xaml;Windows\TeacherGameWindow.xaml;Windows\TeamCreationWindow.xaml;Windows\Theme\AnswerButtonTheme.xaml;Windows\Theme\AnswerLabelTheme.xaml;Windows\Theme\ButtonTheme.xaml;Windows\Theme\PointsLabelTheme.xaml;Windows\Theme\TeamTextBoxTheme.xaml;Windows\WelcomeWindow.xaml;
 
 True
 

@@ -36,6 +36,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <Button Name="NextQuestion_Button" Content="Next Question"
+                Style="{StaticResource ButtonTheme}"
+                Grid.Column="0 "
+                Grid.Row="0" Click="NextQuestion_Click"/>
+
         <TextBlock Text="QUESTIONS"
                    HorizontalAlignment="Center"
                    Grid.Column="1"

@@ -26,7 +26,7 @@ public class GameLogicController
     /// This method gives you current playing team index
     /// </summary>
     /// <returns></returns>
-    public int GetCurrentPlayingTeamIndex()
+    public int GetCurrentPlayingTeamIndex() // Not in use!
     {
         return _currentTeamIndex;
     }
@@ -79,28 +79,27 @@ public class GameLogicController
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public void CorrectAnswer(int id)
+    public Answer CorrectAnswer(int id)
+    {
+        return _round.CorrectAnswer(id);
+    }
+
+    public void AwardPoints()
     {
         if (_round.IsRoundOver())
         {
-            if (_round.didRoundEndNormally())
+            if (_round.IsRoundStolen())
             {
-                _round.CorrectAnswer(id);
-                AddPoints(_round.GetRoundPoints());
+                AddPointsToStealingTeam(_round.GetRoundPoints());
             }
             else
             {
-                _round.CorrectAnswer(id);
-                AddPointsToStealingTeam(_round.GetRoundPoints());
+                AddPoints(_round.GetRoundPoints());
             }
-        }
-        else
-        {
-            _round.CorrectAnswer(id);
         }
     }
 
-    public Answer getAnswer(int id)
+    public Answer getAnswer(int id) // Not in use!!
     {
         return _playingQuestion.GetAnswer(id);
     }
@@ -109,14 +108,7 @@ public class GameLogicController
     /// </summary>
     public void WrongAnswer()
     {
-        if (_round.IsRoundOver())
-        {
-            AddPoints(_round.GetRoundPoints());
-        }
-        else
-        {
-            _round.WrongAnswer();
-        }
+        _round.WrongAnswer();
     }
 
     /// <summary>
@@ -134,10 +126,10 @@ public class GameLogicController
     /// </summary>
     public bool IsGameOver()
     {
-        return questions.Count == 0;
+        return questions.Count == 0 && _round.IsRoundOver();
     }
 
-    public bool GameIsNotOver()
+    public bool GameIsNotOver() // What is this even for?
     {
         return !IsGameOver();
     }
@@ -145,7 +137,7 @@ public class GameLogicController
     /// This will determine if there is a winner and it will return who it is or null if it is a tie.
     /// </summary>
     /// <returns></returns>
-    public Team EndGame()
+    public Team EndGame() // Not in use!
     {
         int teamOnePoints = _teams[0].GetPoints();
         int teamTwoPoints = _teams[1].GetPoints();
