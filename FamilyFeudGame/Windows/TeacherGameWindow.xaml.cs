@@ -320,16 +320,7 @@ namespace FamilyFeudGame
                 answer8.IsEnabled = toggle;
         }
 
-        /// <summary>
-        /// This will allow the user to return the section selection page if they picked the worng answer.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void NextQuestion_Click(object sender, RoutedEventArgs e) // No longer needed
-        {
-            gameController.TogglePlayingTeam();
-            studentGameWindow.RoundOverFill();
-        }
+        
         /// <summary>
         /// This will allow the game host to manually end the game before every question has been answered. 
         /// </summary>
