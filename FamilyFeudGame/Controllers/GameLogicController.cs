@@ -1,7 +1,11 @@
 ﻿using FamilyFeudGame.Models;
 using System;
 using System.Collections.Generic;
-
+/// <summary>
+/// Built by Nasir Muhumed and Ryan Schauer 
+/// This will handle all the functions dealing with the game.
+/// The class will handle point additions, getting team info, switch the playing team, award points, and determine if the game is over.
+/// </summary>
 public class GameLogicController
 {
     private Team[] _teams = new Team[2];
@@ -17,6 +21,10 @@ public class GameLogicController
         questions = currSection.GetQuestions();
         showAnswers = false;
     }
+    /// <summary>
+    /// This will return the array that stores the two teams.
+    /// </summary>
+    /// <returns></returns>
     public Team[] GetTeams()
     {
         return _teams;
@@ -83,7 +91,9 @@ public class GameLogicController
     {
         return _round.CorrectAnswer(id);
     }
-
+    /// <summary>
+    /// This will determine who gets the points added under the circumstances of the round ending.
+    /// </summary>
     public void AwardPoints()
     {
         if (_round.IsRoundOver())
@@ -98,7 +108,11 @@ public class GameLogicController
             }
         }
     }
-
+    /// <summary>
+    /// This will retrive the selected answer.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     public Answer getAnswer(int id) // Not in use!!
     {
         return _playingQuestion.GetAnswer(id);
@@ -185,7 +199,10 @@ public class GameLogicController
     {
         this._round = new Round(question);
     }
-
+    /// <summary>
+    /// This will return if the round has ended or not.
+    /// </summary>
+    /// <returns></returns>
     public bool IsRoundOver()
     {
         return _round.IsRoundOver();
