@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,7 @@ namespace FamilyFeudGame
         private int _wrongAnswerCount = 0;
         private int _answerCount;
         private Boolean firstClick = true;
+        private SoundPlayer _soundPlayer;
 
         public TeacherGameWindow(GameLogicController gameController, StudentGameWindow studentGameWindow)
         {
@@ -137,29 +139,45 @@ namespace FamilyFeudGame
             string answerNumber = (sender as Button).Name;
             int.TryParse(answerNumber.Substring(6), out int index); // Add a check to see if parse succeeded
 
-            if (gameController.IsRoundOver())
+            /* Sound Effects */
+            string fileName = "Family Feud Sound Effects - #1 Main Game - #2 Revealing Answer.wav";
+            string directory = Environment.CurrentDirectory;
+            directory = directory.Substring(0, directory.IndexOf("\\bin")); // To get rid of bin\Debug\net5.0-windows\ part 
+            string path = System.IO.Path.Combine(directory, @"Windows\Sounds\", fileName);
+            _soundPlayer = new(path);
+            _soundPlayer.Load();
+            _soundPlayer.Play();
+            /* Sound Effects */
+
+            /*if (gameController.IsRoundOver())
             {
                 Incorrect_Button.IsEnabled = false;
                 gameController.CorrectAnswer(index);
                 DisableAllAnswers();
                 RoundOver();
-                studentGameWindow.UpdatePoints();
-                IfGameIsOverShowResultWindow();
+                studentGameWindow.UpdateTeamPoints();
+                ShowResultWindow();
                 return;
-            }
+            } */
 
-            gameController.CorrectAnswer(index);
-            Answer correctAnswer = gameController.getAnswer(index);
+            Answer correctAnswer = gameController.CorrectAnswer(index);
             studentGameWindow.FillAnswer(correctAnswer);
             DisableAnswer(correctAnswer.Id);
+            if(gameController.IsRoundOver())
+            {
+                RoundOver();
+            } else if (gameController.IsGameOver())
+            {
+                ShowResultWindow();
+            }
         }
 
         /// <summary>
         /// This method shows the correct window and closes the student one 
         /// </summary>
-        private void IfGameIsOverShowResultWindow()
+        private void ShowResultWindow()
         {
-            if (!gameController.IsGameOver()) return;
+            //if (!gameController.IsGameOver()) return;
             Team[] teams = gameController.GetTeams();
             studentGameWindow.Close();
             ResultWindow resultWindow = new ResultWindow(teams[0], teams[1]);
@@ -174,19 +192,35 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void Wrong_Answer(object sender, RoutedEventArgs e)
         {
-            if (gameController.IsRoundOver())
+            /*if (gameController.IsRoundOver())
             {
-                Incorrect_Button.IsEnabled = false;
-                gameController.WrongAnswer();
-                DisableAllAnswers();
-                studentGameWindow.UpdatePoints();
-                RoundOver();
-                IfGameIsOverShowResultWindow();
+                //gameController.WrongAnswer();
+                //RoundOver();
+                //ShowResultWindow();
                 return;
-            }
+            }*/
+
             gameController.WrongAnswer();
             _wrongAnswerCount++;
+
+            /* Sound Effects */
+            string fileName = "Family Feud Sound Effects - #1 Main Game - #2 Strike.wav";
+            string directory = Environment.CurrentDirectory;
+            directory = directory.Substring(0, directory.IndexOf("\\bin")); // To get rid of bin\Debug\net5.0-windows\ part 
+            string path = System.IO.Path.Combine(directory, @"Windows\Sounds\", fileName);
+            _soundPlayer = new(path);
+            _soundPlayer.Load();
+            _soundPlayer.Play();
+            /* Sound Effects */
+
             studentGameWindow.DisplayWrong(_wrongAnswerCount);
+            if (gameController.IsRoundOver())
+            {
+                RoundOver();
+            } else if(gameController.IsGameOver())
+            {
+                ShowResultWindow();
+            }
         }
 
         /// <summary>
@@ -248,6 +282,7 @@ namespace FamilyFeudGame
             PopulateQuestions();
             _wrongAnswerCount = 0;
             studentGameWindow.ClearAnswers();
+            studentGameWindow.FillAnswerAmount(playingQuestion.GetAnswerCount());
         }
         /// <summary>
         /// This method allows the buttons to be toggled on and off.
@@ -287,12 +322,10 @@ namespace FamilyFeudGame
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void NextQuestion_Click(object sender, RoutedEventArgs e) // No longer needed
         {
-            // Team[] teams = gameController.GetTeams();
-            // SectionSelectionWindow selectionWindow = new(teams[0], teams[1], dBController);
-            Close();
-            studentGameWindow.Close();
+            gameController.TogglePlayingTeam();
+            studentGameWindow.RoundOverFill();
         }
         /// <summary>
         /// This will allow the game host to manually end the game before every question has been answered. 
@@ -308,14 +341,16 @@ namespace FamilyFeudGame
         /// </summary>
         private void RoundOver()
         {
-          
-           studentGameWindow.RoundOverFill();
-           List<Answer> finalAnswerList = playingQuestion.GetAnswers();
-           for(int i = 0; i < finalAnswerList.Count; i++)
+            gameController.AwardPoints();
+            Incorrect_Button.IsEnabled = false;
+            DisableAllAnswers();
+            studentGameWindow.UpdateTeamPoints();
+            studentGameWindow.RoundOverFill();
+            List<Answer> finalAnswerList = playingQuestion.GetAnswers();
+            for (int i = 0; i < finalAnswerList.Count; i++)
             {
                 studentGameWindow.FillAnswer(finalAnswerList[i]);
-            } 
-
+            }
         }
     }
 }
