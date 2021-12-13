@@ -1,4 +1,5 @@
-﻿using FamilyFeudGame.Models;
+﻿using FamilyFeudGame;
+using FamilyFeudGame.Models;
 using System;
 using System.Collections.Generic;
 
@@ -9,7 +10,7 @@ public class GameLogicController
     public bool showAnswers { get; set; }
     private int _currentTeamIndex { get; set; }
     private Question _playingQuestion { get; set; }
-    private Round _round { get; set; }
+    public Round Round { get; set; }
 
     public GameLogicController(Section currSection, Team[] teams)
     {
@@ -36,7 +37,7 @@ public class GameLogicController
     /// <returns></returns>
     public int GetRoundPoints()
     {
-        return _round.GetRoundPoints();
+        return Round.GetRoundPoints();
     }
 
     public Question SetPlayingQuestion(int index)
@@ -62,7 +63,8 @@ public class GameLogicController
     /// </summary>
     public void TogglePlayingTeam()
     {
-        _currentTeamIndex = _currentTeamIndex == 0 ? 1 : 0;
+        _teams[0].IsPlaying = !_teams[0].IsPlaying;
+        _teams[1].IsPlaying = !_teams[1].IsPlaying;
     }
 
     /// <summary>
@@ -81,25 +83,25 @@ public class GameLogicController
     /// <returns></returns>
     public Answer CorrectAnswer(int id)
     {
-        return _round.CorrectAnswer(id);
+        return Round.CorrectAnswer(id);
     }
 
     public void AwardPoints()
     {
-        if (_round.IsRoundOver())
+        if (Round.IsRoundOver())
         {
-            if (_round.IsRoundStolen())
+            if (Round.IsRoundStolen())
             {
-                AddPointsToStealingTeam(_round.GetRoundPoints());
+                AddPointsToStealingTeam(Round.GetRoundPoints());
             }
             else
             {
-                AddPoints(_round.GetRoundPoints());
+                AddPoints(Round.GetRoundPoints());
             }
         }
     }
 
-    public Answer getAnswer(int id) // Not in use!!
+    public Answer GetAnswer(int id) // Not in use!!
     {
         return _playingQuestion.GetAnswer(id);
     }
@@ -108,7 +110,7 @@ public class GameLogicController
     /// </summary>
     public void WrongAnswer()
     {
-        _round.WrongAnswer();
+        Round.WrongAnswer();
     }
 
     /// <summary>
@@ -126,13 +128,14 @@ public class GameLogicController
     /// </summary>
     public bool IsGameOver()
     {
-        return questions.Count == 0 && _round.IsRoundOver();
+        return questions.Count == 0 && Round.IsRoundOver();
     }
 
     public bool GameIsNotOver() // What is this even for?
     {
         return !IsGameOver();
     }
+
     /// <summary>
     /// This will determine if there is a winner and it will return who it is or null if it is a tie.
     /// </summary>
@@ -151,6 +154,7 @@ public class GameLogicController
         }
 
     }
+
     /// <summary>
     /// This will add points to the starting team.
     /// The starting team or the three question team will be the _currentTeam
@@ -158,7 +162,14 @@ public class GameLogicController
     /// <param name="points"></param>
     private void AddPoints(int points)
     {
-        _teams[_currentTeamIndex].AddPoints(points);
+        if (_teams[0].IsPlaying)
+        {
+            _teams[0].AddPoints(points);
+        }
+        else
+        {
+            _teams[1].AddPoints(points);
+        }
     }
     /// <summary>
     ///This will add points to the stealing team.
@@ -167,7 +178,7 @@ public class GameLogicController
     /// <param name="points"></param>
     private void AddPointsToStealingTeam(int points)
     {
-        if (_currentTeamIndex == 0)
+        if (_teams[0].IsPlaying)
         {
             _teams[1].AddPoints(points);
         }
@@ -183,12 +194,12 @@ public class GameLogicController
     /// <param name="currRound"></param>
     public void StartRound(Question question)
     {
-        this._round = new Round(question);
+        this.Round = new Round(question);
     }
 
     public bool IsRoundOver()
     {
-        return _round.IsRoundOver();
+        return Round.IsRoundOver();
     }
 
 }

@@ -23,7 +23,7 @@ namespace FamilyFeudGame
             _teams = gameController.GetTeams();
             ShowTeamNames();
             UpdateTeamPoints();
-            SetPlayingTeamBackground();
+            SetTeamColor(false);
         }
 
         /// <summary>
@@ -125,15 +125,15 @@ namespace FamilyFeudGame
             StudentAnswer1.Content = "";
             Answer1PointsImg.Visibility = Visibility.Visible;
             Answer1Points.Content = "";
-  
-             StudentAnswer2.Content = "";
+
+            StudentAnswer2.Content = "";
             Answer2PointsImg.Visibility = Visibility.Visible;
             Answer2Points.Content = "";
-     
+
             StudentAnswer3.Content = "";
             Answer3PointsImg.Visibility = Visibility.Visible;
             Answer3Points.Content = "";
- 
+
             StudentAnswer4.Content = "";
             Answer4PointsImg.Visibility = Visibility.Visible;
             Answer4Points.Content = "";
@@ -141,15 +141,15 @@ namespace FamilyFeudGame
             StudentAnswer5.Content = "";
             Answer5PointsImg.Visibility = Visibility.Visible;
             Answer5Points.Content = "";
-           
+
             StudentAnswer6.Content = "";
             Answer6PointsImg.Visibility = Visibility.Visible;
             Answer6Points.Content = "";
-          
+
             StudentAnswer7.Content = "";
             Answer7PointsImg.Visibility = Visibility.Visible;
             Answer7Points.Content = "";
-           
+
             StudentAnswer8.Content = "";
             Answer8PointsImg.Visibility = Visibility.Visible;
             Answer8Points.Content = "";
@@ -162,6 +162,7 @@ namespace FamilyFeudGame
         {
             RoundScore.Text = gameController.GetRoundPoints().ToString();
         }
+
         /// <summary>
         /// This will show the team names on the student view.
         /// It will modify the size and location of the text if its character count is higher.
@@ -173,33 +174,48 @@ namespace FamilyFeudGame
         }
 
         /// <summary>
-        /// Changes the team that is playing
-        /// </summary>
-        private void ToggleTeamPlaying() // Not needed!
-        {
-            _teams[0].IsPlaying = !_teams[0].IsPlaying;
-            _teams[1].IsPlaying = !_teams[1].IsPlaying;
-            SetPlayingTeamBackground();
-        }
-
-        /// <summary>
         /// Changes the background color to the team that is playing
         /// </summary>
-        private void SetPlayingTeamBackground()
+        public void SetTeamColor(bool isSteal)
         {
             var bc = new BrushConverter();
 
-            if (_teams[0].IsPlaying)
+            if (isSteal)
             {
-                Team1.Background = (Brush)bc.ConvertFrom("#fc0");
-                Team1.Foreground = Brushes.Black;
+                if (_teams[0].IsPlaying)
+                {
+                    Team2.Background = Brushes.Navy;
+                    Team2.Foreground = Brushes.White;
+                    Team1.Background = Brushes.Transparent;
+                    Team1.Foreground = Brushes.White;
+                }
+                else
+                {
+                    Team1.Background = Brushes.Navy;
+                    Team1.Foreground = Brushes.White;
+                    Team2.Background = Brushes.Transparent;
+                    Team2.Foreground = Brushes.White;
+                }
             }
             else
             {
-                Team2.Background = (Brush)bc.ConvertFrom("#fc0");
-                Team2.Foreground = Brushes.Black;
+                if (_teams[0].IsPlaying)
+                {
+                    Team1.Background = (Brush)bc.ConvertFrom("#fc0");
+                    Team1.Foreground = Brushes.Black;
+                    Team2.Background = Brushes.Transparent;
+                    Team2.Foreground = Brushes.White;
+                }
+                else
+                {
+                    Team2.Background = (Brush)bc.ConvertFrom("#fc0");
+                    Team2.Foreground = Brushes.Black;
+                    Team1.Background = Brushes.Transparent;
+                    Team1.Foreground = Brushes.White;
+                }
             }
         }
+
         /// <summary>
         /// This will update the team points once the round is completed.
         /// </summary>
@@ -215,7 +231,7 @@ namespace FamilyFeudGame
         /// <param name="amountWrong"></param>
         public void DisplayWrong(int amountWrong)
         {
-            switch(amountWrong)
+            switch (amountWrong)
             {
                 case 1:
                     OneWrong.Visibility = Visibility.Visible;
@@ -246,16 +262,5 @@ namespace FamilyFeudGame
                 wrongPopup.Visibility = Visibility.Collapsed;
             };
         }
-        /// <summary>
-        /// This will show all the info needed on the the screen once a round is over
-        /// </summary>
-        public void RoundOverFill()
-        {
-            RoundPointsUpdate();
-            UpdateTeamPoints();
-            //ToggleTeamPlaying();
-            SetPlayingTeamBackground();
-        }
-
     }
 }

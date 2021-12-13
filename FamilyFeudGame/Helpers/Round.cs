@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FamilyFeudGame;
+using System;
 
 public class Round
 {
@@ -7,8 +8,8 @@ public class Round
     private Question _question { get; set; }
     private int _answerCount { get; set; }
     private int _WrongAnswerCounter { get; set; }
-    private Boolean _isStealing { get; set; }
-    private Boolean isRoundOver { get; set; }
+    public bool IsStealing { get; set; }
+    private bool _isRoundOver { get; set; }
     public Round(Question question)
     {
         this._question = question;
@@ -17,8 +18,9 @@ public class Round
         PointBucket = 0;
         _WrongAnswerCounter = 0;
         _answerCount = 0;
-        _isStealing = false;
-        isRoundOver = false;
+        IsStealing = false;
+        _isRoundOver = false;
+
     }
     /// <summary>
     /// This will will increase the _WrongAnswerCounter.
@@ -30,11 +32,11 @@ public class Round
         //_answerCount++;//This maybe the issue
         if (_WrongAnswerCounter == 3)
         {
-            _isStealing = true;
+            IsStealing = true;
             //isRoundOver = true; //ALso this maybe it 
         } else if(_WrongAnswerCounter > 3)
         {
-            isRoundOver = true;
+            _isRoundOver = true;
         }
     }
     /// <summary>
@@ -47,10 +49,10 @@ public class Round
         _answerCount++;
         if (_answerCount == _question.GetAnswerCount())
         {
-            isRoundOver = true;
-        } else if(_isStealing)
+            _isRoundOver = true;
+        } else if(IsStealing)
         {
-            isRoundOver = true;
+            _isRoundOver = true;
         }
         Answer correctAnswer = _question.GetAnswer(id);
         PointBucket += correctAnswer.ReturnPoints();
@@ -67,13 +69,13 @@ public class Round
     /// <summary>
     /// This will determine if the current round is over. 
     /// </summary>
-    public Boolean IsRoundOver() // Do we need this method since we don't call it 
+    public bool IsRoundOver() // Do we need this method since we don't call it 
     {
-        return isRoundOver;
+        return _isRoundOver;
     }
 
-    public Boolean IsRoundStolen()
+    public bool IsRoundStolen()
     {
-        return _isStealing;
+        return IsStealing;
     }
 }

@@ -23,10 +23,10 @@ namespace FamilyFeudGame
         public ResultWindow(Team team1, Team team2)
         {
             InitializeComponent();
-            Team1TB.Text = team1.Name;
+            Team1TB.Text = team1.Name.ToUpper();
             Team1PointsTB.Text = team1.GetPoints().ToString();
 
-            Team2TB.Text = team2.Name;
+            Team2TB.Text = team2.Name.ToUpper();
             Team2PointsTB.Text = team2.GetPoints().ToString();
         }
 

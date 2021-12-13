@@ -26,7 +26,7 @@ namespace FamilyFeudGame
         Question playingQuestion;
         private int _wrongAnswerCount = 0;
         private int _answerCount;
-        private Boolean firstClick = true;
+        private bool firstClick = true;
         private SoundPlayer _soundPlayer;
 
         public TeacherGameWindow(GameLogicController gameController, StudentGameWindow studentGameWindow)
@@ -179,9 +179,10 @@ namespace FamilyFeudGame
         {
             //if (!gameController.IsGameOver()) return;
             Team[] teams = gameController.GetTeams();
-            studentGameWindow.Close();
             ResultWindow resultWindow = new ResultWindow(teams[0], teams[1]);
             resultWindow.Show();
+            studentGameWindow.Close();
+            Close();
         }
 
         /// <summary>
@@ -212,6 +213,11 @@ namespace FamilyFeudGame
             _soundPlayer.Load();
             _soundPlayer.Play();
             /* Sound Effects */
+
+            if (gameController.Round.IsStealing)
+            {
+                studentGameWindow.SetTeamColor(true);
+            }
 
             studentGameWindow.DisplayWrong(_wrongAnswerCount);
             if (gameController.IsRoundOver())
@@ -283,6 +289,8 @@ namespace FamilyFeudGame
             _wrongAnswerCount = 0;
             studentGameWindow.ClearAnswers();
             studentGameWindow.FillAnswerAmount(playingQuestion.GetAnswerCount());
+            studentGameWindow.RoundScore.Text = "0";
+            studentGameWindow.SetTeamColor(false);
         }
         /// <summary>
         /// This method allows the buttons to be toggled on and off.
@@ -325,8 +333,8 @@ namespace FamilyFeudGame
         private void NextQuestion_Click(object sender, RoutedEventArgs e) // No longer needed
         {
             gameController.TogglePlayingTeam();
-            studentGameWindow.RoundOverFill();
         }
+
         /// <summary>
         /// This will allow the game host to manually end the game before every question has been answered. 
         /// </summary>
@@ -334,8 +342,9 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void EndGame_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            ShowResultWindow();
         }
+
         /// <summary>
         /// This will allow us to see all the final results once the round has ended.
         /// </summary>
@@ -344,8 +353,6 @@ namespace FamilyFeudGame
             gameController.AwardPoints();
             Incorrect_Button.IsEnabled = false;
             DisableAllAnswers();
-            studentGameWindow.UpdateTeamPoints();
-            studentGameWindow.RoundOverFill();
             List<Answer> finalAnswerList = playingQuestion.GetAnswers();
             for (int i = 0; i < finalAnswerList.Count; i++)
             {
