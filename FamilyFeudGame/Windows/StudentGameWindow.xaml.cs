@@ -253,7 +253,6 @@ namespace FamilyFeudGame
         {
             RoundPointsUpdate();
             UpdateTeamPoints();
-            //ToggleTeamPlaying();
             SetPlayingTeamBackground();
         }
 

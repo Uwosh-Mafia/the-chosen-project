@@ -149,24 +149,14 @@ namespace FamilyFeudGame
             _soundPlayer.Play();
             /* Sound Effects */
 
-            /*if (gameController.IsRoundOver())
-            {
-                Incorrect_Button.IsEnabled = false;
-                gameController.CorrectAnswer(index);
-                DisableAllAnswers();
-                RoundOver();
-                studentGameWindow.UpdateTeamPoints();
-                ShowResultWindow();
-                return;
-            } */
-
             Answer correctAnswer = gameController.CorrectAnswer(index);
             studentGameWindow.FillAnswer(correctAnswer);
             DisableAnswer(correctAnswer.Id);
             if(gameController.IsRoundOver())
             {
                 RoundOver();
-            } else if (gameController.IsGameOver())
+            }
+            if (gameController.IsGameOver())
             {
                 ShowResultWindow();
             }
@@ -177,11 +167,11 @@ namespace FamilyFeudGame
         /// </summary>
         private void ShowResultWindow()
         {
-            //if (!gameController.IsGameOver()) return;
             Team[] teams = gameController.GetTeams();
             studentGameWindow.Close();
             ResultWindow resultWindow = new ResultWindow(teams[0], teams[1]);
             resultWindow.Show();
+            studentGameWindow.Close();
         }
 
         /// <summary>
@@ -192,14 +182,6 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void Wrong_Answer(object sender, RoutedEventArgs e)
         {
-            /*if (gameController.IsRoundOver())
-            {
-                //gameController.WrongAnswer();
-                //RoundOver();
-                //ShowResultWindow();
-                return;
-            }*/
-
             gameController.WrongAnswer();
             _wrongAnswerCount++;
 
@@ -217,7 +199,8 @@ namespace FamilyFeudGame
             if (gameController.IsRoundOver())
             {
                 RoundOver();
-            } else if(gameController.IsGameOver())
+            }
+            if(gameController.IsGameOver())
             {
                 ShowResultWindow();
             }
@@ -317,16 +300,7 @@ namespace FamilyFeudGame
                 answer8.IsEnabled = toggle;
         }
 
-        /// <summary>
-        /// This will allow the user to return the section selection page if they picked the worng answer.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void NextQuestion_Click(object sender, RoutedEventArgs e) // No longer needed
-        {
-            gameController.TogglePlayingTeam();
-            studentGameWindow.RoundOverFill();
-        }
+        
         /// <summary>
         /// This will allow the game host to manually end the game before every question has been answered. 
         /// </summary>
