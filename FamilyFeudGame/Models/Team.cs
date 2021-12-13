@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/// <summary>
+/// Built by Ryan Schauer
+/// This is the team class and it will store point totals, their name, and if they're the playing team. 
+/// </summary>
 namespace FamilyFeudGame.Models
 {
     public class Team

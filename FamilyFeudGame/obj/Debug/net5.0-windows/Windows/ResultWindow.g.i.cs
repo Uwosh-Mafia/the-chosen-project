@@ -80,6 +80,7 @@ namespace FamilyFeudGame {
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.12.0")]
+>>>>>>> cdf9011f7321eb624d9ce9aa9a036dc427b761a6
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;

@@ -1,9 +1,11 @@
-﻿using FamilyFeudGame;
-using System;
-
+using FamilyFeudGame;
+﻿using System;
+/// <summary>
+/// Built by Ryan Schauer and Nasir Muhumed.
+/// This class handles each the required functions of each round.
+/// </summary>
 public class Round
 {
-    // private int _TotalPoints { get; set; }
     public int PointBucket { get; set; }
     private Question _question { get; set; }
     private int _answerCount { get; set; }
@@ -14,7 +16,6 @@ public class Round
     {
         this._question = question;
         _answerCount = question.GetAnswerCount();
-        // _TotalPoints = question.GetPointTotal();
         PointBucket = 0;
         _WrongAnswerCounter = 0;
         _answerCount = 0;

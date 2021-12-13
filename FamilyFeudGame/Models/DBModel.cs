@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 
 /// <summary>
-/// This class retrieves and adds the sections to a 
-/// list of sections
+/// Authored by Ryan Schauer
+/// The DBModel will manage all the sections and retrieve all the relevant info about them.
 /// </summary>
 public class DBModel
 {
