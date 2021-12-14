@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 
 public class DBReader
 {
-    private DBController dbController;
-    private FileInfo file;
+    private DBController _dbController;
+    private FileInfo _file;
     public DBReader(FileInfo file, DBController dbController)
     {
-        this.dbController = dbController;
+        this._dbController = dbController;
         ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
         // Check if the file exists 
         if (!file.Exists)
             throw new NotImplementedException("File doesn't exists");
-        this.file = file;
+        this._file = file;
     }
 
     /// <summary>
@@ -24,13 +24,13 @@ public class DBReader
     /// <returns></returns>
     public async Task loadExcelFile()
     {
-        using var package = new ExcelPackage(file);
-        await package.LoadAsync(file);
+        using var package = new ExcelPackage(_file);
+        await package.LoadAsync(_file);
 
         for (int i = 0; i < package.Workbook.Worksheets.Count; i++)
         {
             Section section = await loadSectionFromExcel(package, i);
-            dbController.AddSection(section);
+            _dbController.AddSection(section);
         }
     }
 
@@ -56,7 +56,7 @@ public class DBReader
             {
                 // If there is an error and we can't read any cell 
                 // remove everythig have already read and return null 
-                section.clear();
+                section.Clear();
                 section = null;
                 break;
             }
@@ -92,12 +92,13 @@ public class DBReader
                 }
                 else
                 {
-                    String text = ws.Cells[row, column].Value.ToString();
+                    string text = ws.Cells[row, column].Value.ToString();
                     int points;
                     // If there is no points or points can not be int, assume the points are 0
                     bool success = int.TryParse(ws.Cells[row, column + 1].Value?.ToString(), out points);
 
-                    if (row < 10) {
+                    if (row < 10)
+                    {
                         Answer answer = new(row - 1, text, success ? points : 0);
                         question.AddAnswer(answer);
                     }

@@ -1,5 +1,5 @@
 using FamilyFeudGame;
-﻿using System;
+using System;
 /// <summary>
 /// Built by Ryan Schauer and Nasir Muhumed.
 /// This class handles each the required functions of each round.
@@ -23,6 +23,7 @@ public class Round
         _isRoundOver = false;
 
     }
+
     /// <summary>
     /// This will will increase the _WrongAnswerCounter.
     /// If the there are three wrong answers from the first team then the _isStealing boolean will become true.
@@ -34,12 +35,14 @@ public class Round
         if (_WrongAnswerCounter == 3)
         {
             IsStealing = true;
-        } else if(_WrongAnswerCounter > 3)
+        }
+        else if (_WrongAnswerCounter > 3)
         {
             IsStealing = false;
             _isRoundOver = true;
         }
     }
+
     /// <summary>
     /// This will return the selected Answer.
     /// </summary>
@@ -51,9 +54,9 @@ public class Round
         if (_answerCount == _question.GetAnswerCount())
         {
             _isRoundOver = true;
-        } 
-        else if(IsStealing)
-        { 
+        }
+        else if (IsStealing)
+        {
             _isRoundOver = true;
         }
         Answer correctAnswer = _question.GetAnswer(id);

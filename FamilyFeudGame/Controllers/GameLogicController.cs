@@ -12,7 +12,6 @@ public class GameLogicController
     private Team[] _teams = new Team[2];
     public List<Question> questions = new();
     public bool showAnswers { get; set; }
-    private int _currentTeamIndex { get; set; }
     private Question _playingQuestion { get; set; }
     public Round Round { get; set; }
 
@@ -31,14 +30,6 @@ public class GameLogicController
         return _teams;
     }
 
-    /// <summary>
-    /// This method gives you current playing team index
-    /// </summary>
-    /// <returns></returns>
-    public int GetCurrentPlayingTeamIndex() // Not in use!
-    {
-        return _currentTeamIndex;
-    }
     /// <summary>
     /// This will return the round points
     /// </summary>
@@ -111,10 +102,6 @@ public class GameLogicController
         }
     }
 
-    public Answer GetAnswer(int id) // Not in use!!
-    {
-        return _playingQuestion.GetAnswer(id);
-    }
     /// <summary>
     /// This will call the WrongAnswer method in the round.
     /// </summary>
@@ -139,30 +126,6 @@ public class GameLogicController
     public bool IsGameOver()
     {
         return questions.Count == 0 && Round.IsRoundOver();
-    }
-
-    public bool GameIsNotOver() // What is this even for?
-    {
-        return !IsGameOver();
-    }
-
-    /// <summary>
-    /// This will determine if there is a winner and it will return who it is or null if it is a tie.
-    /// </summary>
-    /// <returns></returns>
-    public Team EndGame() // Not in use!
-    {
-        int teamOnePoints = _teams[0].GetPoints();
-        int teamTwoPoints = _teams[1].GetPoints();
-        if (teamOnePoints == teamTwoPoints)
-        {
-            return null;
-        }
-        else
-        {
-            return teamOnePoints > teamTwoPoints ? _teams[0] : _teams[1];
-        }
-
     }
 
     /// <summary>
