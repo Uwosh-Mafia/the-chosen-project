@@ -30,13 +30,13 @@ public class Round
     public void WrongAnswer()
     {
         _WrongAnswerCounter++;
-        //_answerCount++;//This maybe the issue
+
         if (_WrongAnswerCounter == 3)
         {
             IsStealing = true;
-            //isRoundOver = true; //ALso this maybe it 
         } else if(_WrongAnswerCounter > 3)
         {
+            IsStealing = false;
             _isRoundOver = true;
         }
     }
@@ -51,9 +51,9 @@ public class Round
         if (_answerCount == _question.GetAnswerCount())
         {
             _isRoundOver = true;
-        } else if(IsStealing)
-        {
-            IsStealing = false;
+        } 
+        else if(IsStealing)
+        { 
             _isRoundOver = true;
         }
         Answer correctAnswer = _question.GetAnswer(id);
