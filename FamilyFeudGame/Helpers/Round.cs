@@ -53,6 +53,7 @@ public class Round
             _isRoundOver = true;
         } else if(IsStealing)
         {
+            IsStealing = false;
             _isRoundOver = true;
         }
         Answer correctAnswer = _question.GetAnswer(id);

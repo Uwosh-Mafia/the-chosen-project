@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-\\Mac\Home\Desktop\FF\FamilyFeudGame\obj\Release\net5.0-windows\
+\\Mac\Home\Desktop\FF\FamilyFeudGame\obj\Debug\net5.0-windows\
 FamilyFeudGame
 none
 false
-TRACE;RELEASE;NET;NET5_0;NETCOREAPP
+TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 \\Mac\Home\Desktop\FF\FamilyFeudGame\App.xaml
 11-745726538
 
