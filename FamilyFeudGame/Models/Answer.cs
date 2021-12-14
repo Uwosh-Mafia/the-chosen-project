@@ -1,6 +1,7 @@
 ﻿using System;
 
 /// <summary>
+/// Main Contributor: Samuel Gerend
 /// This class represents the answer
 /// </summary>
 public class Answer
@@ -21,13 +22,5 @@ public class Answer
     public int ReturnPoints()
     {
         return Points;
-    }
-    /// <summary>
-    /// This will return the string value of the selected answer.
-    /// </summary>
-    /// <returns></returns>
-    public string ReturnString()
-    {
-        return Text;
     }
 }

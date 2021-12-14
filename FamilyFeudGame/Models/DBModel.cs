@@ -41,23 +41,4 @@ public class DBModel
     {
         _sections.Add(section);
     }
-
-    /// <summary>
-    /// Adds a given list of sections to the list of sections
-    /// </summary>
-    /// <param name="sections"> list of sections to add </param>
-    public void AddSections(List<Section> sections)
-    {
-        foreach (Section section in sections)
-            _sections.Add(section);
-    }
-
-    /// <summary>
-    /// Returns the total number of sections
-    /// </summary>
-    /// <returns> number of sections </returns>
-    public int GetSectionCount()
-    {
-        return _sections.Count;
-    }
 }

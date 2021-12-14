@@ -19,15 +19,6 @@ public class Section
     }
 
     /// <summary>
-    /// Gets the amount of questions associated with the section
-    /// </summary>
-    /// <returns>count of questions</returns>
-    public int GetSectionCount()
-    {
-        return _questions.Count;
-    }
-
-    /// <summary>
     /// Gets the list of questions associated with the section
     /// </summary>
     /// <returns>list of answers</returns>
@@ -41,10 +32,10 @@ public class Section
     /// </summary>
     /// <param name="id"></param>
     /// <returns>Question for the id given</returns>
-    public Question GetQuestion(int id)
-    {
-        return _questions.Find(question => question.Id == id);
-    }
+    //public Question GetQuestion(int id)
+    //{
+    //    return _questions.Find(question => question.Id == id);
+    //}
 
     /// <summary>
     /// Adds a single question to the section
@@ -56,19 +47,9 @@ public class Section
     }
 
     /// <summary>
-    /// Adds a list of questions to the section
-    /// </summary>
-    /// <param name="currQuestionsList"> the list of questions to add </param>
-    public void AddQuestions(List<Question> currQuestionsList)
-    {
-        foreach (Question question in currQuestionsList)
-            _questions.Add(question);
-    }
-
-    /// <summary>
     /// This methods clears the list
     /// </summary>
-    public void clear()
+    public void Clear()
     {
         _questions.Clear();
     }

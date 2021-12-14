@@ -1,11 +1,13 @@
-﻿<Window x:Class="FamilyFeudGame.TeacherGameWindow"
+﻿<!--Main Contributor: Samuel Gerend-->
+<Window x:Class="FamilyFeudGame.TeacherGameWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FamilyFeudGame"
         mc:Ignorable="d"
-        Title="Teacher View" Height="600" Width="920">
+        Title="Teacher View" Height="600" Width="920"
+        WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Segoe UI Variable Small Semibold"/>
@@ -65,7 +67,7 @@
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
-        
+
         <Button Name="EndGame_Button" Content="End Game"
                 Style="{StaticResource ButtonTheme}"
                 Grid.Column="0"
@@ -96,21 +98,21 @@
                   Grid.ColumnSpan="2"
                   HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                <TextBlock Name="question_text" Text="Question"
+                    <TextBlock Name="question_text" Text="Question"
                    TextWrapping="Wrap"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
@@ -122,40 +124,40 @@
                    FontSize="28"
                    Margin="10"/>
 
-                <Button Name="answer1" Content="Answer 1"
+                    <Button Name="answer1" Content="Answer 1"
                     Grid.Column="0"
                     Grid.Row="1"
                     Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-                <Button Name="answer2" Content="Answer 2"
+                    <Button Name="answer2" Content="Answer 2"
                     Grid.Column="0"
                     Grid.Row="2"
                     Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-                <Button Name="answer3" Content="Answer 3"
+                    <Button Name="answer3" Content="Answer 3"
                     Grid.Column="0"
                     Grid.Row="3"
                     Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-                <Button Name="answer4" Content="Answer 4"
+                    <Button Name="answer4" Content="Answer 4"
                     Grid.Column="0"
                     Grid.Row="4"
                     Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-                <Button Name="answer5" Content="Answer 5"
+                    <Button Name="answer5" Content="Answer 5"
                     Grid.Column="1"
                     Grid.Row="1"
                     Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-                <Button Name="answer6" Content="Answer 6"
+                    <Button Name="answer6" Content="Answer 6"
                     Grid.Column="1"
                     Grid.Row="2"
                     Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-                <Button Name="answer7" Content="Answer 7"
+                    <Button Name="answer7" Content="Answer 7"
                     Grid.Column="1"
                     Grid.Row="3"
                     Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
-                <Button Name="answer8" Content="Answer 8"
+                    <Button Name="answer8" Content="Answer 8"
                     Grid.Column="1"
                     Grid.Row="4"
                     Style="{StaticResource AnswerButtonTheme}" Click="CorrectAnswer"/>
 
-            </Grid>
+                </Grid>
             </ScrollViewer>
 
             <Button Name="Incorrect_Button" Style="{StaticResource ButtonTheme}"

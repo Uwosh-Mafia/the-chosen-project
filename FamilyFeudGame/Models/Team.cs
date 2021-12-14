@@ -21,6 +21,7 @@ namespace FamilyFeudGame.Models
             IsPlaying = isPlaying;
             Points = 0;
         }
+
         /// <summary>
         /// This will add points to the team class.
         /// </summary>
@@ -29,6 +30,7 @@ namespace FamilyFeudGame.Models
         {
             Points += addPoints;
         }
+
         /// <summary>
         /// This will return the total points earned.
         /// </summary>
