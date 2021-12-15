@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 namespace FamilyFeudGame
 {
     /// <summary>
+    /// Main Contributor: Bentley Epple
     /// Interaction logic for TeamCreationWindow.xaml
     /// </summary>
     public partial class TeamCreationWindow : Window

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 /// <summary>
 /// Built by Nasir Muhumed and Ryan Schauer 
+/// Assisted by Bentley Epple.
 /// This will handle all the functions dealing with the game.
 /// The class will handle point additions, getting team info, switch the playing team, award points, and determine if the game is over.
 /// </summary>

@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 namespace FamilyFeudGame
 {
     /// <summary>
+    /// Main Contributor: Bentley Epple
     /// Interaction logic for TeacherGameWindow.xaml
     /// </summary>
     public partial class TeacherGameWindow : Window
@@ -34,8 +35,8 @@ namespace FamilyFeudGame
             InitializeComponent();
             this.gameController = gameController;
             this.studentGameWindow = studentGameWindow;
-            PopulateQuestions();
-            ToggleAnswers(false);
+            PopulateQuestions(); // Displays the question and answers to teacher
+            ToggleAnswers(false); // Disables answer buttons
             Incorrect_Button.IsEnabled = false;
             Play_Button.IsEnabled = false;
         }
@@ -54,7 +55,7 @@ namespace FamilyFeudGame
             QuestionBox.ItemsSource = questionNames;
         }
         /// <summary>
-        /// This will allow the game host 
+        /// This will allow the game host to change the question
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -129,15 +130,15 @@ namespace FamilyFeudGame
             }
         }
         /// <summary>
-        /// This will allow the game host to select the correct answer.
-        /// The method allows the game host to select the same answer once. 
+        /// This will allow the game host to select the correct answer once.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void CorrectAnswer(object sender, RoutedEventArgs e)
         {
+            // Get answer number fromt the name of the button
             string answerNumber = (sender as Button).Name;
-            int.TryParse(answerNumber.Substring(6), out int index); // Add a check to see if parse succeeded
+            int.TryParse(answerNumber.Substring(6), out int index);
 
             /* Sound Effects */
             string fileName = "Family Feud Sound Effects - #1 Main Game - #2 Revealing Answer.wav";
@@ -149,21 +150,24 @@ namespace FamilyFeudGame
             _soundPlayer.Play();
             /* Sound Effects */
 
+            // Send answer to student view
             Answer correctAnswer = gameController.CorrectAnswer(index);
             studentGameWindow.FillAnswer(correctAnswer);
-            DisableAnswer(correctAnswer.Id);
+            DisableAnswer(correctAnswer.Id); // Disable the answer
             if(gameController.IsRoundOver())
             {
+                // Check if round is over
                 RoundOver();
             }
             if (gameController.IsGameOver())
             {
+                // Check if game is over
                 ShowResultWindow();
             }
         }
 
         /// <summary>
-        /// This method shows the correct window and closes the student one 
+        /// This method shows the result window and closes the teacher and student view
         /// </summary>
         private void ShowResultWindow()
         {
@@ -175,7 +179,6 @@ namespace FamilyFeudGame
         }
 
         /// <summary>
-        /// This enables the game host to select the wrong answer button.
         /// The game host will select this when the playing team says a wrong answer. 
         /// </summary>
         /// <param name="sender"></param>
@@ -197,16 +200,19 @@ namespace FamilyFeudGame
 
             if (gameController.Round.IsStealing)
             {
+                // Switch to stealing team if the round is stolen
                 studentGameWindow.SetTeamColor(true);
             }
 
             studentGameWindow.DisplayWrong(_wrongAnswerCount);
             if (gameController.IsRoundOver())
             {
+                // Check if round is over
                 RoundOver();
             }
             if(gameController.IsGameOver())
             {
+                // Check if game is over
                 ShowResultWindow();
             }
         }
@@ -221,7 +227,7 @@ namespace FamilyFeudGame
         }
 
         /// <summary>
-        /// This function disables all answers 
+        /// This function disables select answers
         /// </summary>
         private void DisableAnswer(int id)
         {
@@ -262,11 +268,16 @@ namespace FamilyFeudGame
         /// <param name="e"></param>
         private void Play_Question(object sender, RoutedEventArgs e)
         {
+            // Start round with question
             gameController.PlayCurrentQuestion();
+            // Display question on student view
             studentGameWindow.question_box.Text = playingQuestion.Text;
+            // Disable Play and enable Incorrect buttons
             Play_Button.IsEnabled = false;
             Incorrect_Button.IsEnabled = true;
+            // Enable Answer buttons
             ToggleAnswers(true);
+            // Repopulate question list with currently playing question removed
             PopulateQuestions();
             _wrongAnswerCount = 0;
             studentGameWindow.ClearAnswers();
@@ -322,12 +333,15 @@ namespace FamilyFeudGame
         /// </summary>
         private void RoundOver()
         {
+            // Award points
             gameController.AwardPoints();
+            // Disable Incorrect and Answer buttons
             Incorrect_Button.IsEnabled = false;
             DisableAllAnswers();
             List<Answer> finalAnswerList = playingQuestion.GetAnswers();
             for (int i = 0; i < finalAnswerList.Count; i++)
             {
+                // Fill in answers on student view
                 studentGameWindow.FillAnswer(finalAnswerList[i]);
             }
         }

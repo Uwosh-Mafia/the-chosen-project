@@ -2,6 +2,7 @@ using FamilyFeudGame;
 using System;
 /// <summary>
 /// Built by Ryan Schauer and Nasir Muhumed.
+/// Assisted by Bentley Epple.
 /// This class handles each the required functions of each round.
 /// </summary>
 public class Round

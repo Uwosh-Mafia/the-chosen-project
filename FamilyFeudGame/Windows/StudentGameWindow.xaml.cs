@@ -10,6 +10,7 @@ using System.Windows.Threading;
 namespace FamilyFeudGame
 {
     /// <summary>
+    /// Main Contributor: Bentley Epple
     /// Interaction logic for StudentGameWindow.xaml
     /// </summary>
     public partial class StudentGameWindow : Window
@@ -22,8 +23,8 @@ namespace FamilyFeudGame
             this.gameController = gameController;
             _teams = gameController.GetTeams();
             ShowTeamNames();
-            UpdateTeamPoints();
-            SetTeamColor(false);
+            UpdateTeamPoints(); // Starts off as zero for each team
+            SetTeamColor(false); // Sets the current playing teams background color
         }
 
         /// <summary>
@@ -76,13 +77,19 @@ namespace FamilyFeudGame
                     Answer8Points.Content = answer.Points.ToString();
                     break;
             }
+            // Updates points possible in that round
             RoundPointsUpdate();
             if (gameController.IsRoundOver())
             {
+                // Updates the team points
                 UpdateTeamPoints();
             }
         }
 
+        /// <summary>
+        /// Fills in the amount of answers for that question
+        /// </summary>
+        /// <param name="answerCount"></param>
         public void FillAnswerAmount(int answerCount)
         {
             for (int i = 1; i <= answerCount; i++)
@@ -154,6 +161,7 @@ namespace FamilyFeudGame
             Answer8PointsImg.Visibility = Visibility.Visible;
             Answer8Points.Content = "";
         }
+
         /// <summary>
         /// This will update the point total for the round.
         /// These points are not assigned to a team yet, but they what the team that wins the round will recieve. 
@@ -224,9 +232,10 @@ namespace FamilyFeudGame
             Team1Score.Text = $"{_teams[0].Points}";
             Team2Score.Text = $"{_teams[1].Points}";
         }
+
         /// <summary>
-        /// This method displays the Xs on the screen.
-        /// It will also call the method that plays the worng answer buzzer. 
+        /// This method displays the approaite amount of X's to display
+        /// how many have been answered wrong
         /// </summary>
         /// <param name="amountWrong"></param>
         public void DisplayWrong(int amountWrong)
@@ -247,8 +256,9 @@ namespace FamilyFeudGame
                     break;
             }
         }
+
         /// <summary>
-        /// This will play the wrong answer buzz. 
+        /// This will display the wrong answer X for 1.2 seconds
         /// </summary>
         /// <param name="wrongPopup"></param>
         private void PopupTimer(TextBlock wrongPopup)
