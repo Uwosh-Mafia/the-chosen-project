@@ -3,6 +3,11 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Author: NASIR 
+/// This class is responsible for data from the database 
+/// It creates models for all the database we need things like, creating sections, creating questions etc. 
+/// </summary>
 public class DBReader
 {
     private DBController _dbController;

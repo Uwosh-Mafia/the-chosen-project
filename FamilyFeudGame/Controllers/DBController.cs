@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 
 /// <summary>
-/// This class controlles the local database 
+/// Author: Nasir and Ryan 
+/// This class handles in application database 
+/// Here is where you get the database model, create questions and do things like that 
 /// </summary>
 public class DBController
 {
