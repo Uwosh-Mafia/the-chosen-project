@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 /// <summary>
+/// Author: Bentley Epple
 /// This class retrieves and adds questions that are associated
 /// with a certain section.
 /// </summary>

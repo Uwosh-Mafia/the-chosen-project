@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 namespace FamilyFeudGame
 {
     /// <summary>
+    /// Main Contributor: Bentley Epple
     /// Interaction logic for SectionSelectionWindow.xaml
     /// </summary>
     public partial class SectionSelectionWindow : Window
